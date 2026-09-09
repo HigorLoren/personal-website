@@ -13,7 +13,7 @@ export const pt = {
 
   home: {
     title: {
-      before: "Faço frontend há oito anos. A parte que rende vem ",
+      before: "Faço frontend há 8 anos. A parte que rende vem ",
       mark: "antes",
       after: " da primeira tela.",
     },
@@ -49,8 +49,8 @@ export const pt = {
           body: "Tirei daqui três frases que vendiam bem e não diziam nada.",
         },
         {
-          tag: "rev. 5",
-          body: "Grifei o antes de caneta. E todo sublinhado do site virou esse traço.",
+          tag: "correção",
+          body: "Eram 8 anos, não 7. Errei contra mim mesmo.",
         },
       ],
       cases: {
@@ -75,12 +75,12 @@ export const pt = {
     next: "Próximo case",
     esteSiteNotes: [
       {
-        tag: "nota",
-        body: "A v1 disso aqui tinha cara de template de IA. Refiz a identidade.",
+        tag: "rev. 3",
+        body: "Terceira versão deste texto. A primeira listava o que eu fiz. Esta conta o que eu decidi.",
       },
       {
-        tag: "correção",
-        body: "E reescrevi esta copy à mão, pra tirar o tom de release.",
+        tag: "nota",
+        body: "A auditoria também foi com IA. Ela achou erro meu, não o contrário.",
       },
     ],
   },
