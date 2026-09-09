@@ -11,7 +11,7 @@ export const meta: CaseMeta = {
     "Este portfólio foi construído como um exercício de desenvolvimento orientado por especificações usando IA. A conversa de descoberta virou spec, a spec virou código, e cada etapa — prototipação, testes, documentação, revisão — passou por Claude com decisão técnica minha no comando.",
   pillars: ["tecnica", "produto"],
   stack: [
-    "Next.js",
+    "Next.js 16",
     "TypeScript",
     "Tailwind CSS",
     "MDX",
