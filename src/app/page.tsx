@@ -20,14 +20,9 @@ export default function HomePage() {
       <AnnotatedSection
         className="pb-12 pt-10 md:pt-15"
         note={
-          <div className="flex flex-col lg:gap-6">
-            <MarginNote tag={t.notes.hero[0].tag}>
-              {t.notes.hero[0].body}
-            </MarginNote>
-            <MarginNote tag={t.notes.hero[1].tag}>
-              {t.notes.hero[1].body}
-            </MarginNote>
-          </div>
+          <MarginNote tag={t.notes.hero[0].tag}>
+            {t.notes.hero[0].body}
+          </MarginNote>
         }
       >
         <h1 className="max-w-4xl text-[length:var(--text-hero)] font-bold leading-[1.05] tracking-[-0.015em]">
@@ -56,7 +51,14 @@ export default function HomePage() {
 
       {/* O que eu faço bem — a darker sheet on the desk */}
       <div className="border-y border-line bg-surface">
-        <AnnotatedSection className="py-16">
+        <AnnotatedSection
+          className="py-16"
+          note={
+            <MarginNote tag={t.notes.pillars.tag}>
+              {t.notes.pillars.body}
+            </MarginNote>
+          }
+        >
           <h2 className="font-display text-sm font-medium text-muted">
             {t.pillarsTitle}
           </h2>
@@ -77,13 +79,7 @@ export default function HomePage() {
       </div>
 
       {/* Cases */}
-      <AnnotatedSection
-        id="cases"
-        className="scroll-mt-20 py-20"
-        note={
-          <MarginNote tag={t.notes.cases.tag}>{t.notes.cases.body}</MarginNote>
-        }
-      >
+      <AnnotatedSection id="cases" className="scroll-mt-20 py-20">
         <div className="max-w-2xl">
           <h2 className="font-display text-[length:var(--text-h2)] font-semibold tracking-tight">
             {t.casesTitle}
@@ -161,7 +157,14 @@ export default function HomePage() {
         </AnnotatedSection>
 
         {/* Trajetória */}
-        <AnnotatedSection className="mt-24 border-t border-line py-16">
+        <AnnotatedSection
+          className="mt-24 border-t border-line py-16"
+          note={
+            <MarginNote tag={a.timelineNote.tag}>
+              {a.timelineNote.body}
+            </MarginNote>
+          }
+        >
           <h2 className="font-display text-[length:var(--text-h2)] font-semibold tracking-tight">
             {a.timelineTitle}
           </h2>

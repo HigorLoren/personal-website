@@ -45,17 +45,13 @@ export const pt = {
     notes: {
       hero: [
         {
-          tag: "rev. 4",
-          body: "Tirei daqui três frases que vendiam bem e não diziam nada.",
-        },
-        {
           tag: "correção",
           body: "Eram 8 anos, não 7. Errei contra mim mesmo.",
         },
       ],
-      cases: {
+      pillars: {
         tag: "nota",
-        body: "Três, de propósito. Portfólio com vinte projetos rasos não diz nada.",
+        body: "'Faço bem' é pretensão. Deixei só o que os três cases aqui embaixo provam.",
       },
     },
   },
@@ -133,6 +129,10 @@ export const pt = {
       },
     ],
     timelineTitle: "Trajetória",
+    timelineNote: {
+      tag: "nota",
+      body: "IBM e Serasa pesam no papel. Aprendi mais nas pequenas.",
+    },
   },
 
   contact: {
