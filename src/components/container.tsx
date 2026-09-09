@@ -14,7 +14,7 @@ export function Container({
   return (
     <As
       id={id}
-      className={`mx-auto w-full max-w-5xl px-[var(--spacing-gutter)] ${className}`}
+      className={`mx-auto w-full max-w-7xl px-[var(--spacing-gutter)] ${className}`}
     >
       {children}
     </As>

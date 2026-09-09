@@ -1,27 +1,20 @@
-import localFont from "next/font/local";
+import { Crimson_Pro, Plus_Jakarta_Sans } from "next/font/google";
 
-// Clash Display + Satoshi — self-hosted from Fontshare (ITF Free Font License,
-// commercial use permitted). Files live in ./fonts/.
-export const clashDisplay = localFont({
-  src: [
-    { path: "./fonts/ClashDisplay-400.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/ClashDisplay-500.woff2", weight: "500", style: "normal" },
-    { path: "./fonts/ClashDisplay-600.woff2", weight: "600", style: "normal" },
-    { path: "./fonts/ClashDisplay-700.woff2", weight: "700", style: "normal" },
-  ],
-  variable: "--font-clash",
+// Crimson Pro — display/heading serif, editorial register. Fetched from Google
+// Fonts at build time (SIL Open Font License, commercial use permitted).
+export const crimsonPro = Crimson_Pro({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-crimson",
   display: "swap",
   fallback: ["Georgia", "serif"],
 });
 
-export const satoshi = localFont({
-  src: [
-    { path: "./fonts/Satoshi-400.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/Satoshi-500.woff2", weight: "500", style: "normal" },
-    { path: "./fonts/Satoshi-700.woff2", weight: "700", style: "normal" },
-    { path: "./fonts/Satoshi-900.woff2", weight: "900", style: "normal" },
-  ],
-  variable: "--font-satoshi",
+// Plus Jakarta Sans — body/UI sans. Google Fonts (SIL Open Font License).
+export const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-jakarta",
   display: "swap",
   fallback: [
     "-apple-system",
