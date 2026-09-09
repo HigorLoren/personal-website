@@ -1,94 +1,72 @@
 ## O problema
 
-Quem coleciona carta de Pokémon e quer saber quanto tem na mão faz isso carta a
-carta: digita o nome, escolhe a edição, confere o número, olha o preço. Com trinta
-cartas em cima da mesa, ninguém faz.
+Quem coleciona carta de Pokémon e quer saber quanto tem na mão faz isso carta a carta: digita o nome, escolhe a edição, confere o número, olha o preço.
+Com trinta cartas em cima da mesa, ninguém faz.
 
-A ideia era tirar uma foto e receber os valores de volta. Depois apareceu um
-segundo uso: fotografar um deck montado e receber a lista pronta para importar no
-jogo digital.
+A ideia era tirar uma foto e receber os valores de volta.
+Depois apareceu um segundo uso: fotografar um deck montado e receber a lista pronta para importar no jogo digital.
 
 ## O que descobri
 
 Duas coisas, e as duas viraram decisão de arquitetura.
 
-A primeira é que comparar imagem por hash não serve para esse uso. Hash perceptual
-gera uma assinatura numérica da foto e procura a mais parecida no catálogo; é
-barato e é o caminho óbvio. Só que ele compara pixel, e no uso real o pixel é
-outro: a carta na mesa está impressa em português, o catálogo guarda o render em
-inglês, e o celular põe brilho no plástico. Testei quatro métodos de recuperação
-lado a lado, e em parte das fotos o hash deixava a carta certa a milhares de
-posições do topo.
+A primeira é que comparar imagem por hash não serve para esse uso.
+Hash perceptual gera uma assinatura numérica da foto e procura a mais parecida no catálogo; é barato e é o caminho óbvio.
+Só que ele compara pixel, e no uso real o pixel é outro: a carta na mesa está impressa em português, o catálogo guarda o render em inglês, e o celular põe brilho no plástico.
+Testei quatro métodos de recuperação lado a lado, e em parte das fotos o hash deixava a carta certa a milhares de posições do topo.
 
-O que passou no teste foi trocar a assinatura por embedding. A imagem passa por um
-modelo de visão treinado sem rótulo, o DINOv2, e vira um vetor que descreve o
-conteúdo em vez dos pixels. Aí a tradução, o brilho e o ângulo pesam menos.
+O que passou no teste foi trocar a assinatura por embedding.
+A imagem passa por um modelo de visão treinado sem rótulo, o DINOv2, e vira um vetor que descreve o conteúdo em vez dos pixels.
+Aí a tradução, o brilho e o ângulo pesam menos.
 
-A segunda descoberta é do outro lado do mesmo problema: modelo de visão erra com
-confiança. Ele devolve uma carta que não existe naquela edição, ou acerta o nome e
-erra o número, e o grau de confiança que ele mesmo reporta continua alto. Num
-produto que fala de dinheiro, carta inventada não é imprecisão. É o usuário
-achando que tem um valor que não tem.
+A segunda descoberta é do outro lado do mesmo problema: modelo de visão erra com confiança.
+Ele devolve uma carta que não existe naquela edição, ou acerta o nome e erra o número, e o grau de confiança que ele mesmo reporta continua alto.
+Num produto que fala de dinheiro, carta inventada não é imprecisão.
+É o usuário achando que tem um valor que não tem.
 
-Então nenhuma leitura pode ser a resposta final. Ela tem que virar uma pergunta,
-feita para alguém capaz de responder não.
+Então nenhuma leitura pode ser a resposta final.
+Ela tem que virar uma pergunta, feita para alguém capaz de responder não.
 
 ## O que construí
 
-Um serviço de identificação próprio, em Python, que roda local, e dois aplicativos
-em cima dele.
+Um serviço de identificação próprio, em Python, que roda local, e dois aplicativos em cima dele.
 
 No serviço, a foto entra inteira e sai em cartas:
 
-- GroundingDINO acha as regiões que parecem carta e o SAM 2 recorta cada uma. Um
-  filtro de geometria descarta o que não tem proporção de carta, e o recorte é
-  endireitado antes de seguir.
-- Cada recorte vira um embedding DINOv2, comparado por similaridade de cosseno
-  contra o catálogo inteiro. Como a foto pode estar em qualquer rotação, a carta é
-  embedada nas quatro orientações e vale a melhor.
-- O catálogo tem 20.324 cartas, de 1999 a 2026. Preparei o dataset juntando
-  algumas bases, limpando e unificando as colunas. Ele fica privado no Hugging
-  Face, como `higorloren/pokemon-tcg-database`, e na primeira execução o serviço
-  baixa os arquivos e monta um SQLite local.
-- Acima de um limiar de similaridade o resultado é aceito direto. Abaixo dele o
-  serviço não chuta: marca a carta como incerta e chama o OCR, que lê o nome no
-  topo e o número no rodapé e reordena os candidatos combinando o que a imagem diz
-  com o que está escrito.
+- GroundingDINO acha as regiões que parecem carta e o SAM 2 recorta cada uma.
+  Um filtro de geometria descarta o que não tem proporção de carta, e o recorte é endireitado antes de seguir.
+- Cada recorte vira um embedding DINOv2, comparado por similaridade de cosseno contra o catálogo inteiro.
+  Como a foto pode estar em qualquer rotação, a carta é embedada nas quatro orientações e vale a melhor.
+- O catálogo tem 20.324 cartas, de 1999 a 2026.
+  Preparei o dataset juntando algumas bases, limpando e unificando as colunas.
+  Ele fica privado no Hugging Face, como `higorloren/pokemon-tcg-database`, e na primeira execução o serviço baixa os arquivos e monta um SQLite local.
+- Acima de um limiar de similaridade o resultado é aceito direto.
+  Abaixo dele o serviço não chuta: marca a carta como incerta e chama o OCR, que lê o nome no topo e o número no rodapé e reordena os candidatos combinando o que a imagem diz com o que está escrito.
 
-Nos apps, um mobile em React Native com Expo e um web em Vite, sobre uma camada
-compartilhada de serviços e tipos:
+Nos apps, um mobile em React Native com Expo e um web em Vite, sobre uma camada compartilhada de serviços e tipos:
 
-- A foto é reduzida ainda no aparelho, antes de subir. Quando o serviço próprio
-  responde ao health check, é ele quem identifica; se não responde, o app cai
-  para o Gemini. Só nesse caso: falha de infraestrutura tem um
-  tipo de erro próprio, e o erro de domínio continua subindo em vez de ser engolido
-  por um fallback genérico. No fluxo de deck, se o Gemini falha, entra um segundo
-  provedor.
-- Toda carta reconhecida é conferida na API pública do Pokémon TCG antes de
-  aparecer na tela. O que não bate fica marcado como não confirmado e é removido
-  quando o usuário copia a lista. Preço nenhum vem de modelo: vem do TCGPlayer e
-  do Cardmarket, através dessa API.
-- Os tipos do serviço de identificação são gerados a partir do OpenAPI dele, então
-  mudança de contrato quebra no TypeScript, não em produção.
-- A interface é uma conversa em vez de um formulário. Manda a foto, recebe as
-  cartas.
+- A foto é reduzida ainda no aparelho, antes de subir.
+  Quando o serviço próprio responde ao health check, é ele quem identifica; se não responde, o app cai para o Gemini.
+  Só nesse caso: falha de infraestrutura tem um tipo de erro próprio, e o erro de domínio continua subindo em vez de ser engolido por um fallback genérico.
+  No fluxo de deck, se o Gemini falha, entra um segundo provedor.
+- Toda carta reconhecida é conferida na API pública do Pokémon TCG antes de aparecer na tela.
+  O que não bate fica marcado como não confirmado e é removido quando o usuário copia a lista.
+  Preço nenhum vem de modelo: vem do TCGPlayer e do Cardmarket, através dessa API.
+- Os tipos do serviço de identificação são gerados a partir do OpenAPI dele, então mudança de contrato quebra no TypeScript, não em produção.
+- A interface é uma conversa em vez de um formulário.
+  Manda a foto, recebe as cartas.
 
 ## Resultado
 
-Na avaliação com 21 fotos reais, cobrindo os tipos de carta que costumam quebrar a
-identificação, o embedding coloca a carta certa entre as dez primeiras de 20.324
-em 19 delas, e em primeiro lugar em 12. O hash perceptual, no mesmo conjunto,
-chega a 14 no top-10.
+Na avaliação com 21 fotos reais, cobrindo os tipos de carta que costumam quebrar a identificação, o embedding coloca a carta certa entre as dez primeiras de 20.324 em 19 delas, e em primeiro lugar em 12.
+O hash perceptual, no mesmo conjunto, chega a 14 no top-10.
 
-O teste também mostrou onde o aceite automático estava errado: três cartas erradas
-passavam do limiar de confiança. Subi o limiar até nenhuma passar, e esses casos
-voltaram para o caminho da verificação.
+O teste também mostrou onde o aceite automático estava errado: três cartas erradas passavam do limiar de confiança.
+Subi o limiar até nenhuma passar, e esses casos voltaram para o caminho da verificação.
 
-A imagem não resolve tudo. Quando a mesma arte aparece em edições diferentes, quem
-decide é o número impresso na carta.
+A imagem não resolve tudo.
+Quando a mesma arte aparece em edições diferentes, quem decide é o número impresso na carta.
 
-Os dois fluxos do produto estão implementados: valor de mercado por carta, e lista
-de deck no formato que o Pokémon TCG Live importa.
+Os dois fluxos do produto estão implementados: valor de mercado por carta, e lista de deck no formato que o Pokémon TCG Live importa.
 
-O que eu levo daqui é tratar resposta de modelo como palpite, e escolher método
-por medição em vez de intuição.
+O que eu levo daqui é tratar resposta de modelo como palpite, e escolher método por medição em vez de intuição.

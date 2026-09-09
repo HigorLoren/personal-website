@@ -1,13 +1,10 @@
 # higorlorenzon.dev — portfólio
 
-Site pessoal de Higor Lorenzon. Além de portfólio, é um exercício de
-**desenvolvimento orientado por especificações usando IA**: a conversa de
-descoberta virou uma spec, a spec guiou a implementação, e cada etapa —
-prototipação, código, testes, documentação e revisão — passou por Claude, com a
-decisão técnica no meu comando.
+Site pessoal de Higor Lorenzon.
+Além de portfólio, é um exercício de **desenvolvimento orientado por especificações usando IA**: a conversa de descoberta virou uma spec, a spec guiou a implementação, e cada etapa — prototipação, código, testes, documentação e revisão — passou por Claude, com a decisão técnica no meu comando.
 
-O case study [`/cases/este-site`](https://higorlorenzon.vercel.app/cases/este-site)
-conta o processo. Este README resume a parte de engenharia.
+O case study [`/cases/este-site`](https://higorlorenzon.vercel.app/cases/este-site) conta o processo.
+Este README resume a parte de engenharia.
 
 ## Stack
 
@@ -26,7 +23,7 @@ conta o processo. Este README resume a parte de engenharia.
 src/
   app/            rotas (/, /contato, /cases/[slug]) + layout, fontes, design tokens
   components/     Container, SiteHeader/Footer, CaseCard, CaseBody, Prose, PillarTag,
-                  AnnotatedSection, MarginNote, PenMark
+                  AnnotatedSection, MarginNote, PenMark, EmailLink
   content/
     cases/<slug>/ meta.ts (CaseMeta tipado) + content.mdx (prosa)
     cases.ts      registro + helpers
@@ -43,7 +40,7 @@ Decisões de arquitetura: [`docs/adr/`](./docs/adr/).
 ## Rodando
 
 ```bash
-npm install
+npm install      # também instala o hook de privacidade (script "prepare")
 npm run dev      # http://localhost:3000
 npm run build    # build de produção (checa tipos)
 npm run lint
@@ -51,11 +48,12 @@ npm run lint
 
 ## Princípios
 
-- **Dois movimentos, só.** O grifo de caneta que se desenha no h1 da home e o
-  hover nos cards de case. O resto fica quieto.
-- **NDA por construção.** Projeto de cliente carrega uma flag `ndaSafe` que o
-  template respeita — sem nome oficial, sem estratégia de negócio, imagens só de
-  áreas públicas.
+- **Repo público, dados privados.** Um hook de pre-commit (`npm run hooks:install`) barra e-mail cru, telefone, CPF e GPS/EXIF em imagem antes que entrem em `src/`, `public/` ou `content/`.
+  Modelo de ameaça e checklist manual em [`docs/privacy.md`](./docs/privacy.md).
+  O e-mail de contato é um alias, guardado em base64 e montado no client pelo `<EmailLink>` — nunca vai em texto puro no HTML.
+
+- **Dois movimentos, só.** O grifo de caneta que se desenha no h1 da home e o hover nos cards de case.
+  O resto fica quieto.
+- **NDA por construção.** Projeto de cliente carrega uma flag `ndaSafe` que o template respeita — sem nome oficial, sem estratégia de negócio, imagens só de áreas públicas.
 - **Sem string solta.** Todo texto de interface está em `src/i18n/pt.ts`.
-- **Acessibilidade no baseline.** HTML semântico, foco visível, contraste AA,
-  `prefers-reduced-motion` respeitado.
+- **Acessibilidade no baseline.** HTML semântico, foco visível, contraste AA, `prefers-reduced-motion` respeitado.

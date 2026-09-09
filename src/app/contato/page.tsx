@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { AnnotatedSection } from "@/components/annotated-section";
+import { EmailLink } from "@/components/email-link";
 import { MarginNote } from "@/components/margin-note";
 import { getDictionary } from "@/i18n";
 import { site } from "@/lib/site";
@@ -11,19 +12,28 @@ export const metadata: Metadata = {
   description: t.lead,
 };
 
-/** Each channel as { label, note } in the dictionary; href and display come from site config. */
+const linkClass =
+  "underline-hand text-lg font-medium text-ink transition-colors hover:text-accent";
+
+/** e-mail is rendered apart (see EmailLink — never pre-rendered into the HTML). */
 const channels = [
-  { key: "email", href: `mailto:${site.email}`, display: site.email },
   { key: "linkedin", href: site.social.linkedin, display: "linkedin.com/in/higorlorenzon" },
   { key: "github", href: site.social.github, display: "github.com/HigorLoren" },
-  { key: "cv", href: site.cvPath, display: t.cvDisplay },
 ] as const;
 
 export default function ContactPage() {
   return (
     <AnnotatedSection
       className="pb-20 pt-16"
-      note={<MarginNote tag={t.note.tag}>{t.note.body}</MarginNote>}
+      note={
+        <div className="flex flex-col lg:gap-6">
+          {t.notes.map((n) => (
+            <MarginNote key={n.tag} tag={n.tag}>
+              {n.body}
+            </MarginNote>
+          ))}
+        </div>
+      }
     >
       <h1 className="text-[length:var(--text-h1)] font-semibold tracking-[-0.03em]">
         {t.title}
@@ -33,6 +43,21 @@ export default function ContactPage() {
       </p>
 
       <dl className="mt-12 max-w-3xl border-t border-line">
+        <div className="grid gap-2 border-b border-line py-6 md:grid-cols-[10rem_1fr] md:gap-10">
+          <dt className="text-sm font-medium text-muted">{t.channels.email.label}</dt>
+          <dd>
+            <EmailLink
+              encoded={site.emailEncoded}
+              fallbackHref={site.social.linkedin}
+              fallbackLabel={t.channels.email.fallbackLabel}
+              className={linkClass}
+            />
+            <p className="mt-2 text-sm leading-relaxed text-ink-soft">
+              {t.channels.email.note}
+            </p>
+          </dd>
+        </div>
+
         {channels.map((c) => (
           <div
             key={c.key}
@@ -42,10 +67,9 @@ export default function ContactPage() {
             <dd>
               <a
                 href={c.href}
-                className="underline-hand text-lg font-medium text-ink transition-colors hover:text-accent"
-                {...(c.key === "email" || c.key === "cv"
-                  ? {}
-                  : { target: "_blank", rel: "noopener noreferrer" })}
+                className={linkClass}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 {c.display}
               </a>
