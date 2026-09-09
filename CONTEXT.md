@@ -59,6 +59,10 @@ Architecture decisions with real trade-offs are recorded in `docs/adr/`.
 - All user-facing copy is keyed in `src/i18n/pt.ts`; only pt-BR ships. See
   ADR-0003.
 - `ndaSafe` governs how client work appears in this public repo. See ADR-0004.
+- The site is a single page: `/sobre` became the `#sobre` section of the home,
+  with a permanent redirect. See ADR-0005.
+- Every published claim needs a verifiable source; corrections are shown as
+  margin notes on the page where the error was. See ADR-0006.
 - Branch strategy: work lands on `dev`; `main` is only merged when a production
   deploy on Vercel is wanted.
 - Working notes, specs and planning live in `.scratch/` (gitignored). Nothing
