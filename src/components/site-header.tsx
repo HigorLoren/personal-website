@@ -4,7 +4,7 @@ import { nav, site } from "@/lib/site";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-line/70 bg-paper/85 backdrop-blur-md">
+    <header className="border-b border-line bg-paper">
       <Container className="flex h-16 items-center justify-between">
         <Link
           href="/"
