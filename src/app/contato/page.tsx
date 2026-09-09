@@ -25,7 +25,15 @@ export default function ContactPage() {
   return (
     <AnnotatedSection
       className="pb-20 pt-16"
-      note={<MarginNote tag={t.note.tag}>{t.note.body}</MarginNote>}
+      note={
+        <div className="flex flex-col lg:gap-6">
+          {t.notes.map((n) => (
+            <MarginNote key={n.tag} tag={n.tag}>
+              {n.body}
+            </MarginNote>
+          ))}
+        </div>
+      }
     >
       <h1 className="text-[length:var(--text-h1)] font-semibold tracking-[-0.03em]">
         {t.title}

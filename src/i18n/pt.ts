@@ -150,10 +150,16 @@ export const pt = {
         note: "Código público, incluindo o deste site.",
       },
     },
-    note: {
-      tag: "correção",
-      body: "Antes o botão de contato abria o e-mail direto. Ficou ruim.",
-    },
+    notes: [
+      {
+        tag: "correção",
+        body: "Antes o botão de contato abria o e-mail direto. Ficou ruim.",
+      },
+      {
+        tag: "nota",
+        body: "O e-mail não fica escrito nesta página. Ele se monta no seu navegador, pra bot de spam não pescar.",
+      },
+    ],
   },
 
   footer: {
