@@ -1,68 +1,58 @@
 ## O problema
 
-Eu precisava de um portfólio que mostrasse três coisas: que desenvolvo com
-qualidade, que cuido da interface, e que entro na construção do produto desde o
-problema. Um template genérico de "developer portfolio" não mostra nenhuma.
+Eu precisava de um portfólio que mostrasse três coisas: que desenvolvo com qualidade, que cuido da interface, e que entro na construção do produto desde o problema.
+Um template genérico de "developer portfolio" não mostra nenhuma.
 
-Havia um problema a mais. Eu ia construir o site com IA, do jeito que construo
-tudo hoje, e quem lê um portfólio feito assim desconfia com razão: se a máquina
-gerou, o que sobrou de você? O site precisava responder isso sem argumentar.
+Havia um problema a mais.
+Eu ia construir o site com IA, do jeito que construo tudo hoje, e quem lê um portfólio feito assim desconfia com razão: se a máquina gerou, o que sobrou de você?
+O site precisava responder isso sem argumentar.
 
 ## O que descobri
 
-Não abri o editor. Abri uma conversa em formato de interrogatório, onde cada
-resposta minha vira a próxima pergunta, e só parei quando não sobrou nada
-implícito. É como começo qualquer trabalho agora, e a razão é simples: a IA
-executa o que está escrito, e o que não está escrito ela inventa.
+Não abri o editor.
+Abri uma conversa em formato de interrogatório, onde cada resposta minha vira a próxima pergunta, e só parei quando não sobrou nada implícito.
+É como começo qualquer trabalho agora, e a razão é simples: a IA executa o que está escrito, e o que não está escrito ela inventa.
 
-Enquanto eu respondia, um segundo agente varria meus projetos antigos, meu
-currículo e meus repositórios para inventariar o que existia. Levantar material
-é busca, não decisão, e busca eu delego sem olhar. Decisão, não.
+Enquanto eu respondia, um segundo agente varria meus projetos antigos, meu currículo e meus repositórios para inventariar o que existia.
+Levantar material é busca, não decisão, e busca eu delego sem olhar.
+Decisão, não.
 
-A descoberta cravou a tese do site: o que eu tenho de mais próprio não é uma
-stack, é a forma de trabalhar. Então o processo precisava ficar visível na
-página, não descrito num parágrafo. Daí o site virar um rascunho de trabalho,
-com anotações na margem e correções à vista.
+A descoberta cravou a tese do site: o que eu tenho de mais próprio não é uma stack, é a forma de trabalhar.
+Então o processo precisava ficar visível na página, não descrito num parágrafo.
+Daí o site virar um rascunho de trabalho, com anotações na margem e correções à vista.
 
 ## O que construí
 
-A conversa virou uma especificação: problema, solução, user stories, decisões
-de implementação e de teste, e o que fica de fora. Só então o código começou,
-com a spec como contrato. Da primeira pergunta ao site no ar foram 3h09 e 17
-prompts meus. A velocidade é da ferramenta. O que eu fiz nesse tempo foi decidir
-três coisas que ela não decide.
+A conversa virou uma especificação: problema, solução, user stories, decisões de implementação e de teste, e o que fica de fora.
+Só então o código começou, com a spec como contrato.
+Da primeira pergunta ao site no ar foram 3h09 e 17 prompts meus.
+A velocidade é da ferramenta.
+O que eu fiz nesse tempo foi decidir três coisas que ela não decide.
 
-**O que pode ser versionado.** A primeira spec misturava o que o site precisava
-com anotações minhas que não têm nada que fazer num repositório público, e ia
-direto para o primeiro commit. Barrei. Daí nasceu a estrutura do projeto: uma
-pasta de trabalho que o git ignora, onde a conversa bruta fica, e um glossário
-de domínio commitado, que é o que o agente lê a cada sessão para não perder o
-fio. A IA não sabe o que é seu e o que é do projeto. Quem sabe sou eu.
+**O que pode ser versionado.** A primeira spec misturava o que o site precisava com anotações minhas que não têm nada que fazer num repositório público, e ia direto para o primeiro commit.
+Barrei.
+Daí nasceu a estrutura do projeto: uma pasta de trabalho que o git ignora, onde a conversa bruta fica, e um glossário de domínio commitado, que é o que o agente lê a cada sessão para não perder o fio.
+A IA não sabe o que é seu e o que é do projeto.
+Quem sabe sou eu.
 
 **O que parece bom.** A fonte mudou três vezes na primeira hora, a olho.
-Margem, espaço antes do título, tamanho do título: cada ajuste foi um prompt de uma
-linha, porque a IA acerta o sistema e erra o gosto. Uma hora depois de estar no
-ar, o site inteiro ainda parecia um template: rótulos em caixa alta, setas
-decorativas, header com blur. Refiz a identidade inteira, e as notas de margem
-que você vê nesta página nasceram dessa segunda passada.
+Margem, espaço antes do título, tamanho do título: cada ajuste foi um prompt de uma linha, porque a IA acerta o sistema e erra o gosto.
+Uma hora depois de estar no ar, o site inteiro ainda parecia um template: rótulos em caixa alta, setas decorativas, header com blur.
+Refiz a identidade inteira, e as notas de margem que você vê nesta página nasceram dessa segunda passada.
 
-**O que é verdade.** Os cases foram escritos de memória durante o build, e eu
-sei o que acontece quando a IA escreve de memória: fica plausível. Então, com o
-site no ar, rodei uma sessão só de auditoria, com acesso ao git, ao código e
-aos logs dos meus projetos, com uma regra: cada afirmação publicada recebe uma
-fonte ou uma marca de "não verificado".
+**O que é verdade.** Os cases foram escritos de memória durante o build, e eu sei o que acontece quando a IA escreve de memória: fica plausível.
+Então, com o site no ar, rodei uma sessão só de auditoria, com acesso ao git, ao código e aos logs dos meus projetos, com uma regra: cada afirmação publicada recebe uma fonte ou uma marca de "não verificado".
 
 ## Resultado
 
-A auditoria derrubou coisa que eu mesmo tinha escrito. Um case dizia que um
-produto meu tinha sido reconstruído três vezes, e o git mostrava uma versão só.
-Outro dizia que a suíte de testes rodava a cada push, e não havia pipeline
-nenhum. O primeiro case saiu do site e outro entrou no lugar. O segundo perdeu
-a frase e ganhou os números reais, que eram melhores. Até a conta de anos de
-carreira estava errada, para menos.
+A auditoria derrubou coisa que eu mesmo tinha escrito.
+Um case dizia que um produto meu tinha sido reconstruído três vezes, e o git mostrava uma versão só.
+Outro dizia que a suíte de testes rodava a cada push, e não havia pipeline nenhum.
+O primeiro case saiu do site e outro entrou no lugar.
+O segundo perdeu a frase e ganhou os números reais, que eram melhores.
+Até a conta de anos de carreira estava errada, para menos.
 
-Hoje, cada número deste site tem uma fonte que eu consigo mostrar, e as
-correções ficaram à vista, nas margens. Um portfólio feito com IA que se
-corrige em público é a melhor resposta que encontrei para a desconfiança do
-começo. Não é um site que a IA gerou. É um site em que eu decidi o que ela
-podia gerar, o que ficava bom e o que era verdade.
+Hoje, cada número deste site tem uma fonte que eu consigo mostrar, e as correções ficaram à vista, nas margens.
+Um portfólio feito com IA que se corrige em público é a melhor resposta que encontrei para a desconfiança do começo.
+Não é um site que a IA gerou.
+É um site em que eu decidi o que ela podia gerar, o que ficava bom e o que era verdade.

@@ -1,8 +1,7 @@
 # Issue tracker: Local Markdown
 
-Issues and specs for this repo live as markdown files in `.scratch/`.
-`.scratch/` is gitignored — nothing here is published. This is a public portfolio
-repo, so planning material must not leak into GitHub Issues or committed files.
+Issues and specs for this repo live as markdown files in `.scratch/`. `.scratch/` is gitignored — nothing here is published.
+This is a public portfolio repo, so planning material must not leak into GitHub Issues or committed files.
 
 ## Conventions
 
@@ -19,21 +18,24 @@ Do NOT create a GitHub issue and do NOT commit the file.
 
 ## When a skill says "fetch the relevant ticket"
 
-Read the file at the referenced path. The user will normally pass the path or the issue number directly.
+Read the file at the referenced path.
+The user will normally pass the path or the issue number directly.
 
 ## Public writeups
 
-Anything meant to be seen (e.g. a "how this site was built" case study) is authored
-separately as a curated artifact under `src/` or `docs/` — never by publishing a
-`.scratch/` file. Sanitize by construction, not by editing.
+Anything meant to be seen (e.g. a "how this site was built" case study) is authored separately as a curated artifact under `src/` or `docs/` — never by publishing a `.scratch/` file.
+Sanitize by construction, not by editing.
 
 ## Wayfinding operations
 
-Used by `/wayfinder`. The **map** is a file with one **child** file per ticket.
+Used by `/wayfinder`.
+The **map** is a file with one **child** file per ticket.
 
 - **Map**: `.scratch/<effort>/map.md` (the Notes / Decisions-so-far / Fog body).
-- **Child ticket**: `.scratch/<effort>/issues/NN-<slug>.md`, numbered from `01`, with the question in the body. A `Type:` line records the ticket type (`research`/`prototype`/`grilling`/`task`); a `Status:` line records `claimed`/`resolved`.
-- **Blocking**: a `Blocked by: NN, NN` line near the top. A ticket is unblocked when every file it lists is `resolved`.
+- **Child ticket**: `.scratch/<effort>/issues/NN-<slug>.md`, numbered from `01`, with the question in the body.
+  A `Type:` line records the ticket type (`research`/`prototype`/`grilling`/`task`); a `Status:` line records `claimed`/`resolved`.
+- **Blocking**: a `Blocked by: NN, NN` line near the top.
+  A ticket is unblocked when every file it lists is `resolved`.
 - **Frontier**: scan `.scratch/<effort>/issues/` for files that are open, unblocked, and unclaimed; first by number wins.
 - **Claim**: set `Status: claimed` and save before any work.
 - **Resolve**: append the answer under an `## Answer` heading, set `Status: resolved`, then append a context pointer (gist + link) to the map's Decisions-so-far in `map.md`.
