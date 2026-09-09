@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AnnotatedSection } from "@/components/annotated-section";
-import { Container } from "@/components/container";
 import { MarginNote } from "@/components/margin-note";
 import { Prose } from "@/components/prose";
 import { PillarTags } from "@/components/pillar-tag";
@@ -38,7 +37,7 @@ export default async function CasePage(props: PageProps<"/cases/[slug]">) {
 
   return (
     <article className="pt-16">
-      <Container>
+      <AnnotatedSection>
         <Link
           href="/#cases"
           className="text-sm text-muted transition-colors hover:text-ink"
@@ -88,7 +87,7 @@ export default async function CasePage(props: PageProps<"/cases/[slug]">) {
             {meta.liveUrl && (
               <Link
                 href={meta.liveUrl}
-                className="border-b border-accent pb-0.5 text-ink transition-colors hover:text-accent"
+                className="underline-hand text-ink transition-colors hover:text-accent"
               >
                 {t.liveLink}
               </Link>
@@ -96,23 +95,23 @@ export default async function CasePage(props: PageProps<"/cases/[slug]">) {
             {meta.repoUrl && (
               <Link
                 href={meta.repoUrl}
-                className="border-b border-accent pb-0.5 text-ink transition-colors hover:text-accent"
+                className="underline-hand text-ink transition-colors hover:text-accent"
               >
                 {t.repoLink}
               </Link>
             )}
           </div>
         )}
-      </Container>
+      </AnnotatedSection>
 
       {/* Cover */}
-      <Container className="mt-12">
-        <div className="relative aspect-[16/10] overflow-hidden rounded-lg border border-line bg-surface sm:aspect-[2/1]">
+      <AnnotatedSection className="mt-12">
+        <div className="relative h-52 max-w-3xl overflow-hidden rounded-lg border border-line bg-surface sm:h-64 md:h-72">
           <Image
             src={meta.cover}
             alt={`Imagem de capa — ${meta.title}`}
             fill
-            sizes="(min-width: 1024px) 64rem, 100vw"
+            sizes="(min-width: 1024px) 48rem, 100vw"
             className="object-cover"
             priority
           />
@@ -120,18 +119,18 @@ export default async function CasePage(props: PageProps<"/cases/[slug]">) {
         {meta.ndaSafe && (
           <p className="mt-3 text-xs text-muted">{t.ndaNote}</p>
         )}
-      </Container>
+      </AnnotatedSection>
 
       {/* Body */}
       {slug === "este-site" ? (
         <AnnotatedSection
           className="mt-16"
           note={
-            <div className="space-y-6">
+            <div className="flex flex-col lg:gap-6">
               <MarginNote tag={t.esteSiteNotes[0].tag}>
                 {t.esteSiteNotes[0].body}
               </MarginNote>
-              <MarginNote tag={t.esteSiteNotes[1].tag} sign>
+              <MarginNote tag={t.esteSiteNotes[1].tag}>
                 {t.esteSiteNotes[1].body}
               </MarginNote>
             </div>
@@ -142,16 +141,16 @@ export default async function CasePage(props: PageProps<"/cases/[slug]">) {
           </Prose>
         </AnnotatedSection>
       ) : (
-        <Container className="mt-16">
+        <AnnotatedSection className="mt-16">
           <Prose>
             <CaseBody slug={slug} />
           </Prose>
-        </Container>
+        </AnnotatedSection>
       )}
 
       {/* Next */}
       {next && (
-        <Container className="mt-24 border-t border-line pt-10">
+        <AnnotatedSection className="mt-24 border-t border-line pt-10">
           <p className="text-sm text-muted">{t.next}</p>
           <Link
             href={`/cases/${next.slug}`}
@@ -159,7 +158,7 @@ export default async function CasePage(props: PageProps<"/cases/[slug]">) {
           >
             {next.title}
           </Link>
-        </Container>
+        </AnnotatedSection>
       )}
     </article>
   );

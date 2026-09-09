@@ -9,7 +9,7 @@ const pages = [
   ["home-desktop", "/", 1440, 900],
   ["home-mobile", "/", 390, 844],
   ["sobre-desktop", "/sobre", 1440, 900],
-  ["case-donko-desktop", "/cases/donko", 1440, 900],
+  ["case-card-finder-desktop", "/cases/card-finder", 1440, 900],
   ["case-bussola-mobile", "/cases/bussola", 390, 844],
 ];
 

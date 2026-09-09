@@ -11,12 +11,15 @@ export const pt = {
   },
 
   home: {
-    title:
-      "Faço frontend há sete anos. A parte que rende vem antes da primeira tela.",
+    title: {
+      before: "Faço frontend há oito anos. A parte que rende vem ",
+      mark: "antes",
+      after: " da primeira tela.",
+    },
     intro:
-      "Passei por consultoria e empresa grande (IBM, Serasa), produto para o agro (Agrosatélite) e SaaS para clientes. Em todos, o gargalo era o mesmo: o que pediram raramente era o que resolvia o problema. Uso IA o dia todo para codar, testar e documentar. Decidir o que construir continua comigo.",
-    ctaPrimary: "Vamos conversar",
-    ctaSecondary: "Ver cases",
+      "Passei por e-commerce de 70 mil usuários por mês, consultoria e empresa grande (IBM, Serasa), produto para o agronegócio e SaaS de assinatura para cliente. Em todos, o gargalo era o mesmo: o que pediram raramente era o que resolvia o problema. Uso IA o dia todo para codar, testar e documentar. Decidir o que construir continua comigo.",
+    ctaPrimary: "Ver cases",
+    ctaSecondary: "Vamos conversar",
     pillarsTitle: "O que eu faço bem",
     pillars: [
       {
@@ -37,12 +40,18 @@ export const pt = {
     ],
     casesTitle: "Cases",
     casesIntro:
-      "Três projetos: um SaaS de produção para cliente, um produto pessoal que mantenho desde 2021, e a construção deste site com IA.",
+      "Três projetos: um SaaS de produção para cliente, um app que põe IA dentro do produto, e a construção deste site com IA.",
     notes: {
-      hero: {
-        tag: "rev. 4",
-        body: "Tirei daqui três frases que vendiam bem e não diziam nada.",
-      },
+      hero: [
+        {
+          tag: "rev. 4",
+          body: "Tirei daqui três frases que vendiam bem e não diziam nada.",
+        },
+        {
+          tag: "rev. 5",
+          body: "Grifei o antes de caneta. E todo sublinhado do site virou esse traço.",
+        },
+      ],
       cases: {
         tag: "nota",
         body: "Três, de propósito. Portfólio com vinte projetos rasos não diz nada.",
@@ -78,7 +87,7 @@ export const pt = {
   about: {
     title: "Sobre",
     lead:
-      "Higor Lorenzon, desenvolvedor frontend com sete anos de estrada: consultoria e empresa grande (IBM, Serasa), plataforma agrícola (Agrosatélite, para a Bayer) e SaaS para clientes. Moro no Brasil e trabalho perto de produto.",
+      "Higor Lorenzon, desenvolvedor frontend com oito anos de estrada: e-commerce, consultoria e empresa grande (IBM, Serasa), plataforma agrícola para a Bayer, e hoje SaaS de assinatura para cliente. Moro no Brasil e trabalho perto de produto.",
     methodTitle: "Como eu trabalho",
     methodIntro:
       "Não gosto de receber requisito pronto. O trabalho que rende é o que começa antes da tela existir.",

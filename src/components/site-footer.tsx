@@ -22,7 +22,7 @@ export function SiteFooter() {
             <p className="mt-3 max-w-md text-ink-soft">{t.ctaBody}</p>
             <a
               href={`mailto:${site.email}`}
-              className="mt-5 inline-block border-b-2 border-accent pb-1 text-lg text-ink transition-colors hover:text-accent"
+              className="underline-hand underline-hand-2 mt-5 inline-block text-lg text-ink transition-colors hover:text-accent"
             >
               {site.email}
             </a>
