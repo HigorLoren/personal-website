@@ -1,55 +1,51 @@
 ## O problema
 
-Eu precisava de um portfólio, e o portfólio precisava provar três coisas ao mesmo
-tempo: que eu desenvolvo com qualidade, que tenho cuidado com interface, e que
-consigo participar da construção de um produto desde o problema abstrato. Um
-template genérico de "developer portfolio" não prova nenhuma delas.
+Eu precisava de um portfólio que mostrasse três coisas: que desenvolvo com
+qualidade, que cuido da interface, e que entro na construção do produto desde o
+problema. Um template genérico de "developer portfolio" não mostra nenhuma.
 
-Tinha também uma restrição de tempo real: eu queria a primeira versão no ar em
-poucas horas, sem que "rápido" virasse desculpa para "mal feito".
+Também tinha uma restrição de tempo: eu queria a primeira versão no ar em poucas
+horas, e bem feita.
 
 ## O que descobri
 
-Antes de escrever qualquer linha, rodei uma sessão de descoberta estruturada como
-uma árvore de decisões — cada resposta abria as próximas perguntas, e a sessão só
-terminou quando não sobrou nada sendo assumido em silêncio.
+Antes de escrever código, rodei uma sessão de descoberta em formato de árvore de
+decisão: cada resposta abria a próxima pergunta. Parei quando não sobrou nada
+implícito.
 
 Algumas decisões que saíram dela:
 
-- O site **é** o primeiro case. Se ele não for bonito e rápido, o resto do conteúdo
-  não importa.
-- O que eu tenho de mais distintivo é o uso maduro de IA no desenvolvimento —
-  então esse vira o case principal, este aqui.
-- O ponto a reforçar com narrativa é a experiência de produto e discovery, que eu
-  tenho mas nunca tinha empacotado. Daí a página [Sobre](/sobre) existir com peso.
-- Um sub-agente separado varreu meus projetos e histórico para levantar material —
-  isso é busca de fato, não decisão, então foi delegado e rodou em paralelo.
+- O site conta como o primeiro case. Se ele não for bonito e rápido, o resto do
+  conteúdo não importa.
+- O que eu tenho de mais próprio é usar IA no desenvolvimento de forma
+  consistente. Esse virou o case principal, este aqui.
+- Experiência de produto e discovery é o que eu precisava reforçar na narrativa:
+  eu tenho, mas nunca tinha empacotado. Por isso a página [Sobre](/sobre) existe
+  com destaque.
+- Levantar material dos meus projetos antigos é busca, não decisão, então deleguei
+  para um sub-agente que rodou em paralelo.
 
 ## O que construí
 
-A conversa de descoberta foi sintetizada numa **especificação** — problema,
-solução, lista longa de user stories, decisões de implementação e de teste, e um
-escopo explícito do que fica de fora do v1. Só então começou o código.
+A conversa de descoberta virou uma especificação: problema, solução, lista de
+user stories, decisões de implementação e de teste, e o que fica de fora do v1.
+Só então comecei a codar.
 
-O desenvolvimento em si foi orientado por essa spec, com Claude atuando em cada
-etapa:
+O desenvolvimento seguiu essa spec, com Claude em cada etapa:
 
-- **Scaffold e configuração** — Next.js, TypeScript, Tailwind, MDX, fontes
-  self-hosted, pipeline de deploy.
-- **Design system** — tokens de cor e tipografia num único lugar, tema claro,
-  registro editorial, uma única micro-interação caprichada (o hover nos cards).
-- **Conteúdo** — cases em MDX versionados no próprio repositório, com um contrato
-  de dados tipado e uma flag que garante, por construção, que projeto de cliente
-  nunca vaze detalhe sensível.
-- **Documentação e processo** — um log de build foi mantido durante todo o
-  trabalho e é a matéria-prima deste texto.
+- Scaffold e configuração: Next.js, TypeScript, Tailwind, MDX, deploy.
+- Design system: tokens de cor e tipografia num lugar só, tema claro, registro
+  editorial, uma micro-interação caprichada (o hover nos cards).
+- Conteúdo: cases em MDX versionados no repositório, com tipo de dado explícito e
+  uma flag que impede projeto de cliente de vazar detalhe sensível.
+- Documentação: mantive um log de build durante o trabalho inteiro, e é dele que
+  este texto sai.
 
-O que a IA errou pelo caminho — e onde a decisão teve que ser minha — está
-documentado no [repositório](https://github.com/HigorLoren/personal-website).
+Onde a IA errou e onde a decisão precisou ser minha está registrado no
+[repositório](https://github.com/HigorLoren/personal-website).
 
 ## Resultado
 
-Primeira versão no ar em poucas horas, sem CMS, com o código-fonte público. O
-processo — descoberta → especificação → implementação com IA → validação — é como
-eu trabalho todo dia, e aqui ele está registrado num projeto real, do zero e de
-ponta a ponta.
+Primeira versão no ar em poucas horas, sem CMS, com o código público. Descoberta,
+especificação, implementação com IA e validação: é assim que eu trabalho, agora
+registrado num projeto real.
