@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { Container } from "@/components/container";
+import { AnnotatedSection } from "@/components/annotated-section";
 import { CaseCard } from "@/components/case-card";
+import { MarginNote } from "@/components/margin-note";
 import { cases } from "@/content/cases";
 import { getDictionary } from "@/i18n";
 import { site } from "@/lib/site";
@@ -11,7 +12,12 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <Container as="section" className="pb-12 pt-10 md:pt-15">
+      <AnnotatedSection
+        className="pb-12 pt-10 md:pt-15"
+        note={
+          <MarginNote date={t.notes.hero.date}>{t.notes.hero.body}</MarginNote>
+        }
+      >
         <h1 className="max-w-4xl text-[length:var(--text-hero)] font-bold leading-[1.05] tracking-[-0.015em]">
           {t.title}
         </h1>
@@ -32,10 +38,10 @@ export default function HomePage() {
             {t.ctaSecondary}
           </Link>
         </div>
-      </Container>
+      </AnnotatedSection>
 
       {/* O que eu faço bem */}
-      <Container as="section" className="border-t border-line pb-20 pt-14">
+      <AnnotatedSection className="border-t border-line pb-20 pt-14">
         <h2 className="font-display text-sm font-medium text-muted">
           {t.pillarsTitle}
         </h2>
@@ -50,10 +56,16 @@ export default function HomePage() {
             </div>
           ))}
         </dl>
-      </Container>
+      </AnnotatedSection>
 
       {/* Cases */}
-      <Container as="section" id="cases" className="scroll-mt-20 border-t border-line py-20">
+      <AnnotatedSection
+        id="cases"
+        className="scroll-mt-20 border-t border-line py-20"
+        note={
+          <MarginNote date={t.notes.cases.date}>{t.notes.cases.body}</MarginNote>
+        }
+      >
         <div className="max-w-2xl">
           <h2 className="font-display text-[length:var(--text-h2)] font-semibold tracking-tight">
             {t.casesTitle}
@@ -65,7 +77,7 @@ export default function HomePage() {
             <CaseCard key={meta.slug} meta={meta} />
           ))}
         </div>
-      </Container>
+      </AnnotatedSection>
     </>
   );
 }

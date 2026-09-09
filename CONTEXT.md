@@ -19,6 +19,13 @@ product. The site is itself the first proof of taste and craft.
   stories, and a career timeline.
 - **Momento de deleite** — the single deliberate micro-interaction of the v1: the
   hover/focus treatment on `CaseCard`. Everything else stays still.
+- **Nota de margem** (`MarginNote`) — a dated aside in Higor's own voice, in the
+  revision-red, placed in the left margin of an `AnnotatedSection` (folds inline
+  on mobile). The site marking up its own draft — the one memorable device.
+  Two or three per page, copy in `src/i18n/pt.ts`.
+- **AnnotatedSection** — page-section wrapper giving the two-track layout: wide
+  left margin (for a `MarginNote`) + main content column. Content always sits in
+  column 2 so the body edge stays aligned across sections.
 - **ndaSafe** — a `CaseMeta` flag. When `true`, the case template hides repo
   links and only shows imagery from public areas of the client product. Client
   name and business-strategy detail never appear.
