@@ -89,7 +89,7 @@ export default function AboutPage() {
               <span className="text-sm text-muted">{e.period}</span>
               <div>
                 <p className="font-medium">
-                  {e.role} · <span className="text-ink-soft">{e.org}</span>
+                  {e.role}, <span className="text-ink-soft">{e.org}</span>
                 </p>
                 {e.note && (
                   <p className="mt-1 text-sm leading-relaxed text-muted">

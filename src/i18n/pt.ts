@@ -11,7 +11,6 @@ export const pt = {
   },
 
   home: {
-    eyebrow: "Frontend · UI/UX · Produto",
     title:
       "Transformo necessidades ainda vagas em produtos digitais simples e bem construídos.",
     intro:
