@@ -17,6 +17,7 @@
   --font-display: var(--font-bricolage), "Helvetica Neue", Arial, sans-serif;
   --font-sans: var(--font-bricolage), "Helvetica Neue", Arial, sans-serif;
   --font-reading: var(--font-newsreader), Georgia, "Times New Roman", serif;
+  --font-hand: var(--font-caveat), "Comic Sans MS", cursive;
 
   --text-hero: clamp(2.35rem, 4.5vw + 1rem, 4.5rem);
   --text-h1: clamp(2.25rem, 4vw + 1rem, 3.5rem);
@@ -89,6 +90,11 @@
   /* long-form reading serif — lead paragraphs, case summaries */
   .font-reading {
     font-family: var(--font-reading);
+  }
+
+  /* handwriting — margin notes only */
+  .font-hand {
+    font-family: var(--font-hand);
   }
 }
 

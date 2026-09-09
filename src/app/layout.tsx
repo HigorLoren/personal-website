@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
-import { bricolage, newsreader } from "./fonts";
+import { bricolage, caveat, newsreader } from "./fonts";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { getDictionary } from "@/i18n";
@@ -37,7 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="pt-BR"
       data-scroll-behavior="smooth"
-      className={`${bricolage.variable} ${newsreader.variable} h-full antialiased`}
+      className={`${bricolage.variable} ${newsreader.variable} ${caveat.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
         <a
