@@ -3,7 +3,7 @@ import { pillarLabels } from "@/content/types";
 
 export function PillarTag({ pillar }: { pillar: Pillar }) {
   return (
-    <span className="inline-flex items-center rounded-full border border-line px-2.5 py-0.5 text-xs font-medium tracking-wide text-muted">
+    <span className="inline-flex items-center rounded-[2px] border border-line px-2.5 py-0.5 text-xs font-medium tracking-wide text-muted">
       {pillarLabels[pillar]}
     </span>
   );

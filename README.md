@@ -17,7 +17,7 @@ conta o processo. Este README resume a parte de engenharia.
 | Linguagem | TypeScript |
 | Estilo | Tailwind CSS v4 (config em CSS, `@theme`) |
 | Conteúdo | MDX versionado no repositório |
-| Tipografia | Crimson Pro + Plus Jakarta Sans (`next/font/google`) |
+| Tipografia | Bricolage Grotesque (display/UI) + Newsreader (leitura longa) + Caveat (notas de margem) (`next/font/google`) |
 | Deploy | Vercel + Vercel Analytics |
 
 ## Estrutura

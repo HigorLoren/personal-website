@@ -45,13 +45,13 @@ export default async function CasePage(props: PageProps<"/cases/[slug]">) {
         </Link>
 
         <header className="mt-8 max-w-3xl">
-          <p className="text-xs font-medium uppercase tracking-widest text-accent">
-            {meta.year} · {meta.role}
+          <p className="text-sm text-muted">
+            {meta.role}, {meta.year}
           </p>
           <h1 className="mt-4 text-[length:var(--text-h1)] font-semibold leading-[1.05] tracking-[-0.03em]">
             {meta.title}
           </h1>
-          <p className="mt-6 text-lg leading-relaxed text-ink-soft">
+          <p className="font-reading mt-6 text-lg leading-relaxed text-ink-soft">
             {meta.summary}
           </p>
         </header>
@@ -59,20 +59,20 @@ export default async function CasePage(props: PageProps<"/cases/[slug]">) {
         {/* Meta strip */}
         <dl className="mt-10 grid gap-6 border-y border-line py-6 sm:grid-cols-2">
           <div>
-            <dt className="text-xs font-medium uppercase tracking-widest text-muted">
+            <dt className="text-xs font-medium text-muted">
               {t.stack}
             </dt>
             <dd className="mt-2 flex flex-wrap gap-x-2 gap-y-1 text-sm text-ink-soft">
               {meta.stack.map((s, i) => (
                 <span key={s}>
                   {s}
-                  {i < meta.stack.length - 1 ? " ·" : ""}
+                  {i < meta.stack.length - 1 ? "," : ""}
                 </span>
               ))}
             </dd>
           </div>
           <div>
-            <dt className="text-xs font-medium uppercase tracking-widest text-muted">
+            <dt className="text-xs font-medium text-muted">
               {t.pillars}
             </dt>
             <dd className="mt-2">
@@ -88,7 +88,7 @@ export default async function CasePage(props: PageProps<"/cases/[slug]">) {
                 href={meta.liveUrl}
                 className="border-b border-accent pb-0.5 text-ink transition-colors hover:text-accent"
               >
-                {t.liveLink} ↗
+                {t.liveLink}
               </Link>
             )}
             {meta.repoUrl && (
@@ -96,7 +96,7 @@ export default async function CasePage(props: PageProps<"/cases/[slug]">) {
                 href={meta.repoUrl}
                 className="border-b border-accent pb-0.5 text-ink transition-colors hover:text-accent"
               >
-                {t.repoLink} ↗
+                {t.repoLink}
               </Link>
             )}
           </div>
@@ -130,17 +130,12 @@ export default async function CasePage(props: PageProps<"/cases/[slug]">) {
       {/* Next */}
       {next && (
         <Container className="mt-24 border-t border-line pt-10">
-          <p className="text-xs font-medium uppercase tracking-widest text-muted">
-            {t.next}
-          </p>
+          <p className="text-sm text-muted">{t.next}</p>
           <Link
             href={`/cases/${next.slug}`}
-            className="group mt-2 inline-flex items-baseline gap-3 font-display text-2xl font-semibold tracking-tight transition-colors hover:text-accent"
+            className="mt-2 inline-block font-display text-2xl font-semibold tracking-tight transition-colors hover:text-accent"
           >
             {next.title}
-            <span className="transition-transform group-hover:translate-x-1">
-              →
-            </span>
           </Link>
         </Container>
       )}

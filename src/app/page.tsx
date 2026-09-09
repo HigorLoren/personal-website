@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { Container } from "@/components/container";
+import { AnnotatedSection } from "@/components/annotated-section";
 import { CaseCard } from "@/components/case-card";
+import { MarginNote } from "@/components/margin-note";
 import { cases } from "@/content/cases";
 import { getDictionary } from "@/i18n";
 import { site } from "@/lib/site";
@@ -11,20 +12,22 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <Container as="section" className="pb-12 pt-10 md:pt-15">
-        <p className="text-sm font-medium uppercase tracking-[0.2em] text-accent">
-          {t.eyebrow}
-        </p>
-        <h1 className="mt-6 max-w-4xl text-[length:var(--text-hero)] font-bold leading-[1.05] tracking-[-0.015em]">
+      <AnnotatedSection
+        className="pb-12 pt-10 md:pt-15"
+        note={
+          <MarginNote date={t.notes.hero.date}>{t.notes.hero.body}</MarginNote>
+        }
+      >
+        <h1 className="max-w-4xl text-[length:var(--text-hero)] font-bold leading-[1.05] tracking-[-0.015em]">
           {t.title}
         </h1>
-        <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft">
+        <p className="font-reading mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft">
           {t.intro}
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3">
           <a
             href={`mailto:${site.email}`}
-            className="rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper transition-colors hover:bg-accent"
+            className="rounded-none bg-ink px-6 py-3 text-sm font-medium text-paper transition-colors hover:bg-accent"
           >
             {t.ctaPrimary}
           </a>
@@ -32,30 +35,37 @@ export default function HomePage() {
             href="#cases"
             className="text-sm font-medium text-muted transition-colors hover:text-ink"
           >
-            {t.ctaSecondary} ↓
+            {t.ctaSecondary}
           </Link>
         </div>
-      </Container>
+      </AnnotatedSection>
 
-      {/* Pillars */}
-      <Container as="section" className="border-t border-line pb-20 pt-14">
-        <h2 className="font-display text-sm font-medium uppercase tracking-[0.2em] text-muted">
+      {/* O que eu faço bem */}
+      <AnnotatedSection className="border-t border-line pb-20 pt-14">
+        <h2 className="font-display text-sm font-medium text-muted">
           {t.pillarsTitle}
         </h2>
-        <div className="mt-10 grid gap-10 md:grid-cols-3">
+        <dl className="mt-8 max-w-3xl border-t border-line">
           {t.pillars.map((p) => (
-            <div key={p.key}>
-              <h3 className="text-xl font-semibold">{p.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-ink-soft">
-                {p.body}
-              </p>
+            <div
+              key={p.key}
+              className="grid gap-2 border-b border-line py-7 md:grid-cols-[16rem_1fr] md:gap-10"
+            >
+              <dt className="text-lg font-semibold leading-snug">{p.title}</dt>
+              <dd className="leading-relaxed text-ink-soft">{p.body}</dd>
             </div>
           ))}
-        </div>
-      </Container>
+        </dl>
+      </AnnotatedSection>
 
       {/* Cases */}
-      <Container as="section" id="cases" className="scroll-mt-20 border-t border-line py-20">
+      <AnnotatedSection
+        id="cases"
+        className="scroll-mt-20 border-t border-line py-20"
+        note={
+          <MarginNote date={t.notes.cases.date}>{t.notes.cases.body}</MarginNote>
+        }
+      >
         <div className="max-w-2xl">
           <h2 className="font-display text-[length:var(--text-h2)] font-semibold tracking-tight">
             {t.casesTitle}
@@ -67,7 +77,7 @@ export default function HomePage() {
             <CaseCard key={meta.slug} meta={meta} />
           ))}
         </div>
-      </Container>
+      </AnnotatedSection>
     </>
   );
 }

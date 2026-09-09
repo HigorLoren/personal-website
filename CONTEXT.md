@@ -19,6 +19,14 @@ product. The site is itself the first proof of taste and craft.
   stories, and a career timeline.
 - **Momento de deleite** — the single deliberate micro-interaction of the v1: the
   hover/focus treatment on `CaseCard`. Everything else stays still.
+- **Nota de margem** (`MarginNote`) — a dated aside in Higor's own voice, remark
+  in handwriting (Caveat) + printed date, in the revision-red. Sits in the left
+  margin of an `AnnotatedSection` on desktop; on mobile it comes *before* the
+  section content. The site marking up its own draft — the one memorable device.
+  Two or three per page, copy in `src/i18n/pt.ts`.
+- **AnnotatedSection** — page-section wrapper giving the two-track layout: wide
+  left margin (for a `MarginNote`) + main content column. Content always sits in
+  column 2 so the body edge stays aligned across sections.
 - **ndaSafe** — a `CaseMeta` flag. When `true`, the case template hides repo
   links and only shows imagery from public areas of the client product. Client
   name and business-strategy detail never appear.
@@ -29,9 +37,11 @@ product. The site is itself the first proof of taste and craft.
 
 - Stack: Next.js (App Router) + TypeScript + Tailwind v4 + MDX. Static export of
   all routes. Deployed on Vercel.
-- Light theme only, editorial register. Design tokens in `src/app/globals.css`
-  (`@theme`). Fonts: Crimson Pro (display) + Plus Jakarta Sans (body), both via
-  next/font/google.
+- Light theme only, editorial register ("rascunho de trabalho"): cool paper,
+  true-black ink, one marking-pen red used only for annotations/corrections/
+  active nav. Design tokens in `src/app/globals.css` (`@theme`). Fonts:
+  Bricolage Grotesque (display/UI) + Newsreader (long-form reading) + Caveat
+  (handwriting, `MarginNote` only), all via next/font/google.
 - Content is versioned in-repo as MDX. No CMS.
 - Working notes, specs and planning live in `.scratch/` (gitignored). Nothing
   there is published. See `docs/agents/`.
