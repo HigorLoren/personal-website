@@ -66,6 +66,9 @@ Architecture decisions with real trade-offs are recorded in `docs/adr/`.
 - All user-facing copy is keyed in `src/i18n/pt.ts`; only pt-BR ships. See
   ADR-0003.
 - `ndaSafe` governs how client work appears in this public repo. See ADR-0004.
+- Personal contact data in this public SSG repo: e-mail is a disposable alias,
+  base64 in `site.ts`, decoded client-side by `<EmailLink>`; no CV PDF (it
+  carried personal phone/e-mail), sent on request instead. See ADR-0007.
 - Branch strategy: work lands on `dev`; `main` is only merged when a production
   deploy on Vercel is wanted.
 - Working notes, specs and planning live in `.scratch/` (gitignored). Nothing
