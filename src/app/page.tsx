@@ -2,6 +2,7 @@ import Link from "next/link";
 import { AnnotatedSection } from "@/components/annotated-section";
 import { CaseCard } from "@/components/case-card";
 import { MarginNote } from "@/components/margin-note";
+import { PenMark } from "@/components/pen-mark";
 import { cases } from "@/content/cases";
 import { getDictionary } from "@/i18n";
 import { site } from "@/lib/site";
@@ -15,30 +16,37 @@ export default function HomePage() {
       <AnnotatedSection
         className="pb-12 pt-10 md:pt-15"
         note={
-          <MarginNote tag={t.notes.hero.tag} sign>
-            {t.notes.hero.body}
-          </MarginNote>
+          <div className="flex flex-col lg:gap-6">
+            <MarginNote tag={t.notes.hero[0].tag}>
+              {t.notes.hero[0].body}
+            </MarginNote>
+            <MarginNote tag={t.notes.hero[1].tag}>
+              {t.notes.hero[1].body}
+            </MarginNote>
+          </div>
         }
       >
         <h1 className="max-w-4xl text-[length:var(--text-hero)] font-bold leading-[1.05] tracking-[-0.015em]">
-          {t.title}
+          {t.title.before}
+          <PenMark>{t.title.mark}</PenMark>
+          {t.title.after}
         </h1>
         <p className="font-reading mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft">
           {t.intro}
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3">
-          <a
-            href={`mailto:${site.email}`}
+          <Link
+            href="#cases"
             className="rounded-none bg-ink px-6 py-3 text-sm font-medium text-paper transition-colors hover:bg-accent"
           >
             {t.ctaPrimary}
-          </a>
-          <Link
-            href="#cases"
+          </Link>
+          <a
+            href={`mailto:${site.email}`}
             className="text-sm font-medium text-muted transition-colors hover:text-ink"
           >
             {t.ctaSecondary}
-          </Link>
+          </a>
         </div>
       </AnnotatedSection>
 
@@ -65,7 +73,7 @@ export default function HomePage() {
         id="cases"
         className="scroll-mt-20 border-t border-line py-20"
         note={
-          <MarginNote tag={t.notes.cases.tag} sign>
+          <MarginNote tag={t.notes.cases.tag}>
             {t.notes.cases.body}
           </MarginNote>
         }

@@ -1,18 +1,26 @@
 ## O problema
 
 Um cliente já tinha um produto de turismo em produção, com usuários e pagamentos
-reais. Precisava evoluir rápido sem quebrar o que estava no ar e sem acumular
-dívida técnica a cada release.
+reais. Precisava evoluir rápido sem quebrar o que estava no ar.
+
+A parte que mais gerava reclamação era a busca de passagens, que depende de um
+provedor externo. As queixas chegavam pelo suporte, dias depois, e ninguém
+conseguia dizer se o problema tinha sido nosso ou dele.
 
 ## O que descobri
 
-Trabalhando junto do time de produto, os dois pontos de maior risco ficaram
-claros: o fluxo de pagamento e a regressão que passa despercebida até um usuário
-reclamar.
+O provedor respondia `200 OK` e mandava o erro dentro do corpo da resposta.
 
-Isso definiu as prioridades. O pagamento precisava aguentar repetição de
-requisição e falha no meio do caminho. Os testes precisavam cobrir os fluxos que
-não podem quebrar, não só o cenário em que tudo dá certo.
+Para qualquer monitoramento de HTTP aquilo era sucesso. O painel ficava verde
+enquanto o usuário via uma busca vazia. E como nenhuma chamada era registrada,
+não dava para responder nem a pergunta mais básica depois que a reclamação
+chegava: isso está acontecendo agora, ou já passou?
+
+O que ficou claro é que a leitura do que conta como sucesso não pode vir de
+fora. Só a aplicação sabe o que aquele corpo de resposta significa naquele
+domínio. Foi por isso que não contratamos uma ferramenta pronta de
+observabilidade: ela mostra o que a gente mandar, e decidir o que mandar era o
+trabalho inteiro.
 
 ## O que construí
 
@@ -20,13 +28,21 @@ não podem quebrar, não só o cenário em que tudo dá certo.
   um Design System consistente entre as telas.
 - Fluxo de pagamento integrado à API em Node, com idempotência e tratamento dos
   estados intermediários, para não cobrar duas vezes nem deixar o usuário travado.
-- Suíte de testes unitários e ponta a ponta cobrindo os fluxos críticos, rodando
-  no CI a cada push.
-- Observabilidade nos pontos que mais quebram, para detectar problema em produção
-  antes que ele escale.
+  O cliente do gateway é escrito à mão, porque o SDK oficial não cobria o que a
+  gente precisava.
+- O módulo de observabilidade: cada chamada ao provedor é classificada numa
+  taxonomia própria de desfechos, o histórico fica em Postgres, e a saúde de cada
+  companhia aérea é respondida olhando as últimas chamadas feitas para ela, sem
+  depender de janela de tempo.
+- Suíte de testes unitários e ponta a ponta cobrindo os fluxos críticos, com
+  teste de mutação para achar teste que passa sem testar nada.
 
 ## Resultado
 
-O produto está em produção e evolui por pull requests revisados, com os testes
-segurando a regressão. É o meu exemplo mais recente de React num produto pago, em
-produção.
+O produto está em produção e evolui por pull requests revisados. São 898 casos
+de teste automatizados e 25 decisões de arquitetura escritas ao lado do código,
+cada uma com o motivo e o que se abriu mão para tomá-la.
+
+O módulo de observabilidade mede e mostra, e não decide nem dispara alerta. Isso
+foi escolha: alerta automático só se paga quando existe alguém de plantão para
+recebê-lo, e essa hora ainda não chegou.

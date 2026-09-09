@@ -18,7 +18,7 @@ export interface CaseMeta {
   summary: string;
   pillars: Pillar[];
   stack: string[];
-  /** Path under /public, e.g. /assets/cases/donko/cover.png */
+  /** Path under /public, e.g. /assets/cases/card-finder/cover.png */
   cover: string;
   liveUrl?: string;
   repoUrl?: string;
