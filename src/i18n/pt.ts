@@ -12,32 +12,32 @@ export const pt = {
 
   home: {
     title:
-      "Transformo necessidades ainda vagas em produtos digitais simples e bem construídos.",
+      "Faço frontend há sete anos. A parte que rende vem antes da primeira tela.",
     intro:
-      "Sou desenvolvedor frontend há sete anos. Trabalho perto de produto e de cliente: questiono o requisito, prototipo antes de codar e entrego interface com atenção ao detalhe. Uso IA no processo o dia inteiro — como ferramenta de precisão, com o julgamento técnico por trás.",
+      "Passei por consultoria e empresa grande (IBM, Serasa), produto para o agro (Agrosatélite) e SaaS para clientes. Em todos, o gargalo era o mesmo: o que pediram raramente era o que resolvia o problema. Uso IA o dia todo para codar, testar e documentar. Decidir o que construir continua comigo.",
     ctaPrimary: "Vamos conversar",
     ctaSecondary: "Ver cases",
-    pillarsTitle: "Como eu contribuo",
+    pillarsTitle: "O que eu faço bem",
     pillars: [
       {
         key: "tecnica",
-        title: "Qualidade técnica",
-        body: "React, TypeScript e Node. Componentes reutilizáveis, Design System, testes e arquitetura que aguenta o produto crescer. Integração com APIs e serviços.",
+        title: "Código que aguenta o produto crescer",
+        body: "React, TypeScript e Node. Componente reaproveitável, Design System, teste e uma base que não trava quando o produto dobra de tamanho.",
       },
       {
         key: "uiux",
-        title: "Sensibilidade de UI/UX",
-        body: "Atenção a detalhe, consistência visual, responsividade e acessibilidade. O fluxo e o protótipo vêm antes do código — e são discutidos com quem vai usar.",
+        title: "Interface resolvida antes de virar código",
+        body: "O fluxo e o protótipo vêm primeiro, discutidos com quem vai usar. Depois é consistência visual, responsivo de verdade e acessibilidade.",
       },
       {
         key: "produto",
-        title: "Visão de produto",
-        body: "Participo do discovery e das validações com clientes. Traduzo problema de negócio em solução, ajudo a escrever critérios de aceite e itero rápido a partir do feedback.",
+        title: "Problema de negócio traduzido em solução",
+        body: "Entro no discovery e nas validações com o cliente. Ajudo a escrever critério de aceite e ajusto rápido a partir do feedback de quem usa.",
       },
     ],
     casesTitle: "Cases",
     casesIntro:
-      "Três recortes: um projeto de produção para cliente, um produto que mantenho sozinho há anos, e a própria construção deste site orientada por IA.",
+      "Três projetos: um SaaS de produção para cliente, um produto pessoal que mantenho desde 2021, e a construção deste site com IA.",
   },
 
   caseSections: {
@@ -58,7 +58,7 @@ export const pt = {
   about: {
     title: "Sobre",
     lead:
-      "Higor Lorenzon. Desenvolvedor frontend, sete anos de estrada — de consultoria e empresa grande (IBM, Serasa) a plataforma agrícola (Agrosatélite para Bayer) e SaaS para clientes. Moro no Brasil e trabalho bem perto de produto.",
+      "Higor Lorenzon, desenvolvedor frontend com sete anos de estrada: consultoria e empresa grande (IBM, Serasa), plataforma agrícola (Agrosatélite, para a Bayer) e SaaS para clientes. Moro no Brasil e trabalho perto de produto.",
     methodTitle: "Como eu trabalho",
     methodIntro:
       "Não gosto de receber requisito pronto. O trabalho que rende é o que começa antes da tela existir.",
@@ -110,7 +110,7 @@ export const pt = {
     githubLabel: "GitHub",
     linkedinLabel: "LinkedIn",
     builtWith:
-      "Construído com Next.js e TypeScript. O processo virou um case — veja acima.",
+      "Feito com Next.js e TypeScript. Como este site foi construído virou um dos cases.",
     rights: "Higor Lorenzon",
   },
 } as const;

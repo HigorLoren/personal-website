@@ -51,7 +51,7 @@ export default async function CasePage(props: PageProps<"/cases/[slug]">) {
           <h1 className="mt-4 text-[length:var(--text-h1)] font-semibold leading-[1.05] tracking-[-0.03em]">
             {meta.title}
           </h1>
-          <p className="mt-6 text-lg leading-relaxed text-ink-soft">
+          <p className="font-reading mt-6 text-lg leading-relaxed text-ink-soft">
             {meta.summary}
           </p>
         </header>

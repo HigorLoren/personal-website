@@ -15,7 +15,7 @@ export default function HomePage() {
         <h1 className="max-w-4xl text-[length:var(--text-hero)] font-bold leading-[1.05] tracking-[-0.015em]">
           {t.title}
         </h1>
-        <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft">
+        <p className="font-reading mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft">
           {t.intro}
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3">
@@ -34,21 +34,22 @@ export default function HomePage() {
         </div>
       </Container>
 
-      {/* Pillars */}
+      {/* O que eu faço bem */}
       <Container as="section" className="border-t border-line pb-20 pt-14">
         <h2 className="font-display text-sm font-medium text-muted">
           {t.pillarsTitle}
         </h2>
-        <div className="mt-10 grid gap-10 md:grid-cols-3">
+        <dl className="mt-8 max-w-3xl border-t border-line">
           {t.pillars.map((p) => (
-            <div key={p.key}>
-              <h3 className="text-xl font-semibold">{p.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-ink-soft">
-                {p.body}
-              </p>
+            <div
+              key={p.key}
+              className="grid gap-2 border-b border-line py-7 md:grid-cols-[16rem_1fr] md:gap-10"
+            >
+              <dt className="text-lg font-semibold leading-snug">{p.title}</dt>
+              <dd className="leading-relaxed text-ink-soft">{p.body}</dd>
             </div>
           ))}
-        </div>
+        </dl>
       </Container>
 
       {/* Cases */}

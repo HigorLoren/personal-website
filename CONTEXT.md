@@ -29,8 +29,10 @@ product. The site is itself the first proof of taste and craft.
 
 - Stack: Next.js (App Router) + TypeScript + Tailwind v4 + MDX. Static export of
   all routes. Deployed on Vercel.
-- Light theme only, editorial register. Design tokens in `src/app/globals.css`
-  (`@theme`). Fonts: Crimson Pro (display) + Plus Jakarta Sans (body), both via
+- Light theme only, editorial register ("rascunho de trabalho"): cool paper,
+  true-black ink, one marking-pen red used only for annotations/corrections/
+  active nav. Design tokens in `src/app/globals.css` (`@theme`). Fonts:
+  Bricolage Grotesque (display/UI) + Newsreader (long-form reading), both via
   next/font/google.
 - Content is versioned in-repo as MDX. No CMS.
 - Working notes, specs and planning live in `.scratch/` (gitignored). Nothing
