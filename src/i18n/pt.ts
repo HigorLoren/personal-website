@@ -37,7 +37,7 @@ export const pt = {
     ],
     casesTitle: "Cases",
     casesIntro:
-      "Três projetos: um SaaS de produção para cliente, um produto pessoal que mantenho desde 2021, e a construção deste site com IA.",
+      "Três projetos: um SaaS de produção para cliente, um produto pessoal que está no ar desde 2019, e a construção deste site com IA.",
     notes: {
       hero: {
         tag: "rev. 4",
