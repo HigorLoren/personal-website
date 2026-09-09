@@ -46,7 +46,9 @@ export default function AboutPage() {
       <AnnotatedSection
         className="mt-24 border-t border-line pt-16"
         note={
-          <MarginNote date={t.methodNote.date}>{t.methodNote.body}</MarginNote>
+          <MarginNote tag={t.methodNote.tag} sign>
+            {t.methodNote.body}
+          </MarginNote>
         }
       >
         <h2 className="font-display text-[length:var(--text-h2)] font-semibold tracking-tight">
