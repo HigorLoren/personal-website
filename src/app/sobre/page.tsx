@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { AnnotatedSection } from "@/components/annotated-section";
 import { Container } from "@/components/container";
+import { MarginNote } from "@/components/margin-note";
 import { timeline } from "@/content/timeline";
 import { getDictionary } from "@/i18n";
 import { site } from "@/lib/site";
@@ -8,7 +10,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Sobre",
   description:
-    "Como eu trabalho: discovery, protótipo, especificação, desenvolvimento com IA e validação — com exemplos reais.",
+    "Como eu trabalho: discovery, protótipo, especificação, desenvolvimento com IA e validação, com exemplos reais.",
 };
 
 export default function AboutPage() {
@@ -16,7 +18,7 @@ export default function AboutPage() {
 
   return (
     <div className="pt-16">
-      {/* Intro */}
+      {/* Intro — the lead statement, full measure */}
       <Container as="section">
         <div className="grid gap-10 md:grid-cols-[1fr_auto] md:items-start">
           <div className="max-w-2xl">
@@ -41,7 +43,12 @@ export default function AboutPage() {
       </Container>
 
       {/* Method */}
-      <Container as="section" className="mt-24 border-t border-line pt-16">
+      <AnnotatedSection
+        className="mt-24 border-t border-line pt-16"
+        note={
+          <MarginNote date={t.methodNote.date}>{t.methodNote.body}</MarginNote>
+        }
+      >
         <h2 className="font-display text-[length:var(--text-h2)] font-semibold tracking-tight">
           {t.methodTitle}
         </h2>
@@ -60,10 +67,10 @@ export default function AboutPage() {
             </li>
           ))}
         </ol>
-      </Container>
+      </AnnotatedSection>
 
       {/* Stories */}
-      <Container as="section" className="mt-24 border-t border-line pt-16">
+      <AnnotatedSection className="mt-24 border-t border-line pt-16">
         <h2 className="font-display text-[length:var(--text-h2)] font-semibold tracking-tight">
           {t.storiesTitle}
         </h2>
@@ -75,10 +82,10 @@ export default function AboutPage() {
             </div>
           ))}
         </div>
-      </Container>
+      </AnnotatedSection>
 
       {/* Timeline */}
-      <Container as="section" className="mt-24 border-t border-line pt-16">
+      <AnnotatedSection className="mt-24 border-t border-line pt-16">
         <h2 className="font-display text-[length:var(--text-h2)] font-semibold tracking-tight">
           {t.timelineTitle}
         </h2>
@@ -102,7 +109,7 @@ export default function AboutPage() {
             </li>
           ))}
         </ul>
-      </Container>
+      </AnnotatedSection>
     </div>
   );
 }

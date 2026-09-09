@@ -38,6 +38,16 @@ export const pt = {
     casesTitle: "Cases",
     casesIntro:
       "Três projetos: um SaaS de produção para cliente, um produto pessoal que mantenho desde 2021, e a construção deste site com IA.",
+    notes: {
+      hero: {
+        date: "set 2026",
+        body: "Revisão 4. Tirei daqui três frases que vendiam bem e não diziam nada.",
+      },
+      cases: {
+        date: "set 2026",
+        body: "Três, de propósito. Portfólio com vinte projetos rasos não diz nada.",
+      },
+    },
   },
 
   caseSections: {
@@ -62,6 +72,10 @@ export const pt = {
     methodTitle: "Como eu trabalho",
     methodIntro:
       "Não gosto de receber requisito pronto. O trabalho que rende é o que começa antes da tela existir.",
+    methodNote: {
+      date: "set 2026",
+      body: "O passo 4 saiu genérico da IA na primeira versão. Reescrevi à mão.",
+    },
     method: [
       {
         step: "Discovery",
