@@ -1,8 +1,11 @@
 import Link from "next/link";
 import { Container } from "@/components/container";
-import { nav, site } from "@/lib/site";
+import { contactHref, nav, site } from "@/lib/site";
+import { getDictionary } from "@/i18n";
 
 export function SiteHeader() {
+  const t = getDictionary().nav;
+
   return (
     <header className="border-b border-line bg-paper">
       <Container className="flex h-16 items-center justify-between">
@@ -26,10 +29,10 @@ export function SiteHeader() {
             ))}
             <li>
               <Link
-                href={`mailto:${site.email}`}
+                href={contactHref}
                 className="underline-hand text-ink transition-colors hover:text-accent"
               >
-                Contato
+                {t.contact}
               </Link>
             </li>
           </ul>

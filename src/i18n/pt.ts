@@ -8,6 +8,7 @@ export const pt = {
 
   nav: {
     skipToContent: "Pular para o conteúdo",
+    contact: "Contato",
   },
 
   home: {
@@ -129,9 +130,35 @@ export const pt = {
       },
     ],
     timelineTitle: "Trajetória",
-    contactTitle: "Vamos conversar",
-    contactBody:
-      "Aberto a conversar sobre frontend, produto e IA aplicada ao desenvolvimento. O caminho mais direto é o e-mail.",
+  },
+
+  contact: {
+    title: "Contato",
+    lead:
+      "Aberto a conversar sobre frontend, produto e IA aplicada ao desenvolvimento. O e-mail é o caminho mais direto.",
+    cvDisplay: "Baixar o currículo em PDF",
+    channels: {
+      email: {
+        label: "E-mail",
+        note: "Para proposta, dúvida ou uma conversa sem compromisso.",
+      },
+      linkedin: {
+        label: "LinkedIn",
+        note: "A trajetória completa, com as datas.",
+      },
+      github: {
+        label: "GitHub",
+        note: "Código público, incluindo o deste site.",
+      },
+      cv: {
+        label: "Currículo",
+        note: "A mesma trajetória, em duas páginas para imprimir ou encaminhar.",
+      },
+    },
+    note: {
+      tag: "correção",
+      body: "Antes o botão de contato abria o e-mail direto. Ficou ruim.",
+    },
   },
 
   footer: {

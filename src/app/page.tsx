@@ -5,7 +5,7 @@ import { MarginNote } from "@/components/margin-note";
 import { PenMark } from "@/components/pen-mark";
 import { cases } from "@/content/cases";
 import { getDictionary } from "@/i18n";
-import { site } from "@/lib/site";
+import { contactHref } from "@/lib/site";
 
 export default function HomePage() {
   const t = getDictionary().home;
@@ -41,12 +41,12 @@ export default function HomePage() {
           >
             {t.ctaPrimary}
           </Link>
-          <a
-            href={`mailto:${site.email}`}
+          <Link
+            href={contactHref}
             className="text-sm font-medium text-muted transition-colors hover:text-ink"
           >
             {t.ctaSecondary}
-          </a>
+          </Link>
         </div>
       </AnnotatedSection>
 

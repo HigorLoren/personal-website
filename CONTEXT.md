@@ -19,6 +19,9 @@ product. The site is itself the first proof of taste and craft.
   stories, and a career timeline.
 - **Momento de deleite** — the single deliberate micro-interaction of the v1: the
   hover/focus treatment on `CaseCard`. Everything else stays still.
+- **Página Contato** — the `/contato` route: e-mail, LinkedIn, GitHub and the
+  CV as a list with one honest line each. Header "Contato" and the home's
+  secondary CTA point here instead of opening a mailto directly.
 - **Nota de margem** (`MarginNote`) — an aside in Higor's own voice: remark in
   handwriting (Caveat, revision-red) + a short printed tag (`rev. 4`, `nota`,
   `correção`) as the margin mark. No signature. Sits in the left

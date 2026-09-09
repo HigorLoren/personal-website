@@ -21,3 +21,5 @@ export const nav = [
   { href: "/#cases", label: "Cases" },
   { href: "/sobre", label: "Sobre" },
 ] as const;
+
+export const contactHref = "/contato";
