@@ -1,22 +1,22 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------------------------
-   Design tokens — light theme only, editorial register.
-   Near-monochrome warm paper + ink, one terracotta accent used sparingly.
+   Design tokens — "rascunho de trabalho". Cool paper + true-black ink, one
+   marking-pen red used only for annotations, corrections and active nav.
 --------------------------------------------------------------------------- */
 @theme {
-  --color-paper: #fbfaf8;
-  --color-surface: #f3efe8;
+  --color-paper: #fafaf9;
+  --color-surface: #f1f1ef;
   --color-ink: #101014;
-  --color-ink-soft: #3d3b35;
-  --color-muted: #6f6b62;
-  --color-line: #e4ded3;
-  --color-accent: #b5432b;
-  --color-accent-soft: #c9694f;
+  --color-ink-soft: #34343a;
+  --color-muted: #5b5b63;
+  --color-line: #e1e1dd;
+  --color-accent: #be2a1c;
+  --color-accent-soft: #d93f30;
 
-  --font-display: var(--font-crimson), Georgia, serif;
-  --font-sans: var(--font-jakarta), -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Helvetica, Arial, sans-serif;
+  --font-display: var(--font-bricolage), "Helvetica Neue", Arial, sans-serif;
+  --font-sans: var(--font-bricolage), "Helvetica Neue", Arial, sans-serif;
+  --font-reading: var(--font-newsreader), Georgia, "Times New Roman", serif;
 
   --text-hero: clamp(2.35rem, 4.5vw + 1rem, 4.5rem);
   --text-h1: clamp(2.25rem, 4vw + 1rem, 3.5rem);
@@ -85,15 +85,21 @@
   .font-display {
     font-family: var(--font-display);
   }
+
+  /* long-form reading serif — lead paragraphs, case summaries */
+  .font-reading {
+    font-family: var(--font-reading);
+  }
 }
 
 /* ---------------------------------------------------------------------------
    Prose — long-form case study body
 --------------------------------------------------------------------------- */
 .prose {
-  max-width: 68ch;
-  font-size: 1.0625rem;
-  line-height: 1.7;
+  max-width: 66ch;
+  font-family: var(--font-reading);
+  font-size: 1.125rem;
+  line-height: 1.75;
   color: var(--color-ink-soft);
 }
 

@@ -1,27 +1,22 @@
-import { Crimson_Pro, Plus_Jakarta_Sans } from "next/font/google";
+import { Bricolage_Grotesque, Newsreader } from "next/font/google";
 
-// Crimson Pro — display/heading serif, editorial register. Fetched from Google
-// Fonts at build time (SIL Open Font License, commercial use permitted).
-export const crimsonPro = Crimson_Pro({
+// Bricolage Grotesque — display, UI and short-form text. A variable grotesque
+// with an irregular, "assembled" personality that fits a portfolio built around
+// prototyping and iteration. Google Fonts (SIL Open Font License).
+export const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-crimson",
+  variable: "--font-bricolage",
   display: "swap",
-  fallback: ["Georgia", "serif"],
+  fallback: ["Helvetica Neue", "Arial", "sans-serif"],
 });
 
-// Plus Jakarta Sans — body/UI sans. Google Fonts (SIL Open Font License).
-export const plusJakartaSans = Plus_Jakarta_Sans({
+// Newsreader — long-form reading only (case study bodies). A text serif with
+// real italics; gives the case pages a document register distinct from the
+// Bricolage marketing surface. Google Fonts (SIL Open Font License).
+export const newsreader = Newsreader({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-jakarta",
+  style: ["normal", "italic"],
+  variable: "--font-newsreader",
   display: "swap",
-  fallback: [
-    "-apple-system",
-    "BlinkMacSystemFont",
-    "Segoe UI",
-    "Helvetica",
-    "Arial",
-    "sans-serif",
-  ],
+  fallback: ["Georgia", "Times New Roman", "serif"],
 });

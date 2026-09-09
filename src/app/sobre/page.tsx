@@ -23,7 +23,9 @@ export default function AboutPage() {
             <h1 className="text-[length:var(--text-h1)] font-semibold tracking-[-0.03em]">
               {t.title}
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-ink-soft">{t.lead}</p>
+            <p className="font-reading mt-6 text-lg leading-relaxed text-ink-soft">
+              {t.lead}
+            </p>
           </div>
           <div className="relative h-40 w-40 shrink-0 overflow-hidden rounded-lg border border-line bg-surface md:h-48 md:w-48">
             {/* TODO: substituir por foto real — trocar src por /assets/higor.jpg */}
