@@ -12,9 +12,9 @@ export const pt = {
 
   home: {
     title:
-      "Faço frontend há sete anos. A parte que rende vem antes da primeira tela.",
+      "Faço frontend há oito anos. A parte que rende vem antes da primeira tela.",
     intro:
-      "Passei por consultoria e empresa grande (IBM, Serasa), produto para o agro (Agrosatélite) e SaaS para clientes. Em todos, o gargalo era o mesmo: o que pediram raramente era o que resolvia o problema. Uso IA o dia todo para codar, testar e documentar. Decidir o que construir continua comigo.",
+      "Passei por e-commerce de 70 mil usuários por mês, consultoria e empresa grande (IBM, Serasa), produto para o agronegócio e SaaS de assinatura para cliente. Em todos, o gargalo era o mesmo: o que pediram raramente era o que resolvia o problema. Uso IA o dia todo para codar, testar e documentar. Decidir o que construir continua comigo.",
     ctaPrimary: "Vamos conversar",
     ctaSecondary: "Ver cases",
     pillarsTitle: "O que eu faço bem",
@@ -78,7 +78,7 @@ export const pt = {
   about: {
     title: "Sobre",
     lead:
-      "Higor Lorenzon, desenvolvedor frontend com sete anos de estrada: consultoria e empresa grande (IBM, Serasa), plataforma agrícola (Agrosatélite, para a Bayer) e SaaS para clientes. Moro no Brasil e trabalho perto de produto.",
+      "Higor Lorenzon, desenvolvedor frontend com oito anos de estrada: e-commerce, consultoria e empresa grande (IBM, Serasa), plataforma agrícola para a Bayer, e hoje SaaS de assinatura para cliente. Moro no Brasil e trabalho perto de produto.",
     methodTitle: "Como eu trabalho",
     methodIntro:
       "Não gosto de receber requisito pronto. O trabalho que rende é o que começa antes da tela existir.",
