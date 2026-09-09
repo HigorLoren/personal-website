@@ -37,14 +37,19 @@ product. The site is itself the first proof of taste and craft.
 
 ## Key decisions
 
-- Stack: Next.js (App Router) + TypeScript + Tailwind v4 + MDX. Static export of
-  all routes. Deployed on Vercel.
+Architecture decisions with real trade-offs are recorded in `docs/adr/`.
+
+- Stack: Next.js (App Router) + TypeScript + Tailwind v4 + MDX. All routes
+  statically prerendered (SSG). Deployed on Vercel. See ADR-0001.
 - Light theme only, editorial register ("rascunho de trabalho"): cool paper,
   true-black ink, one marking-pen red used only for annotations/corrections/
   active nav. Design tokens in `src/app/globals.css` (`@theme`). Fonts:
   Bricolage Grotesque (display/UI) + Newsreader (long-form reading) + Caveat
   (handwriting, `MarginNote` only), all via next/font/google.
-- Content is versioned in-repo as MDX. No CMS.
+- Content is versioned in-repo as MDX. No CMS. See ADR-0002.
+- All user-facing copy is keyed in `src/i18n/pt.ts`; only pt-BR ships. See
+  ADR-0003.
+- `ndaSafe` governs how client work appears in this public repo. See ADR-0004.
 - Branch strategy: work lands on `dev`; `main` is only merged when a production
   deploy on Vercel is wanted.
 - Working notes, specs and planning live in `.scratch/` (gitignored). Nothing
