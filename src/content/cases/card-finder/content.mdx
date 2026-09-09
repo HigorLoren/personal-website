@@ -1,0 +1,53 @@
+## O problema
+
+Quem coleciona carta de Pokémon e quer saber quanto tem na mão faz isso carta a
+carta: digita o nome, escolhe a edição, confere o número, olha o preço. Com trinta
+cartas em cima da mesa, ninguém faz.
+
+A ideia era tirar uma foto e receber os valores de volta. Depois apareceu um
+segundo uso: fotografar um deck montado e receber a lista pronta para importar no
+jogo digital.
+
+## O que descobri
+
+Modelo de visão erra com confiança. Ele devolve uma carta que não existe naquela
+edição, ou acerta o nome e erra o número, e o grau de confiança que ele mesmo
+reporta continua alto.
+
+Isso não é defeito de prompt, é como a ferramenta funciona. Num produto que fala
+de dinheiro, porém, uma carta inventada não é um detalhe de precisão: é o usuário
+achando que tem um valor que não tem.
+
+Então a saída do modelo não podia ser a resposta final. Ela tinha que virar uma
+pergunta, feita para alguém capaz de responder não.
+
+## O que construí
+
+Dois aplicativos, um mobile em React Native com Expo e um web em Vite, sobre uma
+camada compartilhada de serviços e tipos.
+
+- A imagem é reduzida para no máximo 1600px antes de sair do aparelho, e o modelo
+  responde em JSON com nome, número, edição, idioma e um grau de confiança por
+  carta.
+- Toda carta reconhecida é conferida na API pública do Pokémon TCG antes de
+  aparecer na tela. O que não bate fica marcado como não confirmado e é removido
+  quando o usuário copia a lista. Preço nenhum vem do modelo: vem do TCGPlayer e
+  do Cardmarket, através dessa API.
+- Dois caminhos de queda. Se o serviço próprio de identificação não responde ao
+  health check, o app passa a falar direto com o Gemini. Só nesse caso: falha de
+  infraestrutura tem um tipo de erro próprio, e o erro de domínio continua subindo
+  em vez de ser engolido por um fallback genérico. No fluxo de deck, se o Gemini
+  falha, entra um segundo provedor.
+- Os tipos do serviço de identificação são gerados a partir do OpenAPI dele, então
+  mudança de contrato quebra no TypeScript, não em produção.
+- A interface é uma conversa em vez de um formulário. Manda a foto, recebe as
+  cartas.
+
+## Resultado
+
+Os dois fluxos estão implementados: valor de mercado por carta, e lista de deck no
+formato que o Pokémon TCG Live importa.
+
+O que eu levo daqui é o hábito de tratar resposta de modelo como palpite. Ela é
+útil, é rápida, e entra no produto depois de passar por uma fonte que pode
+contradizê-la.
