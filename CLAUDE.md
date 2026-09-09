@@ -89,3 +89,55 @@ Issues and specs live as markdown files under `.scratch/` (gitignored — never 
 ### Domain docs
 
 Single-context: one `CONTEXT.md` + `docs/adr/` at the repo root. See `docs/agents/domain.md`.
+
+---
+
+# Working on this repo
+
+## Approach
+
+- **Plan before touching code.** For anything larger than a one-line fix:
+  diagnose first, then write a prioritized plan — P0 / P1 / P2, cheap and
+  low-risk first, subjective or structural last. Show it, get a yes, execute in
+  that order.
+- **Ship in small reviewable slices.** One phase = one branch = one commit.
+  After each: `npm run build` + `npm run lint` + a quick smoke test, then hand
+  back for the user to eyeball before the next phase. Don't batch phases into
+  one diff.
+- **Recommend, don't enumerate.** On a judgment call, give one recommendation
+  with a sentence of why. Offer 2–3 options only when they're genuinely
+  different bets and the user's taste should decide.
+- **Say what's still undone.** If a phase ships partial, note it in the commit
+  body (`Falta do P1: ...`) and in the reply. Keep a running P2 list.
+
+## Design & copy work
+
+- Use the `frontend-design` skill for any visual change. Follow its two-pass
+  method: draft a token plan, then review it against the brief and cut anything
+  that is a generic default.
+- Ground aesthetic choices in Higor's real work and this site's concept
+  (`CONTEXT.md` — "rascunho de trabalho"). A choice that would fit any
+  portfolio is not a choice.
+- Copy is content, not decoration. Cut the AI tells: "transformo X em Y",
+  tricolons, "não X, mas Y", em-dash asides, tracked ALL-CAPS labels, glyphs
+  glued to link text (`→ ↗ ↓`), meta strings joined with `·`, self-important
+  closers.
+- **Margin-note and case-study copy must be literally true.** If a claim can't
+  be verified, ask or pick a different one.
+
+## Conventions (don't skip)
+
+- All user-facing strings live in `src/i18n/pt.ts`. Components never hard-code
+  copy; derive labels from config (`src/lib/site.ts`) where possible.
+- Portuguese from Brazil, fully accented, everywhere.
+- When something structural changes (fonts, design tokens, a new core
+  component, a new concept), update `CONTEXT.md` (glossary + key decisions) and
+  `README.md` in the same commit.
+- `dev` is the integration branch; `main` is production (Vercel deploys it on
+  push). Branch off `dev`, merge work back into `dev` (`--no-ff`). Merge
+  `dev` → `main` only when the user explicitly wants a production deploy.
+- Conventional Commits, imperative, in Portuguese, with the `Co-Authored-By`
+  trailer. Push only when asked.
+- Verify before reporting: build + lint, grep for leftover patterns, curl the
+  affected routes under `npm run dev`. Report failures with their output; never
+  claim done without checking.

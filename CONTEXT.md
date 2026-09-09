@@ -45,6 +45,8 @@ product. The site is itself the first proof of taste and craft.
   Bricolage Grotesque (display/UI) + Newsreader (long-form reading) + Caveat
   (handwriting, `MarginNote` only), all via next/font/google.
 - Content is versioned in-repo as MDX. No CMS.
+- Branch strategy: work lands on `dev`; `main` is only merged when a production
+  deploy on Vercel is wanted.
 - Working notes, specs and planning live in `.scratch/` (gitignored). Nothing
   there is published. See `docs/agents/`.
 
