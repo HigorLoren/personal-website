@@ -13,7 +13,7 @@ export const pt = {
 
   home: {
     title: {
-      before: "Faço frontend há oito anos. A parte que rende vem ",
+      before: "Faço frontend há 8 anos. A parte que rende vem ",
       mark: "antes",
       after: " da primeira tela.",
     },
@@ -49,8 +49,8 @@ export const pt = {
           body: "Tirei daqui três frases que vendiam bem e não diziam nada.",
         },
         {
-          tag: "rev. 5",
-          body: "Grifei o antes de caneta. E todo sublinhado do site virou esse traço.",
+          tag: "correção",
+          body: "Eram 8 anos, não 7. Errei contra mim mesmo.",
         },
       ],
       cases: {
@@ -75,47 +75,50 @@ export const pt = {
     next: "Próximo case",
     esteSiteNotes: [
       {
-        tag: "nota",
-        body: "A v1 disso aqui tinha cara de template de IA. Refiz a identidade.",
+        tag: "rev. 3",
+        body: "Terceira versão deste texto. A primeira listava o que eu fiz. Esta conta o que eu decidi.",
       },
       {
-        tag: "correção",
-        body: "E reescrevi esta copy à mão, pra tirar o tom de release.",
+        tag: "nota",
+        body: "A auditoria também foi com IA. Ela achou erro meu, não o contrário.",
       },
     ],
   },
 
   about: {
-    title: "Sobre",
-    lead:
-      "Higor Lorenzon, desenvolvedor frontend com oito anos de estrada: e-commerce, consultoria e empresa grande (IBM, Serasa), plataforma agrícola para a Bayer, e hoje SaaS de assinatura para cliente. Moro no Brasil e trabalho perto de produto.",
     methodTitle: "Como eu trabalho",
     methodIntro:
-      "Não gosto de receber requisito pronto. O trabalho que rende é o que começa antes da tela existir.",
-    methodNote: {
-      tag: "correção",
-      body: "O passo 4 saiu genérico da IA na primeira versão. Reescrevi à mão.",
-    },
+      "Prefiro entrar antes do requisito ficar pronto. O trabalho que rende é o que começa antes da tela existir.",
+    methodNotes: [
+      {
+        tag: "correção",
+        body: "O passo 4 saiu genérico da IA na primeira versão. Reescrevi à mão.",
+      },
+      {
+        tag: "nota",
+        body: "Onze passos. Eles me orientam no fluxo, e pelo harness eu oriento a IA. O quinto é o que importa: nada toca o código antes de eu dizer GO.",
+      },
+    ],
     method: [
       {
         step: "Discovery",
-        body: "Sento com produto e com o cliente para entender a dor real — não a solução que já vieram pedindo. Questiono, faço a pergunta chata, mapeio a jornada.",
+        body: "Nenhuma feature grande começa com um prompt de implementação. Começa com uma sessão de perguntas em rodadas, com produto e com o cliente, até a dor real aparecer por baixo da solução que vieram pedindo.",
       },
       {
         step: "Protótipo",
-        body: "Coloco um fluxo navegável na frente das pessoas o quanto antes. É mais barato descobrir que a ideia está errada num protótipo do que num sprint.",
+        body: "Protótipo bom é o que pode ser jogado fora. Rodo numa cópia isolada do projeto, com regras escritas: nada publicado, nenhum custo, e boa parte sem mim por perto. Já teve protótipo avaliado e cortado por complexidade. Descobrir isso ali custa menos que num sprint.",
       },
       {
         step: "Especificação",
-        body: "Ajudo a transformar o que foi validado em critérios de aceite, regras de negócio e cenários. A spec é curta, mas existe.",
+        body: "O que foi validado vira critério de aceite, regra de negócio e cenário. Na pesquisa, os agentes buscam o material em paralelo. Definir os termos, refinar a busca, entender o que voltou e fazer a análise crítica é trabalho meu. O resultado vira documento versionado no repositório, e a decisão que sai dele vira uma ADR: o que foi escolhido, o que foi descartado e por quê, para quem chegar depois não precisar refazer a discussão.",
       },
       {
         step: "Desenvolvimento com IA",
-        body: "Desenvolvo orientado pela spec, usando Claude e ferramentas similares em todas as etapas: prototipação, código, testes, documentação e revisão. A IA acelera; a decisão técnica é minha.",
+        body: "Sigo um protocolo de onze passos, montado com o que aprendi na prática, testei e li de quem estuda o assunto: ler e questionar o diagnóstico, propor, esperar meu GO antes de tocar o código, implementar, rodar build, lint e testes, e então dois revisores em paralelo, um para o código e outro para aderência à spec.",
       },
       {
         step: "Validação",
-        body: "Entrego cedo, coleto feedback de quem usa e itero. O ciclo é curto de propósito.",
+        body: "Entrego cedo e coleto feedback de quem usa. E desconfio do que a IA gerou: pergunto se está reinventando a roda, se segue a prática certa, se aquilo tem nome em arquitetura.",
       },
     ],
     storiesTitle: "Onde isso apareceu",
@@ -134,8 +137,7 @@ export const pt = {
 
   contact: {
     title: "Contato",
-    lead:
-      "Aberto a conversar sobre frontend, produto e IA aplicada ao desenvolvimento. O e-mail é o caminho mais direto.",
+    lead: "Aberto a conversar sobre frontend, produto e IA aplicada ao desenvolvimento. O e-mail é o caminho mais direto.",
     cvDisplay: "Baixar o currículo em PDF",
     channels: {
       email: {

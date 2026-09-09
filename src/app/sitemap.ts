@@ -5,7 +5,6 @@ import { site } from "@/lib/site";
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes: MetadataRoute.Sitemap = [
     { url: site.url, priority: 1 },
-    { url: `${site.url}/sobre`, priority: 0.8 },
     { url: `${site.url}/contato`, priority: 0.5 },
   ];
 

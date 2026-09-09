@@ -3,6 +3,10 @@ import createMDX from "@next/mdx";
 
 const nextConfig: NextConfig = {
   pageExtensions: ["ts", "tsx", "mdx"],
+  async redirects() {
+    // /sobre became a section of the home; keep shared links working.
+    return [{ source: "/sobre", destination: "/#sobre", permanent: true }];
+  },
   turbopack: {
     root: __dirname,
   },
