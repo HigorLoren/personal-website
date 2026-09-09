@@ -11,12 +11,15 @@ export const pt = {
   },
 
   home: {
-    title:
-      "Faço frontend há oito anos. A parte que rende vem antes da primeira tela.",
+    title: {
+      before: "Faço frontend há oito anos. A parte que rende vem ",
+      mark: "antes",
+      after: " da primeira tela.",
+    },
     intro:
       "Passei por e-commerce de 70 mil usuários por mês, consultoria e empresa grande (IBM, Serasa), produto para o agronegócio e SaaS de assinatura para cliente. Em todos, o gargalo era o mesmo: o que pediram raramente era o que resolvia o problema. Uso IA o dia todo para codar, testar e documentar. Decidir o que construir continua comigo.",
-    ctaPrimary: "Vamos conversar",
-    ctaSecondary: "Ver cases",
+    ctaPrimary: "Ver cases",
+    ctaSecondary: "Vamos conversar",
     pillarsTitle: "O que eu faço bem",
     pillars: [
       {
@@ -39,10 +42,16 @@ export const pt = {
     casesIntro:
       "Três projetos: um SaaS de produção para cliente, um app que põe IA dentro do produto, e a construção deste site com IA.",
     notes: {
-      hero: {
-        tag: "rev. 4",
-        body: "Tirei daqui três frases que vendiam bem e não diziam nada.",
-      },
+      hero: [
+        {
+          tag: "rev. 4",
+          body: "Tirei daqui três frases que vendiam bem e não diziam nada.",
+        },
+        {
+          tag: "rev. 5",
+          body: "Grifei o antes de caneta. E todo sublinhado do site virou esse traço.",
+        },
+      ],
       cases: {
         tag: "nota",
         body: "Três, de propósito. Portfólio com vinte projetos rasos não diz nada.",
