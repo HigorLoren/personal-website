@@ -79,6 +79,15 @@ link cai para o LinkedIn. Para trocar o alias: gere o base64
 (`node -e "console.log(Buffer.from('novo@alias').toString('base64'))"`) e
 substitua `emailEncoded`.
 
+## Currículo
+
+O site não hospeda o PDF do currículo. A versão que estava em `public/cv/`
+trazia, em texto puro no corpo, o celular e o e-mail pessoais — e um PDF servido
+estaticamente não tem como ser ofuscado. A trajetória pública fica no LinkedIn;
+o canal de e-mail em `/contato` diz que o Higor manda o PDF sob pedido. Se for
+republicar um CV, primeiro tire dele qualquer telefone/endereço e limpe os
+metadados (`exiftool`, ver abaixo).
+
 ## Corrigindo metadados de imagem/PDF
 
 Quando a guarda acusa GPS ou metadado identificável, limpe manualmente e revise
@@ -108,24 +117,21 @@ find public -type f \( -iname '*.webp' -o -iname '*.png' -o -iname '*.jpg' -o -i
   -exec exiftool -all= -tagsFromFile @ -icc_profile:all -overwrite_original {} +
 ```
 
-**PDF** (currículo em `public/cv/`): o `exiftool` limpa os metadados do
-documento, mas não o conteúdo. Para o `Author`/`Creator`:
+**PDF**: o `exiftool` limpa os metadados do documento, mas não o conteúdo. Para
+o `Author`/`Creator` de um PDF qualquer:
 
 ```bash
-exiftool -Author= -Creator= -Producer= -XMP:all= -overwrite_original public/cv/higor-lorenzon-cv.pdf
+exiftool -Author= -Creator= -Producer= -XMP:all= -overwrite_original arquivo.pdf
 ```
 
 Confira também, abrindo o PDF, que o corpo não traz telefone nem endereço.
-
-## Pendências conhecidas
-
-- `public/cv/higor-lorenzon-cv.pdf` — conferir se o PDF do currículo não traz
-  telefone/endereço no corpo (a guarda só checa metadados, não o conteúdo).
 
 ## Checklist manual (fora do alcance do script)
 
 - [ ] Domínio custom registrado com WHOIS privacy.
 - [ ] E-mail publicado é um alias, não a conta pessoal principal.
+- [ ] Nenhum PDF publicado traz telefone/endereço no corpo (o CV foi removido
+      por isso — ver seção "Currículo").
 - [ ] Nenhuma foto mostra fachada, placa de carro, documento ou correspondência.
 - [ ] Screenshots de cases não expõem nome de cliente em texto, `alt` ou nome
       de arquivo (ver ADR-0004, `ndaSafe`).

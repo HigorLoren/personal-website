@@ -30,12 +30,6 @@ export function SiteFooter() {
           </div>
 
           <nav aria-label="Links" className="flex flex-col gap-2.5 text-sm md:items-end">
-            <a
-              href={site.cvPath}
-              className="text-muted transition-colors hover:text-ink"
-            >
-              {t.cvLabel}
-            </a>
             <Link
               href={site.social.github}
               className="text-muted transition-colors hover:text-ink"

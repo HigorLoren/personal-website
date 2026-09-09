@@ -133,11 +133,10 @@ export const pt = {
     title: "Contato",
     lead:
       "Aberto a conversar sobre frontend, produto e IA aplicada ao desenvolvimento. O e-mail é o caminho mais direto.",
-    cvDisplay: "Baixar o currículo em PDF",
     channels: {
       email: {
         label: "E-mail",
-        note: "Para proposta, dúvida ou uma conversa sem compromisso.",
+        note: "Para proposta, dúvida ou uma conversa sem compromisso. Mando o currículo em PDF se você pedir.",
         // mostrado enquanto o JS não rodou e com JS desligado (o e-mail só é
         // montado no client para não ir pré-renderizado no HTML)
         fallbackLabel: "Sem JavaScript? Fale comigo pelo LinkedIn",
@@ -149,10 +148,6 @@ export const pt = {
       github: {
         label: "GitHub",
         note: "Código público, incluindo o deste site.",
-      },
-      cv: {
-        label: "Currículo",
-        note: "A mesma trajetória, em duas páginas para imprimir ou encaminhar.",
       },
     },
     note: {
@@ -167,7 +162,6 @@ export const pt = {
       "Aberto a uma conversa sobre frontend, produto e IA aplicada ao desenvolvimento.",
     emailLabel: "Enviar e-mail",
     emailFallbackLabel: "Sem JavaScript? Fale comigo pelo LinkedIn",
-    cvLabel: "Baixar CV (PDF)",
     githubLabel: "GitHub",
     linkedinLabel: "LinkedIn",
     builtWith:

@@ -19,7 +19,6 @@ const linkClass =
 const channels = [
   { key: "linkedin", href: site.social.linkedin, display: "linkedin.com/in/higorlorenzon" },
   { key: "github", href: site.social.github, display: "github.com/HigorLoren" },
-  { key: "cv", href: site.cvPath, display: t.cvDisplay },
 ] as const;
 
 export default function ContactPage() {
@@ -61,9 +60,8 @@ export default function ContactPage() {
               <a
                 href={c.href}
                 className={linkClass}
-                {...(c.key === "cv"
-                  ? {}
-                  : { target: "_blank", rel: "noopener noreferrer" })}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 {c.display}
               </a>

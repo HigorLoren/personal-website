@@ -20,9 +20,11 @@ product. The site is itself the first proof of taste and craft.
   The site is a portfolio first, so everything lives on one page.
 - **Momento de deleite** — the single deliberate micro-interaction of the v1: the
   hover/focus treatment on `CaseCard`. Everything else stays still.
-- **Página Contato** — the `/contato` route: e-mail, LinkedIn, GitHub and the
-  CV as a list with one honest line each. Header "Contato" and the home's
-  secondary CTA point here instead of opening a mailto directly.
+- **Página Contato** — the `/contato` route: e-mail, LinkedIn and GitHub as a
+  list with one honest line each. Header "Contato" and the home's secondary CTA
+  point here instead of opening a mailto directly. No CV download — the PDF
+  carried a personal phone and e-mail, so it's off the public site; Higor sends
+  it on request (see `docs/privacy.md`).
 - **`<EmailLink>`** — client component for the contact e-mail. The address is a
   disposable alias stored base64-encoded in `site.emailEncoded` and decoded only
   in the browser, so the served HTML (public repo, SSG) carries no plaintext

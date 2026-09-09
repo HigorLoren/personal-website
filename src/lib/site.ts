@@ -11,7 +11,6 @@ export const site = {
   /** base64 do e-mail de contato — decodificado só no client pelo <EmailLink>,
    *  nunca vai pré-renderizado no HTML servido (repo público, anti-harvesting). */
   emailEncoded: "ZGV2X2guY2VydmVsaW5Ab3V0bG9vay5jb20=",
-  cvPath: "/cv/higor-lorenzon-cv.pdf",
   social: {
     github: "https://github.com/HigorLoren",
     linkedin: "https://www.linkedin.com/in/higorlorenzon/",
