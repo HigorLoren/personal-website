@@ -1,40 +1,37 @@
 ## O problema
 
-Eu queria um app de Kanban simples, sem conta, sem servidor, que fosse meu para
-usar e para mexer. Nenhuma das opções prontas me servia — ou pediam login, ou
-eram pesadas demais para a tarefa. Então construí.
+Eu queria um app de Kanban simples, sem conta e sem servidor, que fosse meu para
+usar e para mexer. As opções prontas não serviam: pediam login ou eram pesadas
+demais para o que eu precisava. Construí o meu.
 
-O segundo problema apareceu com o tempo: manter um projeto vivo por anos enquanto
-o ecossistema em volta dele muda por completo.
+Com o tempo apareceu um segundo problema: manter um projeto vivo por anos
+enquanto o ecossistema em volta muda inteiro.
 
 ## O que descobri
 
-Um Kanban pessoal não precisa de backend. O estado cabe no navegador, e tirar o
-servidor da equação torna o produto instantâneo e sem custo de operação. Essa
-decisão de produto — não a técnica — é o que mantém o Donko fácil de sustentar.
+Um Kanban pessoal não precisa de backend. O estado cabe no navegador, e sem
+servidor o app fica instantâneo e não custa nada para operar. Essa foi uma
+decisão de produto, e é ela que mantém o Donko fácil de sustentar.
 
-A cada dois anos, a forma "certa" de construir uma SPA em React mudava. Em vez de
-lutar contra isso, usei o Donko como campo de treino: reconstruir a mesma
-aplicação com as ferramentas novas é a forma mais honesta de aprender o que
-mudou e por quê.
+A cada dois anos a forma recomendada de construir uma SPA em React mudava. Passei
+a usar o Donko como campo de treino: cada reconstrução é uma passada de
+aprendizado no stack novo.
 
 ## O que construí
 
 Três gerações do mesmo produto:
 
-- **2021** — Create React App, JavaScript, Redux, animações com Framer Motion.
-- **Reescrita moderna** — Vite no lugar do CRA, TypeScript do início ao fim,
-  roteamento no modelo mais novo do React Router, MUI e Tailwind juntos,
-  internacionalização com i18next, formulários tipados.
-- **Experimento React 19** — porte da base para a versão mais recente do React,
-  para sentir na prática o que muda.
+- **2021** — Create React App, JavaScript, Redux, animação com Framer Motion.
+- **Reescrita** — Vite no lugar do CRA, TypeScript do começo ao fim, React Router
+  no modelo novo, MUI e Tailwind juntos, i18n com i18next, formulários tipados.
+- **React 19** — porte da base para a versão mais recente, para sentir na prática
+  o que muda.
 
-A funcionalidade para o usuário é a mesma nas três. O que muda é tudo por baixo —
-e é aí que está o aprendizado.
+Para o usuário, as três versões fazem a mesma coisa. O que muda é a base.
 
 ## Resultado
 
 O [app continua no ar](https://higorloren.github.io/donko), com o
-[código aberto](https://github.com/HigorLoren/donko). É o projeto que melhor mostra
-duas coisas ao mesmo tempo: que eu levo um produto pessoal a sério por anos, e que
-acompanho o React de perto o suficiente para reconstruir sobre ele sem medo.
+[código aberto](https://github.com/HigorLoren/donko). É o projeto que mais mostra
+constância: um produto pessoal que sigo mantendo, reconstruído sempre que o React
+dá um salto.
