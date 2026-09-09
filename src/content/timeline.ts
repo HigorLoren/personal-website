@@ -1,5 +1,5 @@
 /**
- * Career timeline shown on /sobre.
+ * Career timeline shown in the "Sobre" section of the home.
  *
  * Dates come from the LinkedIn profile export (2026-09), which is the most
  * precise source available. The first entry stays unnamed on purpose: that
