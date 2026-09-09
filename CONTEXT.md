@@ -59,3 +59,28 @@ Architecture decisions with real trade-offs are recorded in `docs/adr/`.
 
 Blog, dark mode, elaborate animation, translated i18n, contact form backend,
 automated E2E, a 4th case study, custom domain. See `.scratch/portfolio-v1/spec.md`.
+
+## Session state (2026-09-09)
+
+**Current task** — Content pass over the case studies. Card Finder now describes
+the in-house identification service (`~/workspace/ditto-card-scanner`), merged
+into `dev` as `96c8899`. Nothing has gone to `main`.
+
+**Key decisions**
+
+- The case credits the in-house vision pipeline. Gemini is the fallback the app
+  uses when the service fails its health check, not the identifier.
+- Published numbers are absolute counts (19 of 21 photos, a 20.324-card catalog)
+  so the sample size travels with the claim instead of hiding behind a rate.
+- Implementation trivia stays out of case copy: error taxonomy, internal
+  fallbacks, exact thresholds and resize dimensions were all cut.
+
+**Next steps**
+
+- P1c — the `este-site` meta-case still needs the real numbers (3h09 to live,
+  ~32 human prompts), the redesign arc, and the invisible-CTA bug. Spec:
+  `.scratch/portfolio-v1/research/03-este-site.md` §6.
+- Waiting on Higor: real portrait, case screenshots, Card Finder cover, repo and
+  live URLs, plus the Lighthouse and keyboard passes nobody has run.
+- Never proposed to him: the 11-step working protocol in
+  `.scratch/portfolio-v1/research/04-processo-ia.md` §3.4 as `/sobre` content.
