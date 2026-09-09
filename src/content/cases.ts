@@ -2,9 +2,9 @@ import type { CaseMeta } from "./types";
 
 import { meta as esteSite } from "./cases/este-site/meta";
 import { meta as bussola } from "./cases/bussola/meta";
-import { meta as donko } from "./cases/donko/meta";
+import { meta as cardFinder } from "./cases/card-finder/meta";
 
-export const cases: CaseMeta[] = [esteSite, bussola, donko].sort(
+export const cases: CaseMeta[] = [esteSite, bussola, cardFinder].sort(
   (a, b) => a.order - b.order,
 );
 
