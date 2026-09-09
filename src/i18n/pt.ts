@@ -40,11 +40,11 @@ export const pt = {
       "Três projetos: um SaaS de produção para cliente, um produto pessoal que mantenho desde 2021, e a construção deste site com IA.",
     notes: {
       hero: {
-        date: "set 2026",
-        body: "Revisão 4. Tirei daqui três frases que vendiam bem e não diziam nada.",
+        tag: "rev. 4",
+        body: "Tirei daqui três frases que vendiam bem e não diziam nada.",
       },
       cases: {
-        date: "set 2026",
+        tag: "nota",
         body: "Três, de propósito. Portfólio com vinte projetos rasos não diz nada.",
       },
     },
@@ -63,6 +63,16 @@ export const pt = {
       "Projeto para cliente. Nome oficial e detalhes de estratégia de negócio omitidos; imagens apenas de áreas públicas do produto.",
     allCases: "Todos os cases",
     next: "Próximo case",
+    esteSiteNotes: [
+      {
+        tag: "nota",
+        body: "A v1 disso aqui tinha cara de template de IA. Refiz a identidade.",
+      },
+      {
+        tag: "correção",
+        body: "E reescrevi esta copy à mão, pra tirar o tom de release.",
+      },
+    ],
   },
 
   about: {
@@ -73,7 +83,7 @@ export const pt = {
     methodIntro:
       "Não gosto de receber requisito pronto. O trabalho que rende é o que começa antes da tela existir.",
     methodNote: {
-      date: "set 2026",
+      tag: "correção",
       body: "O passo 4 saiu genérico da IA na primeira versão. Reescrevi à mão.",
     },
     method: [

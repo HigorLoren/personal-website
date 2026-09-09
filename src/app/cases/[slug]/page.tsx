@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { AnnotatedSection } from "@/components/annotated-section";
 import { Container } from "@/components/container";
+import { MarginNote } from "@/components/margin-note";
 import { Prose } from "@/components/prose";
 import { PillarTags } from "@/components/pillar-tag";
 import { CaseBody, hasCaseBody } from "@/components/case-body";
@@ -121,11 +123,31 @@ export default async function CasePage(props: PageProps<"/cases/[slug]">) {
       </Container>
 
       {/* Body */}
-      <Container className="mt-16">
-        <Prose>
-          <CaseBody slug={slug} />
-        </Prose>
-      </Container>
+      {slug === "este-site" ? (
+        <AnnotatedSection
+          className="mt-16"
+          note={
+            <div className="space-y-6">
+              <MarginNote tag={t.esteSiteNotes[0].tag}>
+                {t.esteSiteNotes[0].body}
+              </MarginNote>
+              <MarginNote tag={t.esteSiteNotes[1].tag} sign>
+                {t.esteSiteNotes[1].body}
+              </MarginNote>
+            </div>
+          }
+        >
+          <Prose>
+            <CaseBody slug={slug} />
+          </Prose>
+        </AnnotatedSection>
+      ) : (
+        <Container className="mt-16">
+          <Prose>
+            <CaseBody slug={slug} />
+          </Prose>
+        </Container>
+      )}
 
       {/* Next */}
       {next && (

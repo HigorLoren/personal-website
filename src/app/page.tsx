@@ -15,7 +15,9 @@ export default function HomePage() {
       <AnnotatedSection
         className="pb-12 pt-10 md:pt-15"
         note={
-          <MarginNote date={t.notes.hero.date}>{t.notes.hero.body}</MarginNote>
+          <MarginNote tag={t.notes.hero.tag} sign>
+            {t.notes.hero.body}
+          </MarginNote>
         }
       >
         <h1 className="max-w-4xl text-[length:var(--text-hero)] font-bold leading-[1.05] tracking-[-0.015em]">
@@ -63,7 +65,9 @@ export default function HomePage() {
         id="cases"
         className="scroll-mt-20 border-t border-line py-20"
         note={
-          <MarginNote date={t.notes.cases.date}>{t.notes.cases.body}</MarginNote>
+          <MarginNote tag={t.notes.cases.tag} sign>
+            {t.notes.cases.body}
+          </MarginNote>
         }
       >
         <div className="max-w-2xl">
