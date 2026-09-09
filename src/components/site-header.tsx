@@ -27,7 +27,7 @@ export function SiteHeader() {
             <li>
               <Link
                 href={`mailto:${site.email}`}
-                className="border-b border-accent pb-0.5 text-ink transition-colors hover:text-accent"
+                className="underline-hand text-ink transition-colors hover:text-accent"
               >
                 Contato
               </Link>

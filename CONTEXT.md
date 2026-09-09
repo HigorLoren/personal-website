@@ -21,11 +21,16 @@ product. The site is itself the first proof of taste and craft.
   hover/focus treatment on `CaseCard`. Everything else stays still.
 - **Nota de margem** (`MarginNote`) — an aside in Higor's own voice: remark in
   handwriting (Caveat, revision-red) + a short printed tag (`rev. 4`, `nota`,
-  `correção`) as the margin mark; `sign` appends his initials. Sits in the left
+  `correção`) as the margin mark. No signature. Sits in the left
   margin of an `AnnotatedSection` on desktop; on mobile it comes *before* the
   section content. The site marking up its own draft — the one memorable device.
   Home, `/sobre`, and the meta-case (`/cases/este-site`, two stacked). Copy in
   `src/i18n/pt.ts`.
+- **Marcação de caneta** (`PenMark`) — the one moving element of the hero: a
+  revision-red underline in two hand-drawn passes, drawn on load under the word
+  `antes` in the h1 (SVG `stroke-dashoffset`, pure CSS) and drifting a few
+  pixels with cursor and scroll. Static under `prefers-reduced-motion`. Same
+  gesture as the margin notes: the site grifando its own draft. Home only.
 - **AnnotatedSection** — page-section wrapper giving the two-track layout: wide
   left margin (for a `MarginNote`) + main content column. Content always sits in
   column 2 so the body edge stays aligned across sections.

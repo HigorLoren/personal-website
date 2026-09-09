@@ -5,7 +5,7 @@ import { PillarTags } from "@/components/pillar-tag";
 
 /**
  * The one deliberate micro-interaction of the v1: on hover / focus the cover
- * zooms and an accent underline sweeps across the title. All of it collapses
+ * zooms and a hand-drawn accent underline sweeps across the title. All of it collapses
  * under prefers-reduced-motion (handled globally in globals.css).
  */
 export function CaseCard({ meta }: { meta: CaseMeta }) {
@@ -36,7 +36,7 @@ export function CaseCard({ meta }: { meta: CaseMeta }) {
               id={`case-${meta.slug}-title`}
               className="mt-1.5 text-xl font-semibold leading-snug"
             >
-              <span className="bg-gradient-to-r from-accent to-accent bg-[length:0%_1px] bg-left-bottom bg-no-repeat pb-0.5 transition-[background-size] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:bg-[length:100%_1px] group-focus-within:bg-[length:100%_1px]">
+              <span className="underline-hand-sweep">
                 {meta.title}
               </span>
             </h3>
