@@ -30,7 +30,8 @@ product. The site is itself the first proof of taste and craft.
 - Stack: Next.js (App Router) + TypeScript + Tailwind v4 + MDX. Static export of
   all routes. Deployed on Vercel.
 - Light theme only, editorial register. Design tokens in `src/app/globals.css`
-  (`@theme`). Fonts: Clash Display + Satoshi, self-hosted from Fontshare.
+  (`@theme`). Fonts: Crimson Pro (display) + Plus Jakarta Sans (body), both via
+  next/font/google.
 - Content is versioned in-repo as MDX. No CMS.
 - Working notes, specs and planning live in `.scratch/` (gitignored). Nothing
   there is published. See `docs/agents/`.

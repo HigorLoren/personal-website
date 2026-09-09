@@ -11,11 +11,11 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <Container as="section" className="pb-20 pt-20 md:pt-28">
+      <Container as="section" className="pb-12 pt-10 md:pt-15">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-accent">
           {t.eyebrow}
         </p>
-        <h1 className="mt-6 max-w-4xl text-[length:var(--text-hero)] font-semibold leading-[1.06] tracking-[-0.03em]">
+        <h1 className="mt-6 max-w-4xl text-[length:var(--text-hero)] font-bold leading-[1.05] tracking-[-0.015em]">
           {t.title}
         </h1>
         <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-soft">
@@ -38,7 +38,7 @@ export default function HomePage() {
       </Container>
 
       {/* Pillars */}
-      <Container as="section" className="border-t border-line py-20">
+      <Container as="section" className="border-t border-line pb-20 pt-14">
         <h2 className="font-display text-sm font-medium uppercase tracking-[0.2em] text-muted">
           {t.pillarsTitle}
         </h2>
