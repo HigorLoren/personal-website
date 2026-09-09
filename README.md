@@ -43,13 +43,18 @@ Decisões de arquitetura: [`docs/adr/`](./docs/adr/).
 ## Rodando
 
 ```bash
-npm install
+npm install      # também instala o hook de privacidade (script "prepare")
 npm run dev      # http://localhost:3000
 npm run build    # build de produção (checa tipos)
 npm run lint
 ```
 
 ## Princípios
+
+- **Repo público, dados privados.** Um hook de pre-commit
+  (`npm run hooks:install`) barra e-mail cru, telefone, CPF e GPS/EXIF em imagem
+  antes que entrem em `src/`, `public/` ou `content/`. Modelo de ameaça e
+  checklist manual em [`docs/privacy.md`](./docs/privacy.md).
 
 - **Dois movimentos, só.** O grifo de caneta que se desenha no h1 da home e o
   hover nos cards de case. O resto fica quieto.

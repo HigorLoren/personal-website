@@ -63,6 +63,10 @@ Architecture decisions with real trade-offs are recorded in `docs/adr/`.
   deploy on Vercel is wanted.
 - Working notes, specs and planning live in `.scratch/` (gitignored). Nothing
   there is published. See `docs/agents/`.
+- Public repo: a pre-commit guard (`scripts/precommit-privacy.mjs`, activated by
+  `npm run hooks:install`) blocks new raw e-mails, phone numbers, CPF and image
+  GPS/EXIF from entering `src/`, `public/` or `content/`. Threat model and
+  manual checklist in `docs/privacy.md`.
 
 ## Out of scope (v1)
 
