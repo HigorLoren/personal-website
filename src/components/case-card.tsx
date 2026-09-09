@@ -5,8 +5,8 @@ import { PillarTags } from "@/components/pillar-tag";
 
 /**
  * The one deliberate micro-interaction of the v1: on hover / focus the cover
- * lifts and zooms, the accent rule extends, and the arrow slides. All of it
- * collapses under prefers-reduced-motion (handled globally in globals.css).
+ * zooms and an accent underline sweeps across the title. All of it collapses
+ * under prefers-reduced-motion (handled globally in globals.css).
  */
 export function CaseCard({ meta }: { meta: CaseMeta }) {
   return (
@@ -26,11 +26,11 @@ export function CaseCard({ meta }: { meta: CaseMeta }) {
           />
         </div>
 
-        <div className="mt-4 flex items-start justify-between gap-4">
+        <div className="mt-4">
           <div>
-            <p className="text-xs font-medium uppercase tracking-widest text-muted">
+            <p className="text-xs font-medium text-muted">
+              {meta.ndaSafe ? "Projeto para cliente, " : ""}
               {meta.year}
-              {meta.ndaSafe ? " · cliente" : ""}
             </p>
             <h3
               id={`case-${meta.slug}-title`}
@@ -47,13 +47,6 @@ export function CaseCard({ meta }: { meta: CaseMeta }) {
               <PillarTags pillars={meta.pillars} />
             </div>
           </div>
-
-          <span
-            aria-hidden
-            className="mt-1 shrink-0 text-accent transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1 group-focus-within:translate-x-1"
-          >
-            →
-          </span>
         </div>
       </Link>
     </article>
