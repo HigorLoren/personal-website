@@ -1,9 +1,13 @@
 import type { ReactNode } from "react";
 
 /**
- * A dated aside in Higor's own voice — the site talking back to its own draft.
- * Sits in the left margin of an <AnnotatedSection> on wide screens; folds in
- * behind an accent rule on narrow ones. Use sparingly: two or three per page.
+ * A dated aside in Higor's own voice — the site marking up its own draft. The
+ * remark is set in a handwriting face so it reads as a scrawl against the
+ * typeset page; the date stays printed, like a revision stamp.
+ *
+ * On wide screens it sits in the left margin of an <AnnotatedSection>; on
+ * narrow screens it comes *before* the section content, set off by an accent
+ * rule. Use sparingly: two or three per page.
  */
 export function MarginNote({
   date,
@@ -13,9 +17,13 @@ export function MarginNote({
   children: ReactNode;
 }) {
   return (
-    <aside className="border-l-2 border-accent pl-3 text-sm leading-snug lg:border-0 lg:pl-0 lg:text-[0.8125rem]">
-      <span className="block font-medium tabular-nums text-accent">{date}</span>
-      <p className="mt-1 text-ink-soft">{children}</p>
+    <aside className="mb-8 -rotate-1 border-l-2 border-accent pl-3 lg:mb-0 lg:border-0 lg:pl-0">
+      <span className="block text-[0.6875rem] font-medium tabular-nums text-muted">
+        {date}
+      </span>
+      <p className="font-hand mt-0.5 text-[1.15rem] leading-snug text-accent lg:text-[1.0625rem]">
+        {children}
+      </p>
     </aside>
   );
 }
