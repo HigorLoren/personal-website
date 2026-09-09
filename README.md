@@ -25,7 +25,8 @@ conta o processo. Este README resume a parte de engenharia.
 ```
 src/
   app/            rotas (/, /sobre, /cases/[slug]) + layout, fontes, design tokens
-  components/     Container, SiteHeader/Footer, CaseCard, CaseBody, Prose, PillarTag
+  components/     Container, SiteHeader/Footer, CaseCard, CaseBody, Prose, PillarTag,
+                  AnnotatedSection, MarginNote, PenMark
   content/
     cases/<slug>/ meta.ts (CaseMeta tipado) + content.mdx (prosa)
     cases.ts      registro + helpers
@@ -50,7 +51,8 @@ npm run lint
 
 ## Princípios
 
-- **Um momento de deleite.** Só o hover nos cards de case. O resto fica quieto.
+- **Dois movimentos, só.** O grifo de caneta que se desenha no h1 da home e o
+  hover nos cards de case. O resto fica quieto.
 - **NDA por construção.** Projeto de cliente carrega uma flag `ndaSafe` que o
   template respeita — sem nome oficial, sem estratégia de negócio, imagens só de
   áreas públicas.
