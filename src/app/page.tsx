@@ -112,9 +112,11 @@ export default function HomePage() {
                   className="object-cover"
                 />
               </div>
-              <MarginNote tag={a.methodNote.tag}>
-                {a.methodNote.body}
-              </MarginNote>
+              {a.methodNotes.map((n) => (
+                <MarginNote key={n.tag} tag={n.tag}>
+                  {n.body}
+                </MarginNote>
+              ))}
             </div>
           }
         >
