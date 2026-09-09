@@ -1,0 +1,4 @@
+#!/bin/sh
+# Guarda de privacidade — ver scripts/precommit-privacy.mjs e docs/privacy.md.
+# Instale com: npm run hooks:install  (o `npm install` já faz isso via "prepare").
+exec node scripts/precommit-privacy.mjs

@@ -137,12 +137,15 @@ export const pt = {
 
   contact: {
     title: "Contato",
-    lead: "Aberto a conversar sobre frontend, produto e IA aplicada ao desenvolvimento. O e-mail é o caminho mais direto.",
-    cvDisplay: "Baixar o currículo em PDF",
+    lead:
+      "Aberto a conversar sobre frontend, produto e IA aplicada ao desenvolvimento. O e-mail é o caminho mais direto.",
     channels: {
       email: {
         label: "E-mail",
-        note: "Para proposta, dúvida ou uma conversa sem compromisso.",
+        note: "Para proposta, dúvida ou uma conversa sem compromisso. Mando o currículo em PDF se você pedir.",
+        // mostrado enquanto o JS não rodou e com JS desligado (o e-mail só é
+        // montado no client para não ir pré-renderizado no HTML)
+        fallbackLabel: "Sem JavaScript? Fale comigo pelo LinkedIn",
       },
       linkedin: {
         label: "LinkedIn",
@@ -152,15 +155,17 @@ export const pt = {
         label: "GitHub",
         note: "Código público, incluindo o deste site.",
       },
-      cv: {
-        label: "Currículo",
-        note: "A mesma trajetória, em duas páginas para imprimir ou encaminhar.",
+    },
+    notes: [
+      {
+        tag: "correção",
+        body: "Antes o botão de contato abria o e-mail direto. Ficou ruim.",
       },
-    },
-    note: {
-      tag: "correção",
-      body: "Antes o botão de contato abria o e-mail direto. Ficou ruim.",
-    },
+      {
+        tag: "nota",
+        body: "O e-mail não fica escrito nesta página. Ele se monta no seu navegador, pra bot de spam não pescar.",
+      },
+    ],
   },
 
   footer: {
@@ -168,7 +173,7 @@ export const pt = {
     ctaBody:
       "Aberto a uma conversa sobre frontend, produto e IA aplicada ao desenvolvimento.",
     emailLabel: "Enviar e-mail",
-    cvLabel: "Baixar CV (PDF)",
+    emailFallbackLabel: "Sem JavaScript? Fale comigo pelo LinkedIn",
     githubLabel: "GitHub",
     linkedinLabel: "LinkedIn",
     builtWith:

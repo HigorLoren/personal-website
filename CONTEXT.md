@@ -20,9 +20,16 @@ product. The site is itself the first proof of taste and craft.
   The site is a portfolio first, so everything lives on one page.
 - **Momento de deleite** — the single deliberate micro-interaction of the v1: the
   hover/focus treatment on `CaseCard`. Everything else stays still.
-- **Página Contato** — the `/contato` route: e-mail, LinkedIn, GitHub and the
-  CV as a list with one honest line each. Header "Contato" and the home's
-  secondary CTA point here instead of opening a mailto directly.
+- **Página Contato** — the `/contato` route: e-mail, LinkedIn and GitHub as a
+  list with one honest line each. Header "Contato" and the home's secondary CTA
+  point here instead of opening a mailto directly. No CV download — the PDF
+  carried a personal phone and e-mail, so it's off the public site; Higor sends
+  it on request (see `docs/privacy.md`).
+- **`<EmailLink>`** — client component for the contact e-mail. The address is a
+  disposable alias stored base64-encoded in `site.emailEncoded` and decoded only
+  in the browser, so the served HTML (public repo, SSG) carries no plaintext
+  address or `mailto:`. Before hydration and with JS off it falls back to the
+  LinkedIn link. Used on `/contato` and in the footer. See `docs/privacy.md`.
 - **Nota de margem** (`MarginNote`) — an aside in Higor's own voice: remark in
   handwriting (Caveat, revision-red) + a short printed tag (`rev. 4`, `nota`,
   `correção`) as the margin mark. No signature. Sits in the left
@@ -63,10 +70,17 @@ Architecture decisions with real trade-offs are recorded in `docs/adr/`.
   with a permanent redirect. See ADR-0005.
 - Every published claim needs a verifiable source; corrections are shown as
   margin notes on the page where the error was. See ADR-0006.
+- Personal contact data in this public SSG repo: e-mail is a disposable alias,
+  base64 in `site.ts`, decoded client-side by `<EmailLink>`; no CV PDF (it
+  carried personal phone/e-mail), sent on request instead. See ADR-0007.
 - Branch strategy: work lands on `dev`; `main` is only merged when a production
   deploy on Vercel is wanted.
 - Working notes, specs and planning live in `.scratch/` (gitignored). Nothing
   there is published. See `docs/agents/`.
+- Public repo: a pre-commit guard (`scripts/precommit-privacy.mjs`, activated by
+  `npm run hooks:install`) blocks new raw e-mails, phone numbers, CPF and image
+  GPS/EXIF from entering `src/`, `public/` or `content/`. Threat model and
+  manual checklist in `docs/privacy.md`.
 
 ## Out of scope (v1)
 
