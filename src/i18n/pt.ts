@@ -1,0 +1,117 @@
+export const pt = {
+  meta: {
+    titleDefault: "Higor Lorenzon — Desenvolvedor Frontend",
+    titleTemplate: "%s — Higor Lorenzon",
+    description:
+      "Desenvolvedor frontend que une React e TypeScript, cuidado de interface e visão de produto. Participo do discovery, prototipo cedo e uso IA no processo como ferramenta de precisão.",
+  },
+
+  nav: {
+    skipToContent: "Pular para o conteúdo",
+  },
+
+  home: {
+    eyebrow: "Frontend · UI/UX · Produto",
+    title:
+      "Transformo necessidades ainda vagas em produtos digitais simples e bem construídos.",
+    intro:
+      "Sou desenvolvedor frontend há sete anos. Trabalho perto de produto e de cliente: questiono o requisito, prototipo antes de codar e entrego interface com atenção ao detalhe. Uso IA no processo o dia inteiro — como ferramenta de precisão, com o julgamento técnico por trás.",
+    ctaPrimary: "Vamos conversar",
+    ctaSecondary: "Ver cases",
+    pillarsTitle: "Como eu contribuo",
+    pillars: [
+      {
+        key: "tecnica",
+        title: "Qualidade técnica",
+        body: "React, TypeScript e Node. Componentes reutilizáveis, Design System, testes e arquitetura que aguenta o produto crescer. Integração com APIs e serviços.",
+      },
+      {
+        key: "uiux",
+        title: "Sensibilidade de UI/UX",
+        body: "Atenção a detalhe, consistência visual, responsividade e acessibilidade. O fluxo e o protótipo vêm antes do código — e são discutidos com quem vai usar.",
+      },
+      {
+        key: "produto",
+        title: "Visão de produto",
+        body: "Participo do discovery e das validações com clientes. Traduzo problema de negócio em solução, ajudo a escrever critérios de aceite e itero rápido a partir do feedback.",
+      },
+    ],
+    casesTitle: "Cases",
+    casesIntro:
+      "Três recortes: um projeto de produção para cliente, um produto que mantenho sozinho há anos, e a própria construção deste site orientada por IA.",
+  },
+
+  caseSections: {
+    problem: "O problema",
+    discovery: "O que descobri",
+    built: "O que construí",
+    outcome: "Resultado",
+    stack: "Stack",
+    pillars: "Pilares",
+    liveLink: "Ver ao vivo",
+    repoLink: "Código no GitHub",
+    ndaNote:
+      "Projeto para cliente. Nome oficial e detalhes de estratégia de negócio omitidos; imagens apenas de áreas públicas do produto.",
+    allCases: "Todos os cases",
+    next: "Próximo case",
+  },
+
+  about: {
+    title: "Sobre",
+    lead:
+      "Higor Lorenzon. Desenvolvedor frontend, sete anos de estrada — de consultoria e empresa grande (IBM, Serasa) a plataforma agrícola (Agrosatélite para Bayer) e SaaS para clientes. Moro no Brasil e trabalho bem perto de produto.",
+    methodTitle: "Como eu trabalho",
+    methodIntro:
+      "Não gosto de receber requisito pronto. O trabalho que rende é o que começa antes da tela existir.",
+    method: [
+      {
+        step: "Discovery",
+        body: "Sento com produto e com o cliente para entender a dor real — não a solução que já vieram pedindo. Questiono, faço a pergunta chata, mapeio a jornada.",
+      },
+      {
+        step: "Protótipo",
+        body: "Coloco um fluxo navegável na frente das pessoas o quanto antes. É mais barato descobrir que a ideia está errada num protótipo do que num sprint.",
+      },
+      {
+        step: "Especificação",
+        body: "Ajudo a transformar o que foi validado em critérios de aceite, regras de negócio e cenários. A spec é curta, mas existe.",
+      },
+      {
+        step: "Desenvolvimento com IA",
+        body: "Desenvolvo orientado pela spec, usando Claude e ferramentas similares em todas as etapas: prototipação, código, testes, documentação e revisão. A IA acelera; a decisão técnica é minha.",
+      },
+      {
+        step: "Validação",
+        body: "Entrego cedo, coleto feedback de quem usa e itero. O ciclo é curto de propósito.",
+      },
+    ],
+    storiesTitle: "Onde isso apareceu",
+    stories: [
+      {
+        place: "Agência de marketing",
+        body: "Meu trabalho era pegar um briefing solto de cliente e devolver um site. Aprendi ali que o briefing quase nunca é o problema: era preciso conversar, entender o negócio do cliente e propor o que ele não sabia pedir. Foi onde a parte de produto começou, antes de eu ter o nome pra isso.",
+      },
+      {
+        place: "Agrosatélite — produto para o agronegócio",
+        body: "Trabalhei perto da indústria agronomica e de geoprocessamento. Boa parte do valor estava em entender a rotina de quem ia usar a ferramenta — a dor concreta — e transformar isso em interface que fizesse sentido para esse usuário, não para quem construiu.",
+      },
+    ],
+    timelineTitle: "Trajetória",
+    contactTitle: "Vamos conversar",
+    contactBody:
+      "Aberto a conversar sobre frontend, produto e IA aplicada ao desenvolvimento. O caminho mais direto é o e-mail.",
+  },
+
+  footer: {
+    ctaTitle: "Vamos conversar",
+    ctaBody:
+      "Aberto a uma conversa sobre frontend, produto e IA aplicada ao desenvolvimento.",
+    emailLabel: "Enviar e-mail",
+    cvLabel: "Baixar CV (PDF)",
+    githubLabel: "GitHub",
+    linkedinLabel: "LinkedIn",
+    builtWith:
+      "Construído com Next.js e TypeScript. O processo virou um case — veja acima.",
+    rights: "Higor Lorenzon",
+  },
+} as const;

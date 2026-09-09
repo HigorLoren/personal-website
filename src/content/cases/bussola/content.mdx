@@ -1,0 +1,33 @@
+## O problema
+
+Um cliente precisava de um produto digital de turismo em produção: usuários reais,
+pagamentos reais, e um ritmo de evolução que não podia quebrar o que já estava no
+ar. O desafio não era só entregar telas — era sustentar uma base que cresce sem
+acumular dívida a cada release.
+
+## O que descobri
+
+Trabalhando junto de produto, ficou claro que os pontos de maior risco eram o
+fluxo de pagamento e a regressão silenciosa: mudanças em uma parte do produto
+quebrando outra sem ninguém perceber até o cliente reclamar.
+
+Isso definiu duas prioridades técnicas: o pagamento tinha que ser resiliente a
+repetição e falha parcial, e a suíte de testes tinha que cobrir os caminhos
+críticos de verdade, não só o caminho feliz.
+
+## O que construí
+
+- **Frontend em React e TypeScript** sobre Next.js, com componentes reutilizáveis
+  e um Design System consistente entre as telas.
+- **Fluxo de pagamento** integrado à API em Node, tratando idempotência e estados
+  intermediários para não cobrar em duplicidade nem deixar o usuário preso.
+- **Suíte de testes** — unitários e ponta a ponta cobrindo os fluxos que não podem
+  quebrar, rodando de forma automatizada.
+- **Observabilidade** no que importa, para que um problema em produção apareça em
+  um painel antes de aparecer num e-mail de cliente.
+
+## Resultado
+
+Produto em produção, com evolução contínua por pull requests revisados e uma rede
+de testes que segura a regressão. É o meu exemplo mais forte de React aplicado a
+um contexto de produto com dinheiro e usuários reais em jogo.

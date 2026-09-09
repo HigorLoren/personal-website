@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-label="este site — IA no processo inteiro">
+  <rect width="1200" height="750" fill="#1a1a17"/>
+  <g fill="none" stroke="#b5432b" stroke-width="1.5" opacity="0.35">
+    <circle cx="1000" cy="140" r="220"/>
+    <circle cx="1000" cy="140" r="150"/>
+    <circle cx="1000" cy="140" r="80"/>
+  </g>
+  <rect x="80" y="590" width="60" height="6" fill="#b5432b"/>
+  <text x="80" y="560" fill="#fbfaf8" font-family="Georgia, serif" font-size="86" font-weight="600" letter-spacing="-2">Este site</text>
+  <text x="82" y="650" fill="#fbfaf8" opacity="0.6" font-family="-apple-system, Helvetica, Arial, sans-serif" font-size="30">IA no processo inteiro</text>
+</svg>
