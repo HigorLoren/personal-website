@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/container";
+import { EmailLink } from "@/components/email-link";
 import { site } from "@/lib/site";
 import { getDictionary } from "@/i18n";
 
@@ -20,12 +21,12 @@ export function SiteFooter() {
               {t.ctaTitle}
             </h2>
             <p className="mt-3 max-w-md text-ink-soft">{t.ctaBody}</p>
-            <a
-              href={`mailto:${site.email}`}
+            <EmailLink
+              encoded={site.emailEncoded}
+              fallbackHref={site.social.linkedin}
+              fallbackLabel={t.emailFallbackLabel}
               className="underline-hand underline-hand-2 mt-5 inline-block text-lg text-ink transition-colors hover:text-accent"
-            >
-              {site.email}
-            </a>
+            />
           </div>
 
           <nav aria-label="Links" className="flex flex-col gap-2.5 text-sm md:items-end">

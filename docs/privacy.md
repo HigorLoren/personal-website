@@ -69,6 +69,16 @@ corpo do commit.
 - O parser de diff assume caminhos sem espaço/aspas (padrão do repo).
 - A guarda só aponta o problema; ela nunca reescreve arquivos.
 
+## E-mail de contato
+
+O endereço publicado é um alias descartável, não a conta pessoal. Ele fica
+guardado em base64 em `src/lib/site.ts` (`emailEncoded`) e só é decodificado no
+browser pelo componente `<EmailLink>` (`src/components/email-link.tsx`) — o HTML
+servido não traz o endereço em texto puro nem um `mailto:`. Sem JavaScript, o
+link cai para o LinkedIn. Para trocar o alias: gere o base64
+(`node -e "console.log(Buffer.from('novo@alias').toString('base64'))"`) e
+substitua `emailEncoded`.
+
 ## Corrigindo metadados de imagem/PDF
 
 Quando a guarda acusa GPS ou metadado identificável, limpe manualmente e revise
@@ -109,11 +119,6 @@ Confira também, abrindo o PDF, que o corpo não traz telefone nem endereço.
 
 ## Pendências conhecidas
 
-- `src/lib/site.ts` guarda o e-mail pessoal do Higor em texto puro. Como a
-  guarda só olha linhas novas, isso não bloqueia commits,
-  mas continua sendo pré-renderizado no HTML. Follow-up: componente
-  `<EmailLink>` que monta o `mailto:` só na hidratação, com `<noscript>`
-  apontando para o LinkedIn, e trocar por um alias dedicado.
 - `public/cv/higor-lorenzon-cv.pdf` — conferir se o PDF do currículo não traz
   telefone/endereço no corpo (a guarda só checa metadados, não o conteúdo).
 

@@ -138,6 +138,9 @@ export const pt = {
       email: {
         label: "E-mail",
         note: "Para proposta, dúvida ou uma conversa sem compromisso.",
+        // mostrado enquanto o JS não rodou e com JS desligado (o e-mail só é
+        // montado no client para não ir pré-renderizado no HTML)
+        fallbackLabel: "Sem JavaScript? Fale comigo pelo LinkedIn",
       },
       linkedin: {
         label: "LinkedIn",
@@ -163,6 +166,7 @@ export const pt = {
     ctaBody:
       "Aberto a uma conversa sobre frontend, produto e IA aplicada ao desenvolvimento.",
     emailLabel: "Enviar e-mail",
+    emailFallbackLabel: "Sem JavaScript? Fale comigo pelo LinkedIn",
     cvLabel: "Baixar CV (PDF)",
     githubLabel: "GitHub",
     linkedinLabel: "LinkedIn",
