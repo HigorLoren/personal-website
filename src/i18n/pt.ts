@@ -86,12 +86,9 @@ export const pt = {
   },
 
   about: {
-    title: "Sobre",
-    lead:
-      "Higor Lorenzon, desenvolvedor frontend com oito anos de estrada: e-commerce, consultoria e empresa grande (IBM, Serasa), plataforma agrícola para a Bayer, e hoje SaaS de assinatura para cliente. Moro no Brasil e trabalho perto de produto.",
     methodTitle: "Como eu trabalho",
     methodIntro:
-      "Não gosto de receber requisito pronto. O trabalho que rende é o que começa antes da tela existir.",
+      "Prefiro entrar antes do requisito ficar pronto. O trabalho que rende é o que começa antes da tela existir.",
     methodNote: {
       tag: "correção",
       body: "O passo 4 saiu genérico da IA na primeira versão. Reescrevi à mão.",

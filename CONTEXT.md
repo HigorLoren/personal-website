@@ -14,9 +14,10 @@ product. The site is itself the first proof of taste and craft.
   `content.mdx`.
 - **Meta-case** — the case study about building this site with AI
   (`cases/este-site`). The primary case.
-- **Página Processo** — the `/sobre` route. Combines who Higor is, the working
-  method (discovery → protótipo → spec → dev com IA → validação), two real
-  stories, and a career timeline.
+- **Seção Sobre** — the `/#sobre` anchor on the home (the `/sobre` route
+  redirects there). The working method (discovery → protótipo → spec → dev com
+  IA → validação), two real stories, and a career timeline, below the cases.
+  The site is a portfolio first, so everything lives on one page.
 - **Momento de deleite** — the single deliberate micro-interaction of the v1: the
   hover/focus treatment on `CaseCard`. Everything else stays still.
 - **Página Contato** — the `/contato` route: e-mail, LinkedIn, GitHub and the
@@ -27,7 +28,7 @@ product. The site is itself the first proof of taste and craft.
   `correção`) as the margin mark. No signature. Sits in the left
   margin of an `AnnotatedSection` on desktop; on mobile it comes *before* the
   section content. The site marking up its own draft — the one memorable device.
-  Home, `/sobre`, and the meta-case (`/cases/este-site`, two stacked). Copy in
+  Home (hero, cases, método) and the meta-case (two stacked). Copy in
   `src/i18n/pt.ts`.
 - **Marcação de caneta** (`PenMark`) — the one moving element of the hero: a
   revision-red underline in two hand-drawn passes, drawn on load under the word
@@ -91,4 +92,4 @@ into `dev` as `96c8899`. Nothing has gone to `main`.
 - Waiting on Higor: real portrait, case screenshots, Card Finder cover, repo and
   live URLs, plus the Lighthouse and keyboard passes nobody has run.
 - Never proposed to him: the 11-step working protocol in
-  `.scratch/portfolio-v1/research/04-processo-ia.md` §3.4 as `/sobre` content.
+  `.scratch/portfolio-v1/research/04-processo-ia.md` §3.4 as "Sobre" content.

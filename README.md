@@ -24,7 +24,7 @@ conta o processo. Este README resume a parte de engenharia.
 
 ```
 src/
-  app/            rotas (/, /sobre, /contato, /cases/[slug]) + layout, fontes, design tokens
+  app/            rotas (/, /contato, /cases/[slug]) + layout, fontes, design tokens
   components/     Container, SiteHeader/Footer, CaseCard, CaseBody, Prose, PillarTag,
                   AnnotatedSection, MarginNote, PenMark
   content/

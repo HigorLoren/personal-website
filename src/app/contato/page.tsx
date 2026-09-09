@@ -22,7 +22,7 @@ const channels = [
 export default function ContactPage() {
   return (
     <AnnotatedSection
-      className="pb-12 pt-16"
+      className="pb-20 pt-16"
       note={<MarginNote tag={t.note.tag}>{t.note.body}</MarginNote>}
     >
       <h1 className="text-[length:var(--text-h1)] font-semibold tracking-[-0.03em]">

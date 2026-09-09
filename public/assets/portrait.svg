@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Retrato — imagem pendente">
-  <rect width="400" height="400" fill="#f3efe8"/>
-  <circle cx="200" cy="160" r="66" fill="none" stroke="#b5432b" stroke-width="2"/>
-  <path d="M96 340c0-63 47-104 104-104s104 41 104 104" fill="none" stroke="#b5432b" stroke-width="2"/>
-  <text x="200" y="378" text-anchor="middle" fill="#6f6b62" font-family="-apple-system, Helvetica, Arial, sans-serif" font-size="15">foto pendente</text>
-</svg>

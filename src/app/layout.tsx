@@ -17,6 +17,14 @@ export const metadata: Metadata = {
   },
   description: t.meta.description,
   authors: [{ name: site.name }],
+  icons: {
+    icon: [
+      { url: "/assets/profile_avatar.ico", sizes: "any" },
+      { url: "/assets/profile_avatar.webp", type: "image/webp", sizes: "160x160" },
+    ],
+    shortcut: [{ url: "/assets/profile_avatar.ico" }],
+    apple: { url: "/assets/profile_avatar.webp" },
+  },
   openGraph: {
     type: "website",
     locale: "pt_BR",

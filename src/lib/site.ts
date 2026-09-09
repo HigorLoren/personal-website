@@ -19,7 +19,7 @@ export const site = {
 export const nav = [
   { href: "/", label: "Início" },
   { href: "/#cases", label: "Cases" },
-  { href: "/sobre", label: "Sobre" },
+  { href: "/#sobre", label: "Sobre" },
 ] as const;
 
 export const contactHref = "/contato";

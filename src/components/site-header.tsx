@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/container";
 import { contactHref, nav, site } from "@/lib/site";
@@ -11,8 +12,16 @@ export function SiteHeader() {
       <Container className="flex h-16 items-center justify-between">
         <Link
           href="/"
-          className="whitespace-nowrap font-display text-base font-semibold tracking-tight sm:text-lg"
+          className="flex items-center gap-2 whitespace-nowrap font-display text-base font-semibold tracking-tight sm:text-lg"
         >
+          <Image
+            src="/assets/profile_avatar.webp"
+            alt=""
+            width={28}
+            height={28}
+            className="size-7 rounded-full border border-line"
+            priority
+          />
           {site.name}
         </Link>
         <nav aria-label="Principal">
