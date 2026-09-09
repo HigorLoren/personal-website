@@ -33,9 +33,11 @@ src/
   i18n/           dicionário pt-BR (esqueleto pronto para en)
   lib/site.ts     identidade, contato, navegação
 docs/agents/      convenções para trabalho assistido por IA neste repo
+docs/adr/         decisões de arquitetura registradas (ADRs)
 ```
 
 Decisões de domínio e glossário: [`CONTEXT.md`](./CONTEXT.md).
+Decisões de arquitetura: [`docs/adr/`](./docs/adr/).
 
 ## Rodando
 
