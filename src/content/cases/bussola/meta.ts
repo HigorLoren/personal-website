@@ -19,7 +19,7 @@ export const meta: CaseMeta = {
     "Redis",
     "Playwright",
   ],
-  cover: "/assets/cases/bussola/cover.svg",
+  cover: "/assets/cases/bussola/public/landing.webp",
   ndaSafe: true,
   order: 2,
 };
