@@ -4,6 +4,7 @@ import { AnnotatedSection } from "@/components/annotated-section";
 import { CaseCard } from "@/components/case-card";
 import { MarginNote } from "@/components/margin-note";
 import { PenMark } from "@/components/pen-mark";
+import { ScrollHashObserver } from "@/components/scroll-hash-observer";
 import { cases } from "@/content/cases";
 import { timeline } from "@/content/timeline";
 import { getDictionary } from "@/i18n";
@@ -16,6 +17,8 @@ export default function HomePage() {
 
   return (
     <>
+      <ScrollHashObserver />
+
       {/* Hero */}
       <AnnotatedSection
         className="pb-12 pt-10 md:pt-15"
