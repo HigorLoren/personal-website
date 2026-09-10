@@ -22,8 +22,8 @@ Este README resume a parte de engenharia.
 ```
 src/
   app/            rotas (/, /contato, /cases/[slug]) + layout, fontes, design tokens
-  components/     Container, SiteHeader/Footer, CaseCard, CaseBody, Prose, PillarTag,
-                  AnnotatedSection, MarginNote, PenMark, EmailLink
+  components/     Container, SiteHeader, SiteNav, SiteFooter, CaseCard, CaseBody, Prose,
+                  PillarTag, AnnotatedSection, MarginNote, PenMark, ScrollHashObserver, EmailLink
   content/
     cases/<slug>/ meta.ts (CaseMeta tipado) + content.mdx (prosa)
     cases.ts      registro + helpers
