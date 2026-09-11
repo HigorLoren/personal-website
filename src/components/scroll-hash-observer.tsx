@@ -2,11 +2,11 @@
 
 import { useEffect } from "react";
 import { SECTION_HASH_EVENT } from "@/lib/section-hash";
-import { nav } from "@/lib/site";
+import { nav, sectionAnchor } from "@/lib/site";
 
 /** ids of the on-page anchors referenced by the main nav (e.g. "cases", "sobre"). */
 const sectionIds = nav
-  .map((item) => (item.href.startsWith("/#") ? item.href.slice(2) : null))
+  .map((item) => sectionAnchor(item.href))
   .filter((id): id is string => id !== null);
 
 /**
@@ -19,7 +19,12 @@ export function ScrollHashObserver() {
   useEffect(() => {
     const sections = sectionIds
       .map((id) => document.getElementById(id))
-      .filter((el): el is HTMLElement => el !== null);
+      .filter((el): el is HTMLElement => el !== null)
+      // `sync()` treats sections[0] as "first on the page" and the array order
+      // as document order; the nav config order need not match, so sort by it.
+      .sort((a, b) =>
+        a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1,
+      );
     if (sections.length === 0) return;
 
     const managed = new Set(sections.map((el) => `#${el.id}`));
@@ -45,9 +50,22 @@ export function ScrollHashObserver() {
       const hash = window.location.hash;
       if (current) {
         if (hash !== `#${current.id}`) write(`#${current.id}`);
-      } else if (userHasScrolled && managed.has(hash)) {
-        write("");
+        return;
       }
+      if (!userHasScrolled || !managed.has(hash)) return;
+      // No section in the band. Only drop the hash when the reader is genuinely
+      // back above every section — otherwise this is a transient gap (a resize
+      // reflow, a fast scroll between two sections) and the hash should stay.
+      if (sections[0].getBoundingClientRect().top >= 0) write("");
+    };
+
+    // Coalesce writes: a nav-click smooth-scroll crosses every section between
+    // origin and target, firing the observer 2-3 times. Without this the URL and
+    // the nav underline flicker through each one before settling.
+    let syncTimer: number | undefined;
+    const scheduleSync = () => {
+      window.clearTimeout(syncTimer);
+      syncTimer = window.setTimeout(sync, 120);
     };
 
     const observer = new IntersectionObserver(
@@ -57,7 +75,7 @@ export function ScrollHashObserver() {
           if (entry.isIntersecting) visible.add(el);
           else visible.delete(el);
         }
-        sync();
+        scheduleSync();
       },
       // activation band: a thin strip near the top of the viewport
       { rootMargin: "-15% 0px -75% 0px", threshold: 0 },
@@ -67,6 +85,7 @@ export function ScrollHashObserver() {
 
     return () => {
       observer.disconnect();
+      window.clearTimeout(syncTimer);
       window.removeEventListener("scroll", onScroll);
     };
   }, []);
