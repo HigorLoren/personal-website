@@ -2,7 +2,7 @@
 
 /* ---------------------------------------------------------------------------
    Design tokens — "rascunho de trabalho". Cool paper + true-black ink, one
-   marking-pen red used only for annotations, corrections and active nav.
+   marking-pen red used only for annotations, corrections and the nav marker.
 --------------------------------------------------------------------------- */
 @theme {
   --color-paper: #fafaf9;
@@ -142,23 +142,37 @@
   }
 
   /*
-   * Pen loop — the same red pen as the underline, but the "circle this" gesture
-   * instead of "underline this". Scribbled around a word and overshooting the
-   * start. Painted as a stretched background so it wraps whatever the label
-   * width is. Nav Contato CTA only.
+   * Nav underline — one hand-drawn stroke shared by the whole nav. It rests
+   * under the active entry and slides to follow the pointer onto a hovered
+   * one. <SiteNav> measures the target and sets `left`/`width`; the stroke
+   * draws itself in (scaleX) the first time it appears, then only slides.
+   *
+   * Reduced motion is handled by the global `prefers-reduced-motion` block at
+   * the end of this file (it neutralises the draw-in and the slide there).
    */
-  .circle-hand {
-    position: relative;
-  }
-  .circle-hand::before {
-    content: "";
+  .nav-underline {
     position: absolute;
-    inset: -0.42em -0.72em -0.46em -0.72em;
-    background-image: var(--circle-hand-stroke);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100% 100%;
+    bottom: -0.12em;
+    height: 0.16em;
+    background: var(--underline-hand-stroke) no-repeat 0 100% / 100% 100%;
+    transform-origin: left center;
     pointer-events: none;
+    animation: nav-underline-draw 0.4s var(--ease-out-soft) both;
+    transition:
+      left 0.3s var(--ease-out-soft),
+      width 0.3s var(--ease-out-soft),
+      opacity 0.2s linear;
+  }
+  .nav-underline[data-hidden] {
+    opacity: 0;
+  }
+  @keyframes nav-underline-draw {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
   }
 }
 
@@ -167,8 +181,6 @@
   --underline-hand-tile: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 8' preserveAspectRatio='none'%3E%3Cpath d='M0 4.6 C 10 3, 20 6.4, 30 4.4 S 50 2.6, 60 4.6 S 74 6.2, 80 4.6' fill='none' stroke='%23be2a1c' stroke-width='1.9' stroke-linecap='round'/%3E%3C/svg%3E");
   /* one stroke, stretched to the word */
   --underline-hand-stroke: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 8' preserveAspectRatio='none'%3E%3Cpath d='M1.5 4.6 C 22 2.6, 48 7, 72 4.5 S 92 2.4, 98.5 4.2' fill='none' stroke='%23be2a1c' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E");
-  /* one loop, scribbled around a word and overshooting the start */
-  --circle-hand-stroke: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 48' preserveAspectRatio='none'%3E%3Cpath d='M96 9 C 58 -1, 13 5, 9 24 C 5 43, 57 49, 92 41 C 119 35, 115 11, 82 6' fill='none' stroke='%23be2a1c' stroke-width='2.1' stroke-linecap='round'/%3E%3C/svg%3E");
 }
 
 /* ---------------------------------------------------------------------------

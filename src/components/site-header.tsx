@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 
 export function SiteHeader() {
   return (
-    <header className="border-b border-line bg-paper">
+    <header className="sticky top-0 z-40 border-b border-line bg-paper">
       <Container className="flex h-16 items-center justify-between">
         <Link
           href="/"
