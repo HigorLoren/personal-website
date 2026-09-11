@@ -6,6 +6,15 @@ import { getDictionary } from "@/i18n";
 
 const BUILD_YEAR = 2026;
 
+/**
+ * Two 44px rows do not fit in the 50px this stack used to occupy, so on touch
+ * the second link does move down. Gated on `any-pointer` so a mouse-only
+ * reader keeps the tighter original rhythm. No pen is pinned to these boxes,
+ * so here the height can come from the box itself rather than `.tap-area`.
+ */
+const socialLinkClass =
+  "text-muted transition-colors hover:text-ink any-pointer-coarse:inline-flex any-pointer-coarse:min-h-11 any-pointer-coarse:items-center";
+
 export function SiteFooter() {
   const t = getDictionary().footer;
 
@@ -29,21 +38,15 @@ export function SiteFooter() {
             />
           </div>
 
-          {/* -my-3 devolve o respiro que os alvos de 44px acrescentam nas pontas */}
+          {/* -my-3 gives back the slack the 44px rows add at either end */}
           <nav
             aria-label="Links"
-            className="-my-3 flex flex-col text-sm md:items-end"
+            className="flex flex-col gap-2.5 text-sm any-pointer-coarse:-my-3 any-pointer-coarse:gap-0 md:items-end"
           >
-            <Link
-              href={site.social.github}
-              className="inline-flex min-h-11 items-center text-muted transition-colors hover:text-ink"
-            >
+            <Link href={site.social.github} className={socialLinkClass}>
               {t.githubLabel}
             </Link>
-            <Link
-              href={site.social.linkedin}
-              className="inline-flex min-h-11 items-center text-muted transition-colors hover:text-ink"
-            >
+            <Link href={site.social.linkedin} className={socialLinkClass}>
               {t.linkedinLabel}
             </Link>
           </nav>

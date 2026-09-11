@@ -32,9 +32,9 @@ The site is itself the first proof of taste and craft.
   When `true`, the case template hides repo links and only shows imagery from public areas of the client product.
   Client name and business-strategy detail never appear.
 - **Dictionary** — all user-facing copy lives in `src/i18n/pt.ts`, keyed for a future English locale.
-- **`.tap-area`** — utility in `globals.css` that grows a link's touch target to 44px with an empty `::after`, on coarse pointers only.
-  The site's links carry pen strokes pinned to the element's box (`.underline-hand`) or are measured by JS (`.nav-underline`), so padding would drag the pen off the word.
-  Reach for this instead of padding whenever a small link needs to be tappable.
+- **`.tap-area`** — utility in `globals.css` that takes a link past 44px _tall_ with an empty `::after`, wherever a coarse pointer is available (it adds 0.375rem each side, so a short label can still be under 44px wide).
+  Reach for it when the link carries a pen stroke pinned to its box (`.underline-hand`) or is measured by JS (`.nav-underline`), because padding would drag the pen off the word or move what was measured.
+  Where nothing is pinned to the box, plain padding or `min-h-11` is the simpler answer: that is what the footer links and the header brand use.
 
 ## Key decisions
 

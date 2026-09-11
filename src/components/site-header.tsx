@@ -10,7 +10,7 @@ export function SiteHeader() {
       <Container className="flex h-16 items-center justify-between">
         <Link
           href="/"
-          /* -m-2 p-2: 44px de alvo em volta do avatar sem mover nada */
+          /* -m-2 p-2: a 44px target around the avatar, nothing moves */
           className="-m-2 flex shrink-0 items-center gap-2 p-2 font-display text-base font-semibold tracking-tight sm:text-lg"
         >
           <Image
@@ -21,8 +21,8 @@ export function SiteHeader() {
             className="size-7 shrink-0 rounded-full border border-line"
             priority
           />
-          {/* Abaixo de sm o nome não cabe ao lado da nav e passava por cima
-              dela. Some da tela, permanece como nome acessível do link. */}
+          {/* Below sm the name does not fit beside the nav and used to overlap
+              it. Off the screen, still the link's accessible name. */}
           <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
             {site.name}
           </span>

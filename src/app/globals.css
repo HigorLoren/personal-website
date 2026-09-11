@@ -180,19 +180,25 @@
    * Padding is not an option on these: the nav underline is measured from the
    * link's own rect and the hand-drawn rule is a background pinned to the
    * bottom edge, so growing the box would drag the pen off the text. An empty
-   * pseudo-element widens only what the finger can hit.
+   * pseudo-element widens only what the finger can hit; the element's own box,
+   * and everything measured from it, stays put.
    *
-   * Coarse pointers only — on a mouse the extra area would make the nav
-   * underline slide from well off the word.
+   * `any-pointer` rather than `pointer`: a laptop with a touchscreen reports a
+   * fine primary pointer, and its fingers are the same size as everyone's.
+   *
+   * The cost, paid knowingly: <SiteNav> tracks hover with
+   * `closest("[data-nav]")`, and a pseudo-element counts as part of its element
+   * for hit testing. So on a hybrid device the nav underline follows a pointer
+   * that is up to 0.875rem off the word. Touch accuracy is worth more than that.
    */
   .tap-area {
     position: relative;
   }
-  @media (pointer: coarse) {
+  @media (any-pointer: coarse) {
     .tap-area::after {
       content: "";
       position: absolute;
-      /* 0.875rem takes the shortest of these (a 17px nav link) past 44px */
+      /* 0.875rem takes the shortest of these (a 17px nav link) past 44px tall */
       inset: -0.875rem -0.375rem;
     }
   }
