@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Gitignored, but flat config doesn't read .gitignore: other worktrees
+    // (git worktree / other agent sessions) can live under here on disk.
+    ".claude/**",
   ]),
 ]);
 
