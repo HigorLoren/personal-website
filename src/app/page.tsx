@@ -28,7 +28,8 @@ export default function HomePage() {
           </MarginNote>
         }
       >
-        <h1 className="max-w-4xl text-[length:var(--text-hero)] font-bold leading-[1.05] tracking-[-0.015em]">
+        <h1 className="max-w-4xl text-[length:var(--text-hero)] text-[color:var(--color-ink-soft)] font-bold leading-[1.05] tracking-[-0.015em]">
+          <span className="text-[color:var(--color-ink)]">{t.title.strong}</span><br/>
           {t.title.before}
           <PenMark>{t.title.mark}</PenMark>
           {t.title.after}
@@ -45,7 +46,7 @@ export default function HomePage() {
           </Link>
           <Link
             href={contactHref}
-            className="text-sm font-medium text-muted transition-colors hover:text-ink"
+            className="tap-area text-sm font-medium text-muted transition-colors hover:text-ink"
           >
             {t.ctaSecondary}
           </Link>

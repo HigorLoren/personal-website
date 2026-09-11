@@ -13,7 +13,8 @@ export const pt = {
 
   home: {
     title: {
-      before: "Faço frontend há 8 anos. A parte que rende vem ",
+      strong: "Faço frontend há 8 anos.",
+      before: "A parte que rende vem ",
       mark: "antes",
       after: " da primeira tela.",
     },

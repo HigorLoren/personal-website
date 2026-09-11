@@ -6,6 +6,15 @@ import { getDictionary } from "@/i18n";
 
 const BUILD_YEAR = 2026;
 
+/**
+ * Two 44px rows do not fit in the 50px this stack used to occupy, so on touch
+ * the second link does move down. Gated on `any-pointer` so a mouse-only
+ * reader keeps the tighter original rhythm. No pen is pinned to these boxes,
+ * so here the height can come from the box itself rather than `.tap-area`.
+ */
+const socialLinkClass =
+  "text-muted transition-colors hover:text-ink any-pointer-coarse:inline-flex any-pointer-coarse:min-h-11 any-pointer-coarse:items-center";
+
 export function SiteFooter() {
   const t = getDictionary().footer;
 
@@ -25,21 +34,19 @@ export function SiteFooter() {
               encoded={site.emailEncoded}
               fallbackHref={site.social.linkedin}
               fallbackLabel={t.emailFallbackLabel}
-              className="underline-hand underline-hand-2 mt-5 inline-block text-lg text-ink transition-colors hover:text-accent"
+              className="underline-hand underline-hand-2 tap-area mt-5 inline-block text-lg text-ink transition-colors hover:text-accent"
             />
           </div>
 
-          <nav aria-label="Links" className="flex flex-col gap-2.5 text-sm md:items-end">
-            <Link
-              href={site.social.github}
-              className="text-muted transition-colors hover:text-ink"
-            >
+          {/* -my-3 gives back the slack the 44px rows add at either end */}
+          <nav
+            aria-label="Links"
+            className="flex flex-col gap-2.5 text-sm any-pointer-coarse:-my-3 any-pointer-coarse:gap-0 md:items-end"
+          >
+            <Link href={site.social.github} className={socialLinkClass}>
               {t.githubLabel}
             </Link>
-            <Link
-              href={site.social.linkedin}
-              className="text-muted transition-colors hover:text-ink"
-            >
+            <Link href={site.social.linkedin} className={socialLinkClass}>
               {t.linkedinLabel}
             </Link>
           </nav>

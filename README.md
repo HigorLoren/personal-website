@@ -54,3 +54,4 @@ npm run lint
 - **NDA por construção.** Projeto de cliente carrega uma flag `ndaSafe` que o template respeita — sem nome oficial, sem estratégia de negócio, imagens só de áreas públicas.
 - **Sem string solta.** Todo texto de interface está em `src/i18n/pt.ts`.
 - **Acessibilidade no baseline.** HTML semântico, foco visível, contraste AA, `prefers-reduced-motion` respeitado.
+  Onde há ponteiro grosso, todo link passa de 44px de altura, pela `.tap-area` quando a caixa carrega traço de caneta e por padding quando não carrega.
