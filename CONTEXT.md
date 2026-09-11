@@ -22,6 +22,12 @@ The site is itself the first proof of taste and craft.
 - **Marcação de caneta** (`PenMark`) — the moving element of the hero: a revision-red underline in two hand-drawn passes, drawn on load (SVG `stroke-dashoffset`, pure CSS) and drifting a few pixels with cursor and scroll. Same gesture as the margin notes: the site grifando its own draft.
 - **AnnotatedSection** — page-section wrapper giving the two-track layout: wide left margin (for a `MarginNote`) + main content column.
   Content always sits in column 2 so the body edge stays aligned across sections.
+- **`<ScrollHashObserver>`** — client component on the home only.
+  An `IntersectionObserver` keeps the URL hash in sync with the section actually in view: scrolling into `#cases` / `#sobre` writes the hash (via `replaceState`, no history entry, no scroll jump), scrolling back above every section clears it.
+  It emits a `sectionhashchange` event (`src/lib/section-hash.ts`) that `<SiteNav>` listens to.
+- **`<SiteNav>`** — the main nav, client-side so it can mark the entry for the section in view.
+  One hand-drawn red underline is shared by the whole nav (`.nav-underline`): it rests under the active entry ("Início" once the hash is cleared), slides to follow the pointer onto a hovered item, and draws itself in (`scaleX`) the first time it appears. `<SiteNav>` measures the target link; the motion is CSS.
+  Contato only differs by font weight, as the contact CTA.
 - **ndaSafe** — a `CaseMeta` flag.
   When `true`, the case template hides repo links and only shows imagery from public areas of the client product.
   Client name and business-strategy detail never appear.
@@ -35,9 +41,11 @@ Architecture decisions with real trade-offs are recorded in `docs/adr/`.
   All routes statically prerendered (SSG).
   Deployed on Vercel.
   See ADR-0001.
-- Light theme only, editorial register ("rascunho de trabalho"): cool paper, true-black ink, one marking-pen red used only for annotations/corrections/ active nav.
+- Light theme only, editorial register ("rascunho de trabalho"): cool paper, true-black ink, one marking-pen red used only for annotations, corrections and the nav marker (it rests under the active entry and follows the pointer on hover).
   Design tokens in `src/app/globals.css` (`@theme`).
   Fonts: Bricolage Grotesque (display/UI) + Newsreader (long-form reading) + Caveat (handwriting, `MarginNote` only), all via next/font/google.
+- Home nav reflects scroll position: `<ScrollHashObserver>` syncs the URL hash to the section in view and `<SiteNav>` marks that link with a single hand underline that slides between items on hover.
+  Contato is a plain nav item that only carries extra weight.
 - Content is versioned in-repo as MDX.
   No CMS.
   See ADR-0002.

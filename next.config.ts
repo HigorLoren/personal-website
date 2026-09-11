@@ -3,6 +3,8 @@ import createMDX from "@next/mdx";
 
 const nextConfig: NextConfig = {
   pageExtensions: ["ts", "tsx", "mdx"],
+  // Preview pane loads the dev server via 127.0.0.1; allow its HMR requests.
+  allowedDevOrigins: ["127.0.0.1"],
   async redirects() {
     // /sobre became a section of the home; keep shared links working.
     return [{ source: "/sobre", destination: "/#sobre", permanent: true }];

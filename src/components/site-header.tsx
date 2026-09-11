@@ -1,14 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/container";
-import { contactHref, nav, site } from "@/lib/site";
-import { getDictionary } from "@/i18n";
+import { SiteNav } from "@/components/site-nav";
+import { site } from "@/lib/site";
 
 export function SiteHeader() {
-  const t = getDictionary().nav;
-
   return (
-    <header className="border-b border-line bg-paper">
+    <header className="sticky top-0 z-40 border-b border-line bg-paper">
       <Container className="flex h-16 items-center justify-between">
         <Link
           href="/"
@@ -24,28 +22,7 @@ export function SiteHeader() {
           />
           {site.name}
         </Link>
-        <nav aria-label="Principal">
-          <ul className="flex items-center gap-4 text-sm sm:gap-6">
-            {nav.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className="text-muted transition-colors hover:text-ink"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-            <li>
-              <Link
-                href={contactHref}
-                className="underline-hand text-ink transition-colors hover:text-accent"
-              >
-                {t.contact}
-              </Link>
-            </li>
-          </ul>
-        </nav>
+        <SiteNav />
       </Container>
     </header>
   );

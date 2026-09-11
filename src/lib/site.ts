@@ -24,3 +24,11 @@ export const nav = [
 ] as const;
 
 export const contactHref = "/contato";
+
+/**
+ * For an on-page nav anchor (`/#cases`) returns the bare element id (`cases`);
+ * `null` for any other href. One place to change if the anchor convention does.
+ */
+export function sectionAnchor(href: string): string | null {
+  return href.startsWith("/#") ? href.slice(2) : null;
+}
