@@ -10,17 +10,22 @@ export function SiteHeader() {
       <Container className="flex h-16 items-center justify-between">
         <Link
           href="/"
-          className="flex items-center gap-2 whitespace-nowrap font-display text-base font-semibold tracking-tight sm:text-lg"
+          /* -m-2 p-2: 44px de alvo em volta do avatar sem mover nada */
+          className="-m-2 flex shrink-0 items-center gap-2 p-2 font-display text-base font-semibold tracking-tight sm:text-lg"
         >
           <Image
             src="/assets/profile_avatar.webp"
             alt=""
             width={28}
             height={28}
-            className="size-7 rounded-full border border-line"
+            className="size-7 shrink-0 rounded-full border border-line"
             priority
           />
-          {site.name}
+          {/* Abaixo de sm o nome não cabe ao lado da nav e passava por cima
+              dela. Some da tela, permanece como nome acessível do link. */}
+          <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
+            {site.name}
+          </span>
         </Link>
         <SiteNav />
       </Container>

@@ -40,7 +40,7 @@ export default async function CasePage(props: PageProps<"/cases/[slug]">) {
       <AnnotatedSection>
         <Link
           href="/#cases"
-          className="text-sm text-muted transition-colors hover:text-ink"
+          className="tap-area text-sm text-muted transition-colors hover:text-ink"
         >
           ← {t.allCases}
         </Link>
@@ -87,7 +87,7 @@ export default async function CasePage(props: PageProps<"/cases/[slug]">) {
             {meta.liveUrl && (
               <Link
                 href={meta.liveUrl}
-                className="underline-hand text-ink transition-colors hover:text-accent"
+                className="underline-hand tap-area text-ink transition-colors hover:text-accent"
               >
                 {t.liveLink}
               </Link>
@@ -95,7 +95,7 @@ export default async function CasePage(props: PageProps<"/cases/[slug]">) {
             {meta.repoUrl && (
               <Link
                 href={meta.repoUrl}
-                className="underline-hand text-ink transition-colors hover:text-accent"
+                className="underline-hand tap-area text-ink transition-colors hover:text-accent"
               >
                 {t.repoLink}
               </Link>
@@ -154,7 +154,7 @@ export default async function CasePage(props: PageProps<"/cases/[slug]">) {
           <p className="text-sm text-muted">{t.next}</p>
           <Link
             href={`/cases/${next.slug}`}
-            className="mt-2 inline-block font-display text-2xl font-semibold tracking-tight transition-colors hover:text-accent"
+            className="tap-area mt-2 inline-block font-display text-2xl font-semibold tracking-tight transition-colors hover:text-accent"
           >
             {next.title}
           </Link>

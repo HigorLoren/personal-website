@@ -13,7 +13,7 @@ export default function NotFound() {
       </p>
       <Link
         href="/"
-        className="underline-hand underline-hand-2 mt-8 inline-block w-fit text-ink transition-colors hover:text-accent"
+        className="underline-hand underline-hand-2 tap-area mt-8 inline-block w-fit text-ink transition-colors hover:text-accent"
       >
         Voltar para o início
       </Link>

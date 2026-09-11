@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 const linkClass =
-  "underline-hand text-lg font-medium text-ink transition-colors hover:text-accent";
+  "underline-hand tap-area text-lg font-medium text-ink transition-colors hover:text-accent";
 
 /** e-mail is rendered apart (see EmailLink — never pre-rendered into the HTML). */
 const channels = [
@@ -52,7 +52,7 @@ export default function ContactPage() {
               fallbackLabel={t.channels.email.fallbackLabel}
               className={linkClass}
             />
-            <p className="mt-2 text-sm leading-relaxed text-ink-soft">
+            <p className="mt-4 text-sm leading-relaxed text-ink-soft">
               {t.channels.email.note}
             </p>
           </dd>
@@ -73,7 +73,7 @@ export default function ContactPage() {
               >
                 {c.display}
               </a>
-              <p className="mt-2 text-sm leading-relaxed text-ink-soft">
+              <p className="mt-4 text-sm leading-relaxed text-ink-soft">
                 {t.channels[c.key].note}
               </p>
             </dd>

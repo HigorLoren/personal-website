@@ -32,6 +32,9 @@ The site is itself the first proof of taste and craft.
   When `true`, the case template hides repo links and only shows imagery from public areas of the client product.
   Client name and business-strategy detail never appear.
 - **Dictionary** — all user-facing copy lives in `src/i18n/pt.ts`, keyed for a future English locale.
+- **`.tap-area`** — utility in `globals.css` that grows a link's touch target to 44px with an empty `::after`, on coarse pointers only.
+  The site's links carry pen strokes pinned to the element's box (`.underline-hand`) or are measured by JS (`.nav-underline`), so padding would drag the pen off the word.
+  Reach for this instead of padding whenever a small link needs to be tappable.
 
 ## Key decisions
 

@@ -45,7 +45,7 @@ export default function HomePage() {
           </Link>
           <Link
             href={contactHref}
-            className="text-sm font-medium text-muted transition-colors hover:text-ink"
+            className="tap-area text-sm font-medium text-muted transition-colors hover:text-ink"
           >
             {t.ctaSecondary}
           </Link>

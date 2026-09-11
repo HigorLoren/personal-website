@@ -169,7 +169,7 @@ export function SiteNav() {
                   setHovered(item.href);
                 }}
                 onBlur={onPointerLeave}
-                className={`transition-colors ${
+                className={`tap-area transition-colors ${
                   active ? "text-ink" : "text-muted hover:text-ink"
                 }${item.href === contactHref ? " font-medium" : ""}`}
               >

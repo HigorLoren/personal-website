@@ -25,20 +25,24 @@ export function SiteFooter() {
               encoded={site.emailEncoded}
               fallbackHref={site.social.linkedin}
               fallbackLabel={t.emailFallbackLabel}
-              className="underline-hand underline-hand-2 mt-5 inline-block text-lg text-ink transition-colors hover:text-accent"
+              className="underline-hand underline-hand-2 tap-area mt-5 inline-block text-lg text-ink transition-colors hover:text-accent"
             />
           </div>
 
-          <nav aria-label="Links" className="flex flex-col gap-2.5 text-sm md:items-end">
+          {/* -my-3 devolve o respiro que os alvos de 44px acrescentam nas pontas */}
+          <nav
+            aria-label="Links"
+            className="-my-3 flex flex-col text-sm md:items-end"
+          >
             <Link
               href={site.social.github}
-              className="text-muted transition-colors hover:text-ink"
+              className="inline-flex min-h-11 items-center text-muted transition-colors hover:text-ink"
             >
               {t.githubLabel}
             </Link>
             <Link
               href={site.social.linkedin}
-              className="text-muted transition-colors hover:text-ink"
+              className="inline-flex min-h-11 items-center text-muted transition-colors hover:text-ink"
             >
               {t.linkedinLabel}
             </Link>
