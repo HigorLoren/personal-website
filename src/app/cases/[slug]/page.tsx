@@ -36,7 +36,7 @@ export default async function CasePage(props: PageProps<"/cases/[slug]">) {
   const next = getAdjacentCase(slug);
 
   return (
-    <article className="pt-16">
+    <article className="pt-8">
       <AnnotatedSection>
         <Link
           href="/#cases"
@@ -150,7 +150,7 @@ export default async function CasePage(props: PageProps<"/cases/[slug]">) {
 
       {/* Next */}
       {next && (
-        <AnnotatedSection className="mt-24 border-t border-line pb-20 pt-10">
+        <AnnotatedSection className="mt-18 border-t border-line pb-20 pt-10">
           <p className="text-sm text-muted">{t.next}</p>
           <Link
             href={`/cases/${next.slug}`}

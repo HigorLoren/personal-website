@@ -13,35 +13,25 @@ The site is itself the first proof of taste and craft.
 - **Meta-case** — the case study about building this site with AI (`cases/este-site`).
   The primary case.
 - **Seção Sobre** — the `/#sobre` anchor on the home (the `/sobre` route redirects there).
-  The working method (discovery → protótipo → spec → dev com IA → validação), two real stories, and a career timeline, below the cases.
-  The site is a portfolio first, so everything lives on one page.
-- **Momento de deleite** — the single deliberate micro-interaction of the v1: the hover/focus treatment on `CaseCard`.
-  Everything else stays still.
-- **Página Contato** — the `/contato` route: e-mail, LinkedIn and GitHub as a list with one honest line each.
-  Header "Contato" and the home's secondary CTA point here instead of opening a mailto directly.
-  No CV download — the PDF carried a personal phone and e-mail, so it's off the public site; Higor sends it on request (see `docs/privacy.md`).
+- **Página Contato** — the `/contato` route: e-mail, LinkedIn and GitHub as a list.
 - **`<EmailLink>`** — client component for the contact e-mail.
-  The address is a disposable alias stored base64-encoded in `site.emailEncoded` and decoded only in the browser, so the served HTML (public repo, SSG) carries no plaintext address or `mailto:`.
-  Before hydration and with JS off it falls back to the LinkedIn link.
-  Used on `/contato` and in the footer.
-  See `docs/privacy.md`.
-- **Nota de margem** (`MarginNote`) — an aside in Higor's own voice: remark in handwriting (Caveat, revision-red) + a short printed tag (`rev. 4`, `nota`, `correção`) as the margin mark.
-  No signature.
-  Sits in the left margin of an `AnnotatedSection` on desktop; on mobile it comes *before* the section content.
+  The address is a disposable alias stored base64-encoded in `site.emailEncoded` and decoded only in the browser, so the served HTML (public repo, SSG) carries no plaintext address or `mailto:`. See `docs/privacy.md`.
+- **Nota de margem** (`MarginNote`) — an aside in Higor's own voice: remark in handwriting style + a short printed tag (E.g.: `v4`, `nota`, `correção`) as the margin mark.
+  Sits in the left margin of an `AnnotatedSection` on desktop; on mobile it comes _before_ the section content.
   The site marking up its own draft — the one memorable device.
-  Home (hero, cases, método) and the meta-case (two stacked).
-  Copy in `src/i18n/pt.ts`.
-- **Marcação de caneta** (`PenMark`) — the one moving element of the hero: a revision-red underline in two hand-drawn passes, drawn on load under the word `antes` in the h1 (SVG `stroke-dashoffset`, pure CSS) and drifting a few pixels with cursor and scroll.
-  Static under `prefers-reduced-motion`.
-  Same gesture as the margin notes: the site grifando its own draft.
-  Home only.
+- **Marcação de caneta** (`PenMark`) — the moving element of the hero: a revision-red underline in two hand-drawn passes, drawn on load (SVG `stroke-dashoffset`, pure CSS) and drifting a few pixels with cursor and scroll. Same gesture as the margin notes: the site grifando its own draft.
 - **AnnotatedSection** — page-section wrapper giving the two-track layout: wide left margin (for a `MarginNote`) + main content column.
   Content always sits in column 2 so the body edge stays aligned across sections.
+- **`<ScrollHashObserver>`** — client component on the home only.
+  An `IntersectionObserver` keeps the URL hash in sync with the section actually in view: scrolling into `#cases` / `#sobre` writes the hash (via `replaceState`, no history entry, no scroll jump), scrolling back above every section clears it.
+  It emits a `sectionhashchange` event (`src/lib/section-hash.ts`) that `<SiteNav>` listens to.
+- **`<SiteNav>`** — the main nav, client-side so it can mark the entry for the section in view.
+  One hand-drawn red underline is shared by the whole nav (`.nav-underline`): it rests under the active entry ("Início" once the hash is cleared), slides to follow the pointer onto a hovered item, and draws itself in (`scaleX`) the first time it appears. `<SiteNav>` measures the target link; the motion is CSS.
+  Contato only differs by font weight, as the contact CTA.
 - **ndaSafe** — a `CaseMeta` flag.
   When `true`, the case template hides repo links and only shows imagery from public areas of the client product.
   Client name and business-strategy detail never appear.
 - **Dictionary** — all user-facing copy lives in `src/i18n/pt.ts`, keyed for a future English locale.
-  Components never hard-code strings.
 
 ## Key decisions
 
@@ -51,9 +41,11 @@ Architecture decisions with real trade-offs are recorded in `docs/adr/`.
   All routes statically prerendered (SSG).
   Deployed on Vercel.
   See ADR-0001.
-- Light theme only, editorial register ("rascunho de trabalho"): cool paper, true-black ink, one marking-pen red used only for annotations/corrections/ active nav.
+- Light theme only, editorial register ("rascunho de trabalho"): cool paper, true-black ink, one marking-pen red used only for annotations, corrections and the nav marker (it rests under the active entry and follows the pointer on hover).
   Design tokens in `src/app/globals.css` (`@theme`).
   Fonts: Bricolage Grotesque (display/UI) + Newsreader (long-form reading) + Caveat (handwriting, `MarginNote` only), all via next/font/google.
+- Home nav reflects scroll position: `<ScrollHashObserver>` syncs the URL hash to the section in view and `<SiteNav>` marks that link with a single hand underline that slides between items on hover.
+  Contato is a plain nav item that only carries extra weight.
 - Content is versioned in-repo as MDX.
   No CMS.
   See ADR-0002.
@@ -61,40 +53,13 @@ Architecture decisions with real trade-offs are recorded in `docs/adr/`.
   See ADR-0003.
 - `ndaSafe` governs how client work appears in this public repo.
   See ADR-0004.
-- The site is a single page: `/sobre` became the `#sobre` section of the home, with a permanent redirect.
-  See ADR-0005.
 - Every published claim needs a verifiable source; corrections are shown as margin notes on the page where the error was.
   See ADR-0006.
-- Personal contact data in this public SSG repo: e-mail is a disposable alias, base64 in `site.ts`, decoded client-side by `<EmailLink>`; no CV PDF (it carried personal phone/e-mail), sent on request instead.
+- Personal contact data in this public SSG repo: e-mail is a disposable alias; no CV PDF (it carried personal phone/e-mail).
   See ADR-0007.
 - Branch strategy: work lands on `dev`; `main` is only merged when a production deploy on Vercel is wanted.
 - Working notes, specs and planning live in `.scratch/` (gitignored).
   Nothing there is published.
   See `docs/agents/`.
-- Public repo: a pre-commit guard (`scripts/precommit-privacy.mjs`, activated by `npm run hooks:install`) blocks new raw e-mails, phone numbers, CPF and image GPS/EXIF from entering `src/`, `public/` or `content/`.
+- Public repo: a pre-commit guard (`scripts/precommit-privacy.mjs`, activated by `npm run hooks:install`) blocks new raw e-mails, phone numbers, CPF and image GPS/EXIF.
   Threat model and manual checklist in `docs/privacy.md`.
-
-## Out of scope (v1)
-
-Blog, dark mode, elaborate animation, translated i18n, contact form backend, automated E2E, a 4th case study, custom domain.
-See `.scratch/portfolio-v1/spec.md`.
-
-## Session state (2026-09-09)
-
-**Current task** — Content pass over the case studies.
-Card Finder now describes the in-house identification service (`~/workspace/ditto-card-scanner`), merged into `dev` as `96c8899`.
-Nothing has gone to `main`.
-
-**Key decisions**
-
-- The case credits the in-house vision pipeline.
-  Gemini is the fallback the app uses when the service fails its health check, not the identifier.
-- Published numbers are absolute counts (19 of 21 photos, a 20.324-card catalog) so the sample size travels with the claim instead of hiding behind a rate.
-- Implementation trivia stays out of case copy: error taxonomy, internal fallbacks, exact thresholds and resize dimensions were all cut.
-
-**Next steps**
-
-- P1c — the `este-site` meta-case still needs the real numbers (3h09 to live, ~32 human prompts), the redesign arc, and the invisible-CTA bug.
-  Spec: `.scratch/portfolio-v1/research/03-este-site.md` §6.
-- Waiting on Higor: real portrait, case screenshots, Card Finder cover, repo and live URLs, plus the Lighthouse and keyboard passes nobody has run.
-- Never proposed to him: the 11-step working protocol in `.scratch/portfolio-v1/research/04-processo-ia.md` §3.4 as "Sobre" content.

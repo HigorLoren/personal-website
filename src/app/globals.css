@@ -2,7 +2,7 @@
 
 /* ---------------------------------------------------------------------------
    Design tokens — "rascunho de trabalho". Cool paper + true-black ink, one
-   marking-pen red used only for annotations, corrections and active nav.
+   marking-pen red used only for annotations, corrections and the nav marker.
 --------------------------------------------------------------------------- */
 @theme {
   --color-paper: #fafaf9;
@@ -140,6 +140,40 @@
   .group:focus-within .underline-hand-sweep {
     background-size: 100% 0.2em;
   }
+
+  /*
+   * Nav underline — one hand-drawn stroke shared by the whole nav. It rests
+   * under the active entry and slides to follow the pointer onto a hovered
+   * one. <SiteNav> measures the target and sets `left`/`width`; the stroke
+   * draws itself in (scaleX) the first time it appears, then only slides.
+   *
+   * Reduced motion is handled by the global `prefers-reduced-motion` block at
+   * the end of this file (it neutralises the draw-in and the slide there).
+   */
+  .nav-underline {
+    position: absolute;
+    bottom: -0.12em;
+    height: 0.16em;
+    background: var(--underline-hand-stroke) no-repeat 0 100% / 100% 100%;
+    transform-origin: left center;
+    pointer-events: none;
+    animation: nav-underline-draw 0.4s var(--ease-out-soft) both;
+    transition:
+      left 0.3s var(--ease-out-soft),
+      width 0.3s var(--ease-out-soft),
+      opacity 0.2s linear;
+  }
+  .nav-underline[data-hidden] {
+    opacity: 0;
+  }
+  @keyframes nav-underline-draw {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
 }
 
 :root {
@@ -164,11 +198,16 @@
   margin-top: 1.35em;
 }
 
+/* first block sits flush with the section top (kills the h2 top margin) */
+.prose > :first-child {
+  margin-top: 0;
+}
+
 .prose h2 {
   font-size: var(--text-h2);
   color: var(--color-ink);
-  margin-top: 2.4em;
-  margin-bottom: 0.2em;
+  margin-top: 1.25em;
+  margin-bottom: 0.4em;
   scroll-margin-top: 6rem;
 }
 

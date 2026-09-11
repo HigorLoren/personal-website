@@ -12,7 +12,7 @@ export function SiteFooter() {
   return (
     <footer
       id="contato"
-      className="border-t border-line py-16 scroll-mt-24"
+      className="border-t border-line py-16 scroll-mt-24 bg-surface"
     >
       <Container>
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr]">
