@@ -42,7 +42,7 @@ export const pt = {
     ],
     casesTitle: "Cases",
     casesIntro:
-      "Três projetos: um SaaS de produção para cliente, um app que põe IA dentro do produto, e a construção deste site com IA.",
+      "Três projetos: um SaaS de produção para cliente, um app de visão computacional, e a construção deste site com IA.",
     notes: {
       hero: [
         {
