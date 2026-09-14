@@ -122,5 +122,5 @@ Confira também, abrindo o PDF, que o corpo não traz telefone nem endereço.
 - [ ] E-mail publicado é um alias, não a conta pessoal principal.
 - [ ] Nenhum PDF publicado traz telefone/endereço no corpo (o CV foi removido por isso — ver seção "Currículo").
 - [ ] Nenhuma foto mostra fachada, placa de carro, documento ou correspondência.
-- [ ] Screenshots de cases não expõem nome de cliente em texto, `alt` ou nome de arquivo (ver ADR-0004, `ndaSafe`).
+- [ ] Screenshots de cases não expõem nome de cliente em texto, `alt` ou nome de arquivo (ver ADR-0008, `clientWork`).
 - [ ] Sem telefone e sem endereço em qualquer página.

@@ -2,9 +2,9 @@
  * Career timeline shown in the "Sobre" section of the home.
  *
  * Dates come from the LinkedIn profile export (2026-09), which is the most
- * precise source available. The first entry stays unnamed on purpose: that
- * employer is also the organisation behind the `bussola` case, which is
- * `ndaSafe` — naming it here would identify the client.
+ * precise source available. The first entry stays unnamed by choice: that
+ * employer is also the organisation behind the `bussola` case, which leaves
+ * the client unnamed (`clientWork`, ADR-0008).
  */
 export interface TimelineEntry {
   period: string;

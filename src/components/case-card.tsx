@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { CaseMeta } from "@/content/types";
 import { PillarTags } from "@/components/pillar-tag";
+import { getDictionary } from "@/i18n";
 
 /**
  * The one deliberate micro-interaction of the v1: on hover / focus the cover
@@ -9,6 +10,8 @@ import { PillarTags } from "@/components/pillar-tag";
  * under prefers-reduced-motion (handled globally in globals.css).
  */
 export function CaseCard({ meta }: { meta: CaseMeta }) {
+  const t = getDictionary().caseSections;
+
   return (
     <article className="group relative">
       <Link
@@ -29,7 +32,7 @@ export function CaseCard({ meta }: { meta: CaseMeta }) {
         <div className="mt-4">
           <div>
             <p className="text-xs font-medium text-muted">
-              {meta.ndaSafe ? "Projeto para cliente, " : ""}
+              {meta.clientWork ? `${t.clientWorkLabel}, ` : ""}
               {meta.year}
             </p>
             <h3

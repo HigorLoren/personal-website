@@ -23,10 +23,11 @@ export interface CaseMeta {
   liveUrl?: string;
   repoUrl?: string;
   /**
-   * Client work under NDA. When true, the case template hides any repo link and
-   * only renders images stored under assets/cases/<slug>/public/.
+   * Client work under contract. When true, the case template hides any repo
+   * link and only renders images stored under assets/cases/<slug>/public/.
+   * See ADR-0008.
    */
-  ndaSafe?: boolean;
+  clientWork?: boolean;
   /** Ascending sort on the home grid */
   order: number;
 }

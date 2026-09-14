@@ -28,9 +28,9 @@ The site is itself the first proof of taste and craft.
 - **`<SiteNav>`** — the main nav, client-side so it can mark the entry for the section in view.
   One hand-drawn red underline is shared by the whole nav (`.nav-underline`): it rests under the active entry ("Início" once the hash is cleared), slides to follow the pointer onto a hovered item, and draws itself in (`scaleX`) the first time it appears. `<SiteNav>` measures the target link; the motion is CSS.
   Contato only differs by font weight, as the contact CTA.
-- **ndaSafe** — a `CaseMeta` flag.
+- **clientWork** — a `CaseMeta` flag.
   When `true`, the case template hides repo links and only shows imagery from public areas of the client product.
-  Client name and business-strategy detail never appear.
+  The contract rules out business rules or methods, external API names and trade secrets; the product and client stay unnamed by choice.
 - **Dictionary** — all user-facing copy lives in `src/i18n/pt.ts`, keyed for a future English locale.
 - **`.tap-area`** — utility in `globals.css` that takes a link past 44px _tall_ with an empty `::after`, wherever a coarse pointer is available (it adds 0.375rem each side, so a short label can still be under 44px wide).
   Reach for it when the link carries a pen stroke pinned to its box (`.underline-hand`) or is measured by JS (`.nav-underline`), because padding would drag the pen off the word or move what was measured.
@@ -54,8 +54,8 @@ Architecture decisions with real trade-offs are recorded in `docs/adr/`.
   See ADR-0002.
 - All user-facing copy is keyed in `src/i18n/pt.ts`; only pt-BR ships.
   See ADR-0003.
-- `ndaSafe` governs how client work appears in this public repo.
-  See ADR-0004.
+- `clientWork` governs how client work appears in this public repo.
+  See ADR-0008 (supersedes ADR-0004).
 - Every published claim needs a verifiable source; corrections are shown as margin notes on the page where the error was.
   See ADR-0006.
 - Personal contact data in this public SSG repo: e-mail is a disposable alias; no CV PDF (it carried personal phone/e-mail).
