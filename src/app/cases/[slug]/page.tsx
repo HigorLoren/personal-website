@@ -82,7 +82,7 @@ export default async function CasePage(props: PageProps<"/cases/[slug]">) {
           </div>
         </dl>
 
-        {(meta.liveUrl || meta.repoUrl) && !meta.ndaSafe && (
+        {(meta.liveUrl || meta.repoUrl) && !meta.clientWork && (
           <div className="mt-6 flex flex-wrap gap-4 text-sm">
             {meta.liveUrl && (
               <Link
@@ -116,8 +116,8 @@ export default async function CasePage(props: PageProps<"/cases/[slug]">) {
             priority
           />
         </div>
-        {meta.ndaSafe && (
-          <p className="mt-3 text-xs text-muted">{t.ndaNote}</p>
+        {meta.clientWork && (
+          <p className="mt-3 text-xs text-muted">{t.clientWorkNote}</p>
         )}
       </AnnotatedSection>
 

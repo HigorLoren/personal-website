@@ -66,7 +66,8 @@ export const pt = {
     pillars: "Pilares",
     liveLink: "Ver ao vivo",
     repoLink: "Código no GitHub",
-    ndaNote:
+    clientWorkLabel: "Projeto para cliente",
+    clientWorkNote:
       "Projeto para cliente. Nome oficial e detalhes de estratégia de negócio omitidos; imagens apenas de áreas públicas do produto.",
     allCases: "Todos os cases",
     next: "Próximo case",

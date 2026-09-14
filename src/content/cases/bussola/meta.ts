@@ -20,6 +20,6 @@ export const meta: CaseMeta = {
     "Playwright",
   ],
   cover: "/assets/cases/bussola/public/landing.webp",
-  ndaSafe: true,
+  clientWork: true,
   order: 2,
 };
