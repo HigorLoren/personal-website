@@ -1,5 +1,5 @@
 import EsteSiteBody from "@/content/cases/este-site/content.mdx";
-import BussolaBody from "@/content/cases/bussola/content.mdx";
+import SaasTurismoBody from "@/content/cases/saas-turismo/content.mdx";
 import CardFinderBody from "@/content/cases/card-finder/content.mdx";
 
 /**
@@ -10,8 +10,8 @@ export function CaseBody({ slug }: { slug: string }) {
   switch (slug) {
     case "este-site":
       return <EsteSiteBody />;
-    case "bussola":
-      return <BussolaBody />;
+    case "saas-turismo":
+      return <SaasTurismoBody />;
     case "card-finder":
       return <CardFinderBody />;
     default:
@@ -20,5 +20,5 @@ export function CaseBody({ slug }: { slug: string }) {
 }
 
 export function hasCaseBody(slug: string): boolean {
-  return ["este-site", "bussola", "card-finder"].includes(slug);
+  return ["este-site", "saas-turismo", "card-finder"].includes(slug);
 }

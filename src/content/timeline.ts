@@ -3,7 +3,7 @@
  *
  * Dates come from the LinkedIn profile export (2026-09), which is the most
  * precise source available. The first entry stays unnamed by choice: that
- * employer is also the organisation behind the `bussola` case, which leaves
+ * employer is also the organisation behind the `saas-turismo` case, which leaves
  * the client unnamed (`clientWork`, ADR-0008).
  */
 export interface TimelineEntry {

@@ -1,0 +1,58 @@
+## O problema
+
+Quando entrei, o desenvolvimento de um produto de turismo com assinatura paga já tinha começado para um cliente.
+Havia um bootstrap feito, mas nada em produção ainda.
+
+A busca de passagens depende de um provedor externo, e o outro desenvolvedor do projeto vinha levando ao suporte desse provedor os erros que encontrava.
+Juntei esses relatos, e o padrão que apareceu era vago: cerca de uma em cada cinco chamadas ao provedor falhava, umas companhias falhavam mais que outras, e a mesma busca repetida às vezes funcionava.
+
+Parte da explicação já se sabia.
+Às vezes o provedor respondia `200 OK` com a lista de voos vazia, e para qualquer monitoramento de HTTP aquilo era sucesso.
+Isso explicava por que a falha não aparecia como erro, mas não dizia onde ela estava.
+
+## O que descobri
+
+A hipótese era que a média apagava o sinal.
+O provedor atende várias companhias, e uma delas quase parando some quando se olha o provedor inteiro.
+Se fosse isso, a saúde tinha que ser medida por companhia, e não pelo provedor.
+
+Antes de escrever a v1, montei um protótipo para testar a hipótese.
+Um simulador reproduz, com semente fixa, os padrões de falha tirados daqueles relatos.
+O resultado esperado de cada chamada é calculado antes de qualquer requisição sair, e depois o tráfego passa pelo caminho instrumentado de verdade.
+O que foi gravado é comparado com o esperado, chamada a chamada.
+
+Em 252 chamadas simuladas, a classificação bateu com o esperado em todas.
+Numa companhia, 19 de 20 chamadas falharam por culpa do provedor, enquanto a média do provedor inteiro ficou em 33%.
+Olhando só a média, essa companhia não chamaria atenção.
+
+O protótipo também corrigiu doze pontos do desenho antes de virarem a v1.
+Um exemplo: o identificador de cada chamada gravada passou a ser derivado do conteúdo.
+Com um identificador novo a cada tentativa, reprocessar um lote duplicaria linhas e envenenaria justamente a taxa de falha que o módulo existe para medir.
+
+## O que construí
+
+- O módulo de observabilidade da API.
+  Cada chamada ao provedor recebe um desfecho de uma taxonomia própria e é atribuída ao provedor ou a nós.
+  O histórico fica em Postgres, e a saúde de cada companhia é calculada a partir dele.
+  O jeito como um provedor sinaliza erro no corpo da resposta entra por uma peça separada, então o classificador não conhece nenhum provedor.
+- Solução própria no lugar de uma ferramenta pronta de observabilidade.
+  Comparei as opções antes: nenhuma sabe ler o corpo da resposta, porque isso é regra da aplicação, e nenhum plano gratuito guarda histórico pelo tempo necessário.
+  A ferramenta mostra o que a gente mandar, e decidir o que mandar era o trabalho inteiro.
+
+## Resultado
+
+O protótipo foi congelado e ficou como referência, não como base de código.
+A v1 foi escrita a partir dele e está em testes internos.
+
+Duas partes do protótipo ficaram de fora da v1, de propósito.
+A primeira abria e fechava incidentes sozinha.
+Os limiares dela eram pontos de partida inventados, e o simulador tinha sido ajustado para exercitá-los, o que não é o mesmo que validá-los.
+A v1 mede e mostra, e decidir fica para quando houver tráfego real para calibrar.
+A segunda era a janela de contagem no Redis, a parte mais frágil sob concorrência.
+Virou uma consulta ao Postgres, e o Redis ficou só como fila de escrita.
+
+O protótipo também registra o que não prova.
+Nada foi testado sob concorrência real, e a observabilidade só enxerga o tráfego que passa: um provedor degradado de madrugada, sem ninguém buscando, continua invisível.
+
+O módulo da v1 tem 138 testes unitários.
+As três decisões que ele carrega do protótipo estão escritas ao lado do código, cada uma com as alternativas rejeitadas.
