@@ -1,10 +1,10 @@
 import type { CaseMeta } from "./types";
 
 import { meta as esteSite } from "./cases/este-site/meta";
-import { meta as bussola } from "./cases/bussola/meta";
+import { meta as saasTurismo } from "./cases/saas-turismo/meta";
 import { meta as cardFinder } from "./cases/card-finder/meta";
 
-export const cases: CaseMeta[] = [esteSite, bussola, cardFinder].sort(
+export const cases: CaseMeta[] = [esteSite, saasTurismo, cardFinder].sort(
   (a, b) => a.order - b.order,
 );
 

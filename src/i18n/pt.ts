@@ -1,9 +1,9 @@
 export const pt = {
   meta: {
-    titleDefault: "Higor Lorenzon — Desenvolvedor Frontend",
+    titleDefault: "Higor Lorenzon — Engenheiro de software fullstack",
     titleTemplate: "%s — Higor Lorenzon",
     description:
-      "Desenvolvedor frontend que une React e TypeScript, cuidado de interface e visão de produto. Participo do discovery, prototipo cedo e uso IA no processo como ferramenta de precisão.",
+      "Engenheiro de software fullstack há 8 anos. Meu trabalho favorito começa onde ainda não há resposta: levanto hipóteses e testo até uma se sustentar.",
   },
 
   nav: {
@@ -13,13 +13,13 @@ export const pt = {
 
   home: {
     title: {
-      strong: "Faço frontend há 8 anos.",
+      strong: "Engenheiro de software fullstack há 8 anos.",
       before: "A parte que rende vem ",
       mark: "antes",
       after: " da primeira tela.",
     },
     intro:
-      "Passei por e-commerce de 70 mil usuários por mês, consultoria e empresa grande (IBM, Serasa), produto para o agronegócio e SaaS de assinatura para cliente. Em todos, o gargalo era o mesmo: o que pediram raramente era o que resolvia o problema. Uso IA o dia todo para codar, testar e documentar. Decidir o que construir continua comigo.",
+      "Meu trabalho favorito começa onde ainda não há resposta: levanto hipóteses e testo até uma se sustentar. Passei por e-commerce de 70 mil usuários por mês, consultoria e empresa grande (IBM, Serasa), produto para o agronegócio e SaaS de assinatura para cliente. Em todos, o gargalo era o mesmo: o que pediram raramente era o que resolvia o problema. Uso IA o dia todo para codar, testar e documentar. Decidir o que construir continua comigo.",
     ctaPrimary: "Ver cases",
     ctaSecondary: "Vamos conversar",
     pillarsTitle: "O que eu faço bem",
@@ -42,7 +42,7 @@ export const pt = {
     ],
     casesTitle: "Cases",
     casesIntro:
-      "Três projetos: um SaaS de produção para cliente, um app que põe IA dentro do produto, e a construção deste site com IA.",
+      "Três projetos: um SaaS de assinatura para cliente, um app de visão computacional, e a construção deste site com IA.",
     notes: {
       hero: [
         {
@@ -66,7 +66,8 @@ export const pt = {
     pillars: "Pilares",
     liveLink: "Ver ao vivo",
     repoLink: "Código no GitHub",
-    ndaNote:
+    clientWorkLabel: "Projeto para cliente",
+    clientWorkNote:
       "Projeto para cliente. Nome oficial e detalhes de estratégia de negócio omitidos; imagens apenas de áreas públicas do produto.",
     allCases: "Todos os cases",
     next: "Próximo case",
@@ -139,7 +140,7 @@ export const pt = {
   contact: {
     title: "Contato",
     lead:
-      "Aberto a conversar sobre frontend, produto e IA aplicada ao desenvolvimento. O e-mail é o caminho mais direto.",
+      "Aberto a conversar sobre engenharia de produto e IA aplicada ao desenvolvimento. O e-mail é o caminho mais direto.",
     channels: {
       email: {
         label: "E-mail",
@@ -172,7 +173,7 @@ export const pt = {
   footer: {
     ctaTitle: "Vamos conversar",
     ctaBody:
-      "Aberto a uma conversa sobre frontend, produto e IA aplicada ao desenvolvimento.",
+      "Aberto a uma conversa sobre engenharia de produto e IA aplicada ao desenvolvimento.",
     emailLabel: "Enviar e-mail",
     emailFallbackLabel: "Sem JavaScript? Fale comigo pelo LinkedIn",
     githubLabel: "GitHub",

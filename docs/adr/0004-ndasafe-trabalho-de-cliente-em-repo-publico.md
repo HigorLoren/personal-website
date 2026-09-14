@@ -1,5 +1,7 @@
 # `ndaSafe`: como trabalho de cliente aparece num repositório público
 
+> Superada pela ADR-0008 em 2026-09-14: a restrição vem de contrato, não de NDA.
+
 Este repo é público e alguns cases são de trabalho de cliente sob NDA.
 O `CaseMeta` tem uma flag `ndaSafe`: quando `true`, o template do case esconde qualquer link de repositório e só renderiza imagens guardadas em `assets/cases/<slug>/public/` (áreas públicas do produto).
 Nome do cliente e detalhe de estratégia de negócio nunca entram no conteúdo.

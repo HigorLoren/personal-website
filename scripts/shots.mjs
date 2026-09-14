@@ -10,7 +10,7 @@ const pages = [
   ["home-mobile", "/", 390, 844],
   ["sobre-desktop", "/sobre", 1440, 900],
   ["case-card-finder-desktop", "/cases/card-finder", 1440, 900],
-  ["case-bussola-mobile", "/cases/bussola", 390, 844],
+  ["case-saas-turismo-mobile", "/cases/saas-turismo", 390, 844],
 ];
 
 const browser = await chromium.launch();
