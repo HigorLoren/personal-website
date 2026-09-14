@@ -5,7 +5,7 @@
  */
 export const site = {
   name: "Higor Lorenzon",
-  role: "Desenvolvedor Frontend",
+  role: "Engenheiro de software fullstack",
   domain: "higorlorenzon.vercel.app",
   url: "https://higorlorenzon.vercel.app",
   /** base64 do e-mail de contato — decodificado só no client pelo <EmailLink>,

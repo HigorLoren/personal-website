@@ -1,4 +1,4 @@
-# higorlorenzon.dev — portfólio
+# higorlorenzon.vercel.app — portfólio
 
 Site pessoal de Higor Lorenzon.
 Além de portfólio, é um exercício de **desenvolvimento orientado por especificações usando IA**: a conversa de descoberta virou uma spec, a spec guiou a implementação, e cada etapa — prototipação, código, testes, documentação e revisão — passou por Claude, com a decisão técnica no meu comando.

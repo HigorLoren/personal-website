@@ -1,6 +1,6 @@
 # CONTEXT — personal-website
 
-Portfolio site for Higor Lorenzon — frontend work across React, UI/UX and product.
+Portfolio site for Higor Lorenzon — full-stack software engineering across React, Node, UI/UX and product.
 The site is itself the first proof of taste and craft.
 
 ## Glossary
